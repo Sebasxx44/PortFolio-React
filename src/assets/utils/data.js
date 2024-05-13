@@ -28,3 +28,25 @@ export const WORK_EXPERIENCE = [
     },
 
 ]
+
+export const SERVICES = [
+
+    {
+        title : 'Web development',
+        description : 
+        "I'm a web developer specialized in crafting engaging and functional online experiences. Using technologies like React.js, Node.js, and Laravel, I build high-performance web systems that are user-friendly and efficient.",
+        icon : 'fa-solid fa-code'
+    },
+    {
+        title : 'UI/UX Designing',
+        description : 'As a UX/UI designer, I specialize in crafting intuitive and visually appealing digital experiences. My focus is on enhancing user satisfaction through thoughtful design that seamlessly integrates functionality with aesthetics.',
+        icon : 'fa-solid fa-palette'
+
+    },
+    {
+        title: "Software Development",
+        description: "I specialize in developing complex software solutions using various technologies like React.js, Node.js, Laravel, and more. My focus is on creating robust and scalable applications that drive innovation",
+        icon: "fa-solid fa-cogs"
+    }
+    
+]

@@ -44,7 +44,7 @@ export function WorkExperience() {
                 </div>
 
                 <div className='arrow-left' onClick={sliderLeft}>
-                    <span class='material-symbols-outlined'>chevron_left</span>
+                    <span disa class='material-symbols-outlined'>chevron_left</span>
                 </div>
 
                 <Slider ref={sliderRef} {...settings}>

@@ -35,6 +35,7 @@ export function AboutMe() {
                         strings={[
                             "I'm a Web developer",
                             "I'm a Web designer",
+                            "I'm a Software developer"
                         ]}
                         typeSpeed={80}
                         backSpeed={70}
@@ -44,7 +45,7 @@ export function AboutMe() {
                 <input disabled type="text" className="input-typed"/>
                     </ReactTyped>
 
-                    <p>nsectetur exercitationem veritati necessitatibus itaque quaerat, quos perspiciatis porro rem adipisci veritatis ullam voluptas veniam sed ipsam voluptatibus alias a!</p>
+                    <p>Junior Full Stack Developer | JavaScript, PHP, Node.js, React.js, Laravel, Docker, and SQL. Committed to creating innovative and scalable web solutions.</p>
                     <button onClick={downloadCv} className="button-download-cv">Download CV</button>
 
                 </div>
