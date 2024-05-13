@@ -1,3 +1,11 @@
+:root {
+  --color-primario: #051923;
+  --color-2: #003554;
+  --color-3: #006494;
+  --color-4: #0582ca;
+  --color-5: #00a6fb;
+}
+
 *{
   padding: 0;
   border: 0;
@@ -6,13 +14,13 @@
   font-style: normal;
   margin: 0;
   color: white;
-  background-color: #130f2a;
+  background-color: #051923;
 
 }
 
 .renderAppContent{
-  width: 95%;
-  margin: 0px 0px 0px 2.5%;
+  width: 90%;
+  margin: 0px 0px 0px 5%;
 }
 
 @media(max-width : 769px) {

@@ -1,0 +1,146 @@
+.about-container{
+    position: relative;
+    margin: 3rem 0 1rem 1rem;
+    height: 80vh;
+    background-color: red;
+}
+
+.about-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.about-info{
+    display: inline-block;
+    width: 70%;
+}
+
+.about-info h5 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+}
+
+.about-info h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.about-info p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.about-info .input-typed {
+    font-size: 40px;
+}
+
+.about-info .button-download-cv {
+    background-color: #003554;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
+    width: 20%;
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 10px 2px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}
+
+.about-info .button-download-cv:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+
+/* styles to the picture content */
+
+.about-picture {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+
+.about-picture img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+@media(max-width : 769px) {
+
+    .about-container{
+        margin: 0rem;
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+        margin-top: 5vh;
+    }
+    
+    .about-content{
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+
+    .about-info{
+        display: inline-block;
+        width: 100%;
+        margin: 3rem 0;
+    }
+
+    .about-info h5 {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 0.2rem;
+    }
+    
+    .about-info h2 {
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+
+    .about-info .input-typed {
+        font-size: 30px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-info p {
+        font-size: 0.9rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+
+    .about-info .button-download-cv {
+        background-color: #003554;
+        padding: 0.5rem;
+        font-size: 1.3rem;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 0.2rem;
+        width: 100%;
+    }
+    
+
+    /* styles to the picture content */
+
+    .about-picture {
+        width: 100%;
+        order: 1;
+    }
+
+    .about-picture img {
+        border-radius: 50%;
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+}
