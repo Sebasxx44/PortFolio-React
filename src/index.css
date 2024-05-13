@@ -1,0 +1,26 @@
+*{
+  padding: 0;
+  border: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  color: white;
+  background-color: #130f2a;
+
+}
+
+.renderAppContent{
+  width: 95%;
+  margin: 0px 0px 0px 2.5%;
+}
+
+@media(max-width : 769px) {
+
+  .renderAppContent{
+    width: 90%;
+    margin: 0px 0px 0px 2.5%;
+    padding: 10px;
+  }
+
+}
