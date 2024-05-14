@@ -1,5 +1,6 @@
 .experience-container {
     position: relative;
+    height: auto;
 }
 
 .experience-container h5 {
@@ -96,6 +97,12 @@
 }
 
 @media (max-width: 768px) {
+
+    .experience-container {
+        margin: 1rem 0rem 3rem 0rem;
+        position: relative;
+        height: auto;
+    }
 
     .work-experience-card {
         margin: 0;

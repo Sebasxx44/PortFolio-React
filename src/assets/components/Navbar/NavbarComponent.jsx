@@ -10,6 +10,15 @@ export function Navbar() {
         setOpenMenu(!openMenu);
     };
 
+    const handleScroll = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.classList.add('visible');
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+
     return(
 
         <>
@@ -22,10 +31,10 @@ export function Navbar() {
                     <p>Sebaz.dev</p>
 
                     <ul>
-                        <li><a className="menu-item" href="#">Home</a></li>
-                        <li><a className="menu-item" href="#">Skills</a></li>
-                        <li><a className="menu-item" href="#">Work Experience</a></li>
-                        <li><a className="menu-item" href="#">Contact Me</a></li>
+                        <li><a className="menu-item" href="#about-me" >Home</a></li>
+                        <li><a className="menu-item" href="#services" onClick={() => handleScroll('services')}>Services</a></li>
+                        <li><a className="menu-item" href="#work-experience">Work Experience</a></li>
+                        <li><a className="menu-item" href="#technologies">Skills</a></li>
                     </ul>
 
                     <button className="menu-btn" onClick={toggleMenu}>

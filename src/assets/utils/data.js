@@ -1,3 +1,21 @@
+import cssIcon from '/images/css.svg'
+import htmlIcon from '/images/html.svg'
+import JavascriptIcon from '/images/javascript.svg'
+import laravelIcon from '/images/laravel.svg'
+import firebaseIcon from '/images/firebase.svg'
+import gitIcon from '/images/git.svg'
+import githubIcon from '/images/github.svg'
+import phpIcon from '/images/php.svg'
+import reactIcon from '/images/react.svg'
+import nodeIcon from '/images/nodejs.svg'
+import nextIcon from '/images/next-js.svg'
+import mySqlIcon from '/images/mysql.svg'
+import postgresqlIcon from '/images/postgresql.svg'
+import mariadbIcon from '/images/mariadb.svg'
+import viteIcon from '/images/vitejs.svg'
+import dockerIcon from '/images/docker.svg'
+import typescriptIcon from '/images/typescript.svg'
+import figmaIcon from '/images/figma.svg'
 
 
 export const WORK_EXPERIENCE = [
@@ -50,3 +68,129 @@ export const SERVICES = [
     }
     
 ]
+
+export const TECHNOLOGIES = [
+
+        {
+            name: 'Html5',
+            experience : 'Advanced',
+            icon : htmlIcon,
+            color : '#ef652a'
+        },
+
+        {
+            name: 'Css',
+            experience : 'Intermedate',
+            icon : cssIcon,
+            color : '#1b73ba'
+
+        },
+
+        {
+            name: 'Javascript',
+            experience : 'Intermedate',
+            icon : JavascriptIcon,
+            color : '#e9ca32'
+        },
+
+        {
+            name: 'Typescript',
+            experience : 'Basic',
+            icon : typescriptIcon,
+            color : '#007acc'
+        },
+
+        {
+            name: 'Php',
+            experience : 'Intermedate',
+            icon : phpIcon,
+            color : '#8993be'
+        },
+
+        {
+            name: 'React.Js',
+            experience : 'Intemedate',
+            icon : reactIcon,
+            color : '#61dafb'
+        },
+        {
+            name: 'Laravel',
+            experience : 'Intermedate',
+            icon : laravelIcon,
+            color : '#7e474a'
+        },
+        {
+            name: 'Node.Js',
+            experience : 'Intermedate',
+            icon : nodeIcon,
+            color : '#8cc84b'
+        },
+        {
+            name: 'Next.Js',
+            experience : 'Basic',
+            icon : nextIcon,
+            color : '#000000'
+        },
+        {
+            name: 'Postgresql',
+            experience : 'Intermedate',
+            icon : postgresqlIcon,
+            color : '#336791'
+        },
+        {
+            name: 'Mysql',
+            experience : 'Intermedate',
+            icon : mySqlIcon,
+            color : '#f3e2ca'
+        },
+        {
+            name: 'MariaDB',
+            experience : 'Intermedate',
+            icon : mariadbIcon,
+            color : '#40608b'
+        },
+
+        {
+            name: 'Firebase',
+            experience : 'Basic',
+            icon : firebaseIcon,
+            color : '#fca512'
+        },
+
+        {
+            name: 'Git',
+            experience : 'Intermedate',
+            icon : gitIcon,
+            color : '#de4c36'
+        },
+
+        {
+            name: 'GitHub',
+            experience : 'Intermedate',
+            icon : githubIcon,
+            color : '#000000'
+        },
+
+        {
+            name: 'ViteJs',
+            experience : 'Basic',
+            icon : viteIcon,
+            color : '#916cff'
+        },
+
+        {
+            name: 'Docker',
+            experience : 'Basic',
+            icon : dockerIcon,
+            color : '#0091e2'
+        },
+
+        {
+            name: 'Figma',
+            experience : 'Intermedate',
+            icon : figmaIcon,
+            color : '#ff7262'
+        },
+    ]
+
+

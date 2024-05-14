@@ -16,6 +16,7 @@
   color: white;
   background-color: #051923;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 .renderAppContent{

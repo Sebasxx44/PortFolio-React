@@ -8,7 +8,7 @@ export function Services() {
 
     return(
         <>
-            <section className="services-container">
+            <section className="services-container fade-in">
 
                 <h5>Services</h5>
 
