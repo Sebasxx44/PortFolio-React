@@ -1,0 +1,166 @@
+.projects-container{
+    position: relative;
+    margin: 5rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.projects-container h5 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.projects-content .project-card{
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: rgba(0, 55, 84, 0.8); 
+}
+
+.project-card:hover{
+    border: 1px solid #00a6fb;
+    transition: all 0.4s ease;
+    transform: scale(1.02);
+    background-color: #006494;
+}
+
+.project-card.right-style{
+    flex-direction: row-reverse;
+}
+
+.project-image{
+    width: 40%;
+    border-radius: 5px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    object-fit: cover; 
+}
+
+.project-info{
+    width:60% ;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.project-links {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    background-color: transparent;
+}
+
+.project-links .project-btn-link{
+    background-color: #00a6fb;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-links .project-btn-github{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    gap: 0.5rem; 
+    background-color: #000; 
+    color: #fff; 
+    border: none;
+    padding: 0.5rem 1rem; 
+    cursor: pointer;
+    border-radius: 0.25rem; 
+}
+
+.project-info p {
+    margin-bottom: 1rem;
+    line-height: 1.6rem;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.project-technologies{
+    display: flex;
+    gap: 2rem;
+    padding: 5px;
+    background-color: transparent;
+
+}
+
+.project-technologies img {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+}
+
+@media(max-width: 769px) {
+
+    .projects-container{
+        position: relative;
+        margin: 1rem 0rem 3rem 0rem;
+        height: auto;
+    }
+
+    .projects-content .project-card{
+        padding: 10px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-image{
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .project-info{
+        width:100% ;
+        padding: 0px;
+    }
+    
+    .project-links {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .project-links .project-btn-link{
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50%;
+    }
+
+    .project-links .project-btn-github{
+        border-radius: 5px;
+        width: 50%;
+    }
+    
+    .project-info p {
+        margin-bottom: 1rem;
+        line-height: 1.3rem;
+        padding: 5px;
+        font-size: 13px;
+    }
+    
+    .project-technologies{
+        display: flex;
+        gap: 2rem;
+        padding: 5px;
+    }
+}

@@ -19,6 +19,22 @@
   scroll-behavior: smooth;
 }
 
+/* Selecciona toda la scrollbar */
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+/* Fondo de la scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #a1a1a1be; 
+  border-radius: 1px; /* Bordes redondeados */
+}
+
 .renderAppContent{
   width: 90%;
   margin: 0px 0px 0px 5%;

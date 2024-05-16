@@ -5,6 +5,7 @@ import { WorkExperience } from './assets/components/WorkExperience/WorkExperienc
 import { AboutMe } from './assets/components/AboutMe/AboutMe'
 import { Services } from './assets/components/Services/Services'
 import { Technologies } from './assets/components/Technologies/Technologies'
+import { Projects } from './assets/components/Projects/Projects'
 
 function App() {
   
@@ -36,6 +37,9 @@ function App() {
         </div>
         <div id="technologies" className="reveal">
           <Technologies />
+        </div>
+        <div id="projects" className="reveal">
+          <Projects />
         </div>
       </section>
 

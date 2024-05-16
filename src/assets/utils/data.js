@@ -17,6 +17,11 @@ import dockerIcon from '/images/docker.svg'
 import typescriptIcon from '/images/typescript.svg'
 import figmaIcon from '/images/figma.svg'
 
+// images apps
+
+import appOpenAI from '/images/app-OpenAI.png'
+import appRealTimeChat from '/images/app-realtime-chat.png'
+
 
 export const WORK_EXPERIENCE = [
 
@@ -191,6 +196,26 @@ export const TECHNOLOGIES = [
             icon : figmaIcon,
             color : '#ff7262'
         },
-    ]
+]
+
+export const PROJECTS = [
+    {
+        name : 'Real Time Chat App',
+        link : 'https://chat-real-time-chi.vercel.app/',
+        github : 'https://github.com/Sebasxx44/chat-real-time',
+        image : appRealTimeChat,
+        description : 'Real-time chat application developed with React and Firebase. The application allows users to sign in with Google and participate in the chat where they can send and receive messages instantly. Thanks to Firebase Firestore, messages are updated in real-time.',
+        technologies : [reactIcon,firebaseIcon,cssIcon]
+    },
+    {
+        name : 'Articles Generator GPT-4',
+        link : 'https://articlesopenai.netlify.app/',
+        github: 'https://github.com/Sebasxx44/OpenAI_Articles_Generator',
+        image : appOpenAI,
+        description : 'This application, developed with React, connects to the GPT-4 API to generate article summaries. Users can input the text or URL of an article, and the application uses GPT-4 to process and produce a concise and coherent summary.',
+        technologies : [reactIcon,cssIcon]
+    }
+
+]
 
 
