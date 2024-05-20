@@ -3,6 +3,7 @@ import { ReactTyped } from "react-typed";
 import './AboutMe.css'
 import photo from '/images/PrincipalImagePhoto.jpeg'
 import cv from '/cvs/HV.pdf'
+import gmailIcon from '/images/gmailIcon.svg'
 
 
 export function AboutMe() {
@@ -24,12 +25,9 @@ export function AboutMe() {
                 <div className="about-info">
 
                     <h5>
-                        Hi, Everyone
+                        Hi, It's<span> Sebaz</span>
                     </h5>
 
-                    <h2>
-                        Sebaz Sanchez
-                    </h2>
 
                     <ReactTyped
                     className="input-typed"
@@ -46,7 +44,13 @@ export function AboutMe() {
                 <input disabled type="text" className="input-typed"/>
                     </ReactTyped>
 
+
                     <p>Junior Full Stack Developer with a talent for problem-solving and a creative mindset. Dedicated to delivering innovative web solutions.</p>
+                
+                        <div className="contact-section">
+                            <img src={gmailIcon} alt="gmailIcon" />
+                            <p>sanchezz3s47@gmail.com</p>
+                        </div>
 
                     <div className="content-buttons">
                         <button onClick={downloadCv} className="button-download-cv"><i className="fa-regular fa-file"></i> Download CV</button>

@@ -19,7 +19,7 @@
 }
 
 .service-card{
-    background-color: rgba(0, 55, 84, 0.8); 
+    background-color: rgb(39 41 42 / 80%);
     padding: 20px;
     display: flex;
     flex-direction: column;
