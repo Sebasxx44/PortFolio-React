@@ -1,4 +1,5 @@
 import '../Navbar.css'
+import logo from '/images/logo.png'
 
 export function MobileNavbar ({isOpen, toggleMenu}) {
 
@@ -10,7 +11,7 @@ export function MobileNavbar ({isOpen, toggleMenu}) {
         <div className={`mobile-menu ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
 
             <div className='mobile-menu-container'>
-                <p>Sebaz.dev</p>
+            <img className="logoImgMovile" src={logo} alt="logo" />
 
                 <ul>
                     <li><a className="menu-item" href="#about-me" >Home</a></li>

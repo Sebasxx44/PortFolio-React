@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './Navbar.css'
 import { MobileNavbar } from "./MobileNavbar/MobileNavbar";
+import logo from '/images/logo.png'
 
 export function Navbar() {
 
@@ -28,7 +29,7 @@ export function Navbar() {
             <nav className="nav-wrapper">
                 <div className="nav-content">
 
-                    <p>Sebaz.dev</p>
+                    <img className="logoImg" src={logo} alt="logo" />
 
                     <ul>
                         <li><a className="menu-item" href="#about-me" >Home</a></li>
@@ -39,7 +40,7 @@ export function Navbar() {
                     </ul>
 
                     <button className="menu-btn" onClick={toggleMenu}>
-                        <span class="material-symbols-outlined" style={{fontSize:'1.8rem'}}>{openMenu ? 'close' : 'menu'}</span>
+                        <span className="material-symbols-outlined" style={{fontSize:'1.8rem'}}>{openMenu ? 'close' : 'menu'}</span>
                     </button>
 
         

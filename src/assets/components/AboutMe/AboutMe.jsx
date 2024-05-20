@@ -4,6 +4,7 @@ import './AboutMe.css'
 import photo from '/images/PrincipalImagePhoto.jpeg'
 import cv from '/cvs/HV.pdf'
 
+
 export function AboutMe() {
 
     const downloadCv = () => {
@@ -48,8 +49,8 @@ export function AboutMe() {
                     <p>Junior Full Stack Developer with a talent for problem-solving and a creative mindset. Dedicated to delivering innovative web solutions.</p>
 
                     <div className="content-buttons">
-                        <button onClick={downloadCv} className="button-download-cv"><i class="fa-regular fa-file"></i> Download CV</button>
-                        <button onClick={downloadCv} className="button-github" onClick={() => window.open("https://github.com/Sebasxx44")}><i class="fa-brands fa-github"></i> Github</button>
+                        <button onClick={downloadCv} className="button-download-cv"><i className="fa-regular fa-file"></i> Download CV</button>
+                        <button className="button-github" onClick={() => window.open("https://github.com/Sebasxx44")}><i className="fa-brands fa-github"></i> Github</button>
                     </div>
 
                 </div>

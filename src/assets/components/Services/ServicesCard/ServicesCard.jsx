@@ -8,7 +8,7 @@ export function ServicesCard({ details}){
         <>
             <div className='service-card'>
 
-                <i class={details.icon}></i>
+                <i className={details.icon}></i>
                 <h5>{details.title}</h5>
 
                 <p>{details.description}</p>

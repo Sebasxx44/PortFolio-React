@@ -17,8 +17,13 @@
     margin: 0 auto;
 }
 
-.nav-content p {
-    font-size: 2rem;
+.logoImg{
+    width: 160px;
+}
+
+.logoImgMovile{
+    width: 140px;
+    margin-bottom: 50px;
 }
 
 .nav-content ul {
@@ -156,6 +161,10 @@
 
     .nav-content ul {
         display: none;
+    }
+
+    .logoImg{
+        width: 140px;
     }
 }
 

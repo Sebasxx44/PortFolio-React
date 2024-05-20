@@ -15,14 +15,14 @@ export function ProjectsCard({ details,styleClass }) {
 
                     <div className="project-links">
                         <button className="project-btn-link" onClick={() => window.open(details.link)}>{details.name}</button>
-                        <button className="project-btn-github" onClick={() => window.open(details.github)}><i class="fa-brands fa-github"></i> Github</button>
+                        <button className="project-btn-github" onClick={() => window.open(details.github)}><i className="fa-brands fa-github"></i> Github</button>
                     </div>
 
                     <p>{details.description}</p>
 
                     <div className="project-technologies">
                         {details.technologies.map((tech) => (
-                            <img src={tech} alt="image" />
+                            <img key={tech} src={tech} alt="image" />
                         ))}
                     </div>
 
