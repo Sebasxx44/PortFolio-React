@@ -12,7 +12,6 @@
     height: 100%;
 }
 
-
 .about-info{
     display: inline-block;
     width: 70%;
@@ -39,19 +38,36 @@
     font-size: 40px;
 }
 
+.about-info .content-buttons{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    gap: 15px;
+}
+
 .about-info .button-download-cv {
     background-color: #003554;
     padding: 0.5rem;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 0.2rem;
     width: 20%;
-    box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 10px 2px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 5px 2px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    gap: 5px;
 }
 
-.about-info .button-download-cv:hover {
+.about-info .button-github{
+    background-color: #020202;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 5px 2px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.about-info .button-download-cv:hover, .button-github:hover  {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
@@ -118,13 +134,11 @@
     }
 
     .about-info .button-download-cv {
-        background-color: #003554;
-        padding: 0.5rem;
-        font-size: 1.3rem;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-bottom: 0.2rem;
-        width: 100%;
+        width: 50%;
+    }
+
+    .about-info .button-github{
+        width: 50%;
     }
     
 

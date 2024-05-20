@@ -17,6 +17,7 @@ export function MobileNavbar ({isOpen, toggleMenu}) {
                     <li><a className="menu-item" href="#services" >Services</a></li>
                     <li><a className="menu-item" href="#work-experience">Work Experience</a></li>
                     <li><a className="menu-item" href="#technologies">Skills</a></li>
+                    <li><a className="menu-item" href="#projects">Projects</a></li>
                 </ul>
 
             </div>

@@ -29,7 +29,7 @@ function App() {
         <div id="about-me" className="reveal">
           <AboutMe />
         </div>
-        <div id="services " className="reveal">
+        <div id="services" className="reveal">
           <Services />
         </div>
         <div id="work-experience" className="reveal">

@@ -35,6 +35,7 @@ export function Navbar() {
                         <li><a className="menu-item" href="#services" onClick={() => handleScroll('services')}>Services</a></li>
                         <li><a className="menu-item" href="#work-experience">Work Experience</a></li>
                         <li><a className="menu-item" href="#technologies">Skills</a></li>
+                        <li><a className="menu-item" href="#projects">Projects</a></li>
                     </ul>
 
                     <button className="menu-btn" onClick={toggleMenu}>

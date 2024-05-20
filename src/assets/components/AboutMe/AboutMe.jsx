@@ -37,7 +37,7 @@ export function AboutMe() {
                             "I'm a Web designer",
                             "I'm a Software developer"
                         ]}
-                        typeSpeed={80}
+                        typeSpeed={55}
                         backSpeed={70}
                         attr="placeholder"
                         loop
@@ -45,8 +45,12 @@ export function AboutMe() {
                 <input disabled type="text" className="input-typed"/>
                     </ReactTyped>
 
-                    <p>Junior Full Stack Developer | JavaScript, PHP, Node.js, React.js, Laravel, Docker, and SQL. Committed to creating innovative and scalable web solutions.</p>
-                    <button onClick={downloadCv} className="button-download-cv">Download CV</button>
+                    <p>Junior Full Stack Developer with a talent for problem-solving and a creative mindset. Dedicated to delivering innovative web solutions.</p>
+
+                    <div className="content-buttons">
+                        <button onClick={downloadCv} className="button-download-cv"><i class="fa-regular fa-file"></i> Download CV</button>
+                        <button onClick={downloadCv} className="button-github" onClick={() => window.open("https://github.com/Sebasxx44")}><i class="fa-brands fa-github"></i> Github</button>
+                    </div>
 
                 </div>
 

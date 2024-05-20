@@ -16,11 +16,13 @@ import viteIcon from '/images/vitejs.svg'
 import dockerIcon from '/images/docker.svg'
 import typescriptIcon from '/images/typescript.svg'
 import figmaIcon from '/images/figma.svg'
+import tailwindcss from '/images/tailwindcss.svg'
 
 // images apps
 
 import appOpenAI from '/images/app-OpenAI.png'
 import appRealTimeChat from '/images/app-realtime-chat.png'
+import appTravel from '/images/app-travel.png'
 
 
 export const WORK_EXPERIENCE = [
@@ -191,21 +193,21 @@ export const TECHNOLOGIES = [
         },
 
         {
-            name: 'Figma',
-            experience : 'Intermedate',
-            icon : figmaIcon,
-            color : '#ff7262'
+            name: 'Tailwindcss',
+            experience : 'Basic',
+            icon : tailwindcss,
+            color : '#1ab0ba'
         },
 ]
 
 export const PROJECTS = [
     {
         name : 'Real Time Chat App',
-        link : 'https://chat-real-time-chi.vercel.app/',
+        link : 'https://talkzones.vercel.app/',
         github : 'https://github.com/Sebasxx44/chat-real-time',
         image : appRealTimeChat,
         description : 'Real-time chat application developed with React and Firebase. The application allows users to sign in with Google and participate in the chat where they can send and receive messages instantly. Thanks to Firebase Firestore, messages are updated in real-time.',
-        technologies : [reactIcon,firebaseIcon,cssIcon]
+        technologies : [reactIcon,JavascriptIcon,firebaseIcon,cssIcon]
     },
     {
         name : 'Articles Generator GPT-4',
@@ -213,7 +215,15 @@ export const PROJECTS = [
         github: 'https://github.com/Sebasxx44/OpenAI_Articles_Generator',
         image : appOpenAI,
         description : 'This application, developed with React, connects to the GPT-4 API to generate article summaries. Users can input the text or URL of an article, and the application uses GPT-4 to process and produce a concise and coherent summary.',
-        technologies : [reactIcon,cssIcon]
+        technologies : [reactIcon,JavascriptIcon,tailwindcss]
+    },
+    {
+        name : 'Travel Landing Page',
+        link : 'https://natunest.vercel.app/',
+        github: 'https://github.com/Sebasxx44/landing_page_app_travel',
+        image : appTravel,
+        description : 'I have developed an attractive landing page for camping in Pereira using Next.js and TailwindCSS. This page highlights the stunning views and rich biodiversity of the region, offering fast navigation and a responsive design.',
+        technologies : [nextIcon,typescriptIcon,tailwindcss]
     }
 
 ]
