@@ -217,7 +217,7 @@ export const PROJECTS = [
         github: 'https://github.com/Sebasxx44/DashboardReact',
         image : appDashboard,
         description : 'This application, developed with React and styled with Sass, is a sophisticated interactive dashboard. Designed to offer a smooth and attractive user experience, it allows real-time data visualization through dynamic and intuitive charts.',
-        technologies : [reactIcon,JavascriptIcon,sass]
+        technologies : [reactIcon,typescriptIcon,sass]
     },
     {
         name : 'Real Time Chat App',
