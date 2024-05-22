@@ -17,12 +17,14 @@ import dockerIcon from '/images/docker.svg'
 import typescriptIcon from '/images/typescript.svg'
 import figmaIcon from '/images/figma.svg'
 import tailwindcss from '/images/tailwindcss.svg'
+import sass from '/images/sass.svg'
 
 // images apps
 
 import appOpenAI from '/images/app-OpenAI.png'
 import appRealTimeChat from '/images/app-realtime-chat.png'
 import appTravel from '/images/app-travel.png'
+import appDashboard from '/images/dashboard.png'
 
 
 export const WORK_EXPERIENCE = [
@@ -202,20 +204,28 @@ export const TECHNOLOGIES = [
 
 export const PROJECTS = [
     {
-        name : 'Real Time Chat App',
-        link : 'https://talkzones.vercel.app/',
-        github : 'https://github.com/Sebasxx44/chat-real-time',
-        image : appRealTimeChat,
-        description : 'Real-time chat application developed with React and Firebase. The application allows users to sign in with Google and participate in the chat where they can send and receive messages instantly. Thanks to Firebase Firestore, messages are updated in real-time.',
-        technologies : [reactIcon,JavascriptIcon,firebaseIcon,cssIcon]
-    },
-    {
         name : 'Articles Generator GPT-4',
         link : 'https://articlesopenai.netlify.app/',
         github: 'https://github.com/Sebasxx44/OpenAI_Articles_Generator',
         image : appOpenAI,
         description : 'This application, developed with React, connects to the GPT-4 API to generate article summaries. Users can input the text or URL of an article, and the application uses GPT-4 to process and produce a concise and coherent summary.',
         technologies : [reactIcon,JavascriptIcon,tailwindcss]
+    },
+    {
+        name : 'Dashboard',
+        link : 'https://dashboard-sebaz.vercel.app/',
+        github: 'https://github.com/Sebasxx44/DashboardReact',
+        image : appDashboard,
+        description : 'This application, developed with React and styled with Sass, is a sophisticated interactive dashboard. Designed to offer a smooth and attractive user experience, it allows real-time data visualization through dynamic and intuitive charts.',
+        technologies : [reactIcon,JavascriptIcon,sass]
+    },
+    {
+        name : 'Real Time Chat App',
+        link : 'https://talkzones.vercel.app/',
+        github : 'https://github.com/Sebasxx44/chat-real-time',
+        image : appRealTimeChat,
+        description : 'Real-time chat application developed with React and Firebase. The application allows users to sign in with Google and participate in the chat where they can send and receive messages instantly. Thanks to Firebase Firestore, messages are updated in real-time.',
+        technologies : [reactIcon,JavascriptIcon,firebaseIcon,cssIcon]
     },
     {
         name : 'Travel Landing Page',
