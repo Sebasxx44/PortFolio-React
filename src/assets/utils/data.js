@@ -18,6 +18,9 @@ import typescriptIcon from '/images/typescript.svg'
 import figmaIcon from '/images/figma.svg'
 import tailwindcss from '/images/tailwindcss.svg'
 import sass from '/images/sass.svg'
+import sequelizeIcon from '/images/Sequelize.svg'
+import prismaIcon from '/images/prisma.svg'
+import nestIcon from '/images/nestJs.svg'
 
 // images apps
 
@@ -96,6 +99,20 @@ export const TECHNOLOGIES = [
         },
 
         {
+            name: 'Sass',
+            experience : 'Intermedate',
+            icon : sass,
+            color : '#cf649a'
+            
+        },
+        {
+            name: 'Tailwindcss',
+            experience : 'Basic',
+            icon : tailwindcss,
+            color : '#1ab0ba'
+        },
+
+        {
             name: 'Javascript',
             experience : 'Intermedate',
             icon : JavascriptIcon,
@@ -123,22 +140,28 @@ export const TECHNOLOGIES = [
             color : '#61dafb'
         },
         {
+            name: 'Next.Js',
+            experience : 'Basic',
+            icon : nextIcon,
+            color : '#000000'
+        },
+        {
             name: 'Laravel',
             experience : 'Intermedate',
             icon : laravelIcon,
             color : '#7e474a'
         },
         {
-            name: 'Node.Js',
+            name: 'NodeJs',
             experience : 'Intermedate',
             icon : nodeIcon,
             color : '#8cc84b'
         },
         {
-            name: 'Next.Js',
+            name: 'NestJs',
             experience : 'Basic',
-            icon : nextIcon,
-            color : '#000000'
+            icon : nestIcon,
+            color : '#ea2853'
         },
         {
             name: 'Postgresql',
@@ -157,6 +180,18 @@ export const TECHNOLOGIES = [
             experience : 'Intermedate',
             icon : mariadbIcon,
             color : '#40608b'
+        },
+        {
+            name: 'Sequelize',
+            experience : 'Intermedate',
+            icon : sequelizeIcon,
+            color : '#51aee4'
+        },
+        {
+            name: 'Prisma',
+            experience : 'Basic',
+            icon : prismaIcon,
+            color : '#000'
         },
 
         {
@@ -192,13 +227,6 @@ export const TECHNOLOGIES = [
             experience : 'Basic',
             icon : dockerIcon,
             color : '#0091e2'
-        },
-
-        {
-            name: 'Tailwindcss',
-            experience : 'Basic',
-            icon : tailwindcss,
-            color : '#1ab0ba'
         },
 ]
 
