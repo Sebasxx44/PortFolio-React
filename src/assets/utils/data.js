@@ -21,6 +21,7 @@ import sass from '/images/sass.svg'
 import sequelizeIcon from '/images/Sequelize.svg'
 import prismaIcon from '/images/prisma.svg'
 import nestIcon from '/images/nestJs.svg'
+import muiIcon from '/images/mui.svg'
 
 // images apps
 
@@ -106,6 +107,13 @@ export const TECHNOLOGIES = [
             
         },
         {
+            name: 'Material UI',
+            experience : 'Intermedate',
+            icon : muiIcon,
+            color : '#00b0ff'
+            
+        },
+        {
             name: 'Tailwindcss',
             experience : 'Basic',
             icon : tailwindcss,
@@ -134,13 +142,13 @@ export const TECHNOLOGIES = [
         },
 
         {
-            name: 'React.Js',
+            name: 'ReactJs',
             experience : 'Intemedate',
             icon : reactIcon,
             color : '#61dafb'
         },
         {
-            name: 'Next.Js',
+            name: 'NextJs',
             experience : 'Basic',
             icon : nextIcon,
             color : '#000000'
