@@ -9,7 +9,7 @@ export function Projects() {
 
             <section className="projects-container">
 
-                <h5>Projects</h5>
+                <h5>Last Projects</h5>
 
                 <div className="projects-content">
                     {PROJECTS.map((project, index) => {
