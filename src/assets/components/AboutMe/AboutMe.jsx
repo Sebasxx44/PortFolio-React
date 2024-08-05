@@ -2,7 +2,7 @@ import { useState } from "react"
 import { ReactTyped } from "react-typed";
 import './AboutMe.css'
 import photo from '/images/PrincipalImagePhoto.jpeg'
-import cv from '/cvs/HV.pdf'
+import cv from '/cvs/HV-Sebastian-Sanchez.pdf'
 import gmailIcon from '/images/gmailIcon.svg'
 
 
