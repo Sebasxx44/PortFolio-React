@@ -29,6 +29,8 @@ import appOpenAI from '/images/app-OpenAI.png'
 import appRealTimeChat from '/images/app-realtime-chat.png'
 import appTravel from '/images/app-travel.png'
 import appDashboard from '/images/dashboard.png'
+import gascertcol from '/images/gascertcol.png'
+import consteladora from '/images/consteladora.png'
 
 
 export const WORK_EXPERIENCE = [
@@ -239,6 +241,22 @@ export const TECHNOLOGIES = [
 ]
 
 export const PROJECTS = [
+    {
+        name : 'Landing Page - Consteladora Familiar',
+        link : 'https://newlife01.com/',
+        github: 'https://github.com/Sebasxx44',
+        image : consteladora,
+        description : 'Landing page for a Family Constellations company, offering guidance and healing through transformative workshops and personalized support.',
+        technologies : [reactIcon,JavascriptIcon,cssIcon]
+    },
+    {
+        name : 'Landing Page - Gascertcol',
+        link : 'https://www.gascertcol.com/',
+        github: 'https://github.com/Sebasxx44',
+        image : gascertcol,
+        description : 'Landing page for a Gas Network Inspection company, highlighting expert services, safety, and reliability with clear calls-to-action and client-focused content.',
+        technologies : [reactIcon,JavascriptIcon,tailwindcss]
+    },
     {
         name : 'Articles Generator GPT-4',
         link : 'https://articlesopenai.netlify.app/',

@@ -1,10 +1,9 @@
 import { useState } from "react"
 import { ReactTyped } from "react-typed";
 import './AboutMe.css'
-import photo from '/images/PrincipalImagePhoto.jpeg'
-import cv from '/cvs/HV-Sebastian-Sanchez.pdf'
+import photo from '/images/principal.jpg'
+import cv from '/cvs/CV-Sebastian-Sanchez.pdf'
 import gmailIcon from '/images/gmailIcon.svg'
-
 
 export function AboutMe() {
 
@@ -30,7 +29,8 @@ export function AboutMe() {
 
 
                     <ReactTyped
-                    className="input-typed"
+                    className="
+                    "
                         strings={[
                             "I'm a Web developer",
                             "I'm a Web designer",
@@ -71,4 +71,4 @@ export function AboutMe() {
         
         </>
     )
-}
+};

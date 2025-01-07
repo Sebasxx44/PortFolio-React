@@ -5,6 +5,7 @@ import { WorkExperienceCard } from './WorkExperienceCard/WorkExperienceCard'
 import Slider from "react-slick";
 
 export function WorkExperience() {
+    
     const sliderRef = useRef();
 
     const settings = {
@@ -28,11 +29,11 @@ export function WorkExperience() {
 
     const sliderRight = () => {
         sliderRef.current.slickNext()
-    }
+    };
 
     const sliderLeft = () => {
         sliderRef.current.slickPrev()
-    }
+    };
 
     return (
         <section className='experience-container'>
