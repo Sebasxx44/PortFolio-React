@@ -36,29 +36,26 @@ import consteladora from '/images/consteladora.png'
 export const WORK_EXPERIENCE = [
 
     {
-
-        title : 'Fullstack developer - Software factory - CDITI Dosquebradas',
-        date : '3 - JULY OF 2022 | 20 - SEPTEMBER OF 2023',
-        responsabilities : [
-            'I developed a comprehensive system with Laravel to centralize and efficiently manage information from multiple databases of a non-profit foundation.',
-            'I implemented collaboration and version control with Git and GitLab for efficient code management.',
-            'I optimized the performance of the database with MySQL to ensure reliable storage and retrieval of data.',
-            'I designed a secure and scalable architecture with Laravel to enhance the organization, accessibility, and security of data, facilitating decision-making and goal achievement in social work.'
+        title: 'Fullstack Developer - Software Factory - CDITI Dosquebradas',
+        date: 'July 3, 2022 – September 20, 2023',
+        responsibilities: [
+            'Developed a comprehensive system using Laravel to centralize and efficiently manage information from multiple databases of a non-profit foundation.',
+            'Implemented collaboration and version control with Git and GitLab for efficient code management.',
+            'Optimized database performance with MySQL to ensure reliable data storage and retrieval.',
+            'Designed a secure and scalable architecture with Laravel to improve data organization, accessibility, and security—supporting decision-making and achieving goals in social work.'
         ]
-
     },
     {
-
-        title : 'Fullstack Developer - Suzuki Motor of Colombia',
-        date : '25 - SEPTEMBER OF 2023 | 25 - MARCH OF 2024',
-        responsabilities : [
-            'Active participation in full stack development at Suzuki, using React and Node to design and implement web solutions and systems from scratch.',
-            'Comprehensive contribution from design to implementation, ensuring coherence and efficiency throughout the development process.',
-            'Effective collaboration using Git and GitLab to manage versions and facilitate teamwork.',
-            "Significant professional growth and contribution to the company's success, thanks to acquired experience and solutions implemented with React, Node, Git, GitLab, and PostgreSQL."
+        title: 'Fullstack Developer - Suzuki Motor of Colombia',
+        date: 'September 25, 2023 – May 1, 2025',
+        responsibilities: [
+            'Actively participated in full-stack development at Suzuki, utilizing React and Node.js to design and implement web solutions and systems from the ground up.',
+            'Contributed comprehensively from design to deployment, ensuring consistency and efficiency across the development lifecycle.',
+            'Collaborated effectively using Git and GitLab for version control and team coordination.',
+            'Achieved significant professional growth and contributed to the company’s success through implemented solutions using React, Node.js, Git, GitLab, and PostgreSQL.'
         ]
-
-    },
+    }
+    
 
 ]
 
