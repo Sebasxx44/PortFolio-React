@@ -31,6 +31,7 @@ import appTravel from '/images/app-travel.png'
 import appDashboard from '/images/dashboard.png'
 import gascertcol from '/images/gascertcol.png'
 import consteladora from '/images/consteladora.png'
+import azharslimpieza from '/images/azharslimpieza.png'
 
 
 export const WORK_EXPERIENCE = [
@@ -241,6 +242,14 @@ export const TECHNOLOGIES = [
 ]
 
 export const PROJECTS = [
+      {
+        name : 'Landing Page - Azhars Limpieza',
+        link : 'https://azharslimpieza.com.co/',
+        github: 'https://github.com/Sebasxx44',
+        image : azharslimpieza,
+        description : 'Landing page for a professional cleaning company, delivering spotless results for homes and businesses through expert services, eco-friendly products, and personalized care.',
+        technologies : [reactIcon,JavascriptIcon,cssIcon]
+    },
     {
         name : 'Landing Page - Consteladora Familiar',
         link : 'https://newlife01.com/',

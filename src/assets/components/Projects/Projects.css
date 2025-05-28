@@ -71,6 +71,11 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 5px ;
+    text-align: center;
+    align-items: center;
 }
 
 .project-links .project-btn-github{
