@@ -1,8 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from '../../buttonLenguage'
 import '../Navbar.css'
 import logo from '/images/logo.png'
 
 export function MobileNavbar ({isOpen, toggleMenu}) {
+
+    const { t,i18n } = useTranslation();
 
 
     return(
@@ -16,11 +19,11 @@ export function MobileNavbar ({isOpen, toggleMenu}) {
 
                 <ul>
                     <LanguageSwitcher />
-                    <li><a className="menu-item" href="#about-me" >Home</a></li>
-                    <li><a className="menu-item" href="#services" >Services</a></li>
-                    <li><a className="menu-item" href="#work-experience">Work Experience</a></li>
-                    <li><a className="menu-item" href="#technologies">Skills</a></li>
-                    <li><a className="menu-item" href="#projects">Projects</a></li>
+                     <li><a className="menu-item" href="#about-me">{t('navbar.home')}</a></li>
+                    <li><a className="menu-item" href="#services" onClick={() => handleScroll('services')}>{t('navbar.services')}</a></li>
+                    <li><a className="menu-item" href="#work-experience">{t('navbar.experience')}</a></li>
+                    <li><a className="menu-item" href="#technologies">{t('navbar.skills')}</a></li>
+                    <li><a className="menu-item" href="#projects">{t('navbar.projects')}</a></li>
                 </ul>
 
             </div>

@@ -43,7 +43,7 @@ export function Navbar() {
                     <ul>
                         <li> <LanguageSwitcher /></li>
                         
-                       <li><a className="menu-item" href="#about-me">{t('navbar.home')}</a></li>
+                        <li><a className="menu-item" href="#about-me">{t('navbar.home')}</a></li>
                         <li><a className="menu-item" href="#services" onClick={() => handleScroll('services')}>{t('navbar.services')}</a></li>
                         <li><a className="menu-item" href="#work-experience">{t('navbar.experience')}</a></li>
                         <li><a className="menu-item" href="#technologies">{t('navbar.skills')}</a></li>
