@@ -41,7 +41,7 @@ export function Navbar() {
                     <img className="logoImg" src={logo} alt="logo" />
 
                     <ul>
-                        <li> <LanguageSwitcher /></li>
+                        <LanguageSwitcher />
                         
                         <li><a className="menu-item" href="#about-me">{t('navbar.home')}</a></li>
                         <li><a className="menu-item" href="#services" onClick={() => handleScroll('services')}>{t('navbar.services')}</a></li>
