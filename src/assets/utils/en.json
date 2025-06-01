@@ -1,0 +1,190 @@
+
+
+{
+  
+  "projects": {
+    "title": "Last Projects",
+    "azhars": {
+      "name": "Landing Page - Azhars Cleaning",
+      "description": "Landing page for a professional cleaning company, delivering spotless results for homes and businesses through expert services, eco-friendly products, and personalized care."
+    },
+    "consteladora": {
+      "name": "Landing Page - Family Constellations",
+      "description": "Landing page for a Family Constellations company, offering guidance and healing through transformative workshops and personalized support."
+    },
+    "gascertcol": {
+      "name": "Landing Page - Gascertcol",
+      "description": "Landing page for a Gas Network Inspection company, highlighting expert services, safety, and reliability with clear calls-to-action and client-focused content."
+    },
+    "articlesGPT": {
+      "name": "Articles Generator GPT-4",
+      "description": "Application developed with React that connects to the GPT-4 API to generate article summaries. Users can input text or URLs and get concise and coherent summaries."
+    },
+    "dashboard": {
+      "name": "Interactive Dashboard",
+      "description": "Application developed with React and styled with Sass, offering a sophisticated and interactive user experience with real-time data visualization through dynamic and intuitive charts."
+    },
+    "realTimeChat": {
+      "name": "Real Time Chat App",
+      "description": "Real-time chat application built with React and Firebase. Allows Google sign-in and instant messaging updated in real time thanks to Firebase Firestore."
+    },
+    "travelLanding": {
+      "name": "Travel Landing Page",
+      "description": "Attractive landing page for camping in Pereira, built with Next.js and TailwindCSS. Showcases stunning views and rich biodiversity with fast navigation and responsive design."
+    }
+},
+
+  "skillsTitle": "Skills",
+  "technologies": {
+    "html5": {
+      "name": "Html5",
+      "experience": "Advanced"
+    },
+    "css": {
+      "name": "CSS",
+      "experience": "Intermediate"
+    },
+    "sass": {
+      "name": "Sass",
+      "experience": "Intermediate"
+    },
+    "materialUi": {
+      "name": "Material UI",
+      "experience": "Intermediate"
+    },
+    "tailwindcss": {
+      "name": "Tailwindcss",
+      "experience": "Basic"
+    },
+    "javascript": {
+      "name": "JavaScript",
+      "experience": "Intermediate"
+    },
+    "typescript": {
+      "name": "TypeScript",
+      "experience": "Basic"
+    },
+    "php": {
+      "name": "PHP",
+      "experience": "Intermediate"
+    },
+    "reactjs": {
+      "name": "ReactJs",
+      "experience": "Intermediate"
+    },
+    "nextjs": {
+      "name": "NextJs",
+      "experience": "Basic"
+    },
+    "laravel": {
+      "name": "Laravel",
+      "experience": "Intermediate"
+    },
+    "nodejs": {
+      "name": "NodeJs",
+      "experience": "Intermediate"
+    },
+    "nestjs": {
+      "name": "NestJs",
+      "experience": "Basic"
+    },
+    "postgresql": {
+      "name": "PostgreSQL",
+      "experience": "Intermediate"
+    },
+    "mysql": {
+      "name": "MySQL",
+      "experience": "Intermediate"
+    },
+    "mariadb": {
+      "name": "MariaDB",
+      "experience": "Intermediate"
+    },
+    "sequelize": {
+      "name": "Sequelize",
+      "experience": "Intermediate"
+    },
+    "prisma": {
+      "name": "Prisma",
+      "experience": "Basic"
+    },
+    "firebase": {
+      "name": "Firebase",
+      "experience": "Basic"
+    },
+    "git": {
+      "name": "Git",
+      "experience": "Intermediate"
+    },
+    "github": {
+      "name": "GitHub",
+      "experience": "Intermediate"
+    },
+    "vitejs": {
+      "name": "ViteJs",
+      "experience": "Basic"
+    },
+    "docker": {
+      "name": "Docker",
+      "experience": "Basic"
+    }
+  },
+   "servicesTitle": "Services",
+   "services": [
+    {
+      "title": "Web development",
+      "description": "I'm a web developer specialized in crafting engaging and functional online experiences. Using technologies like React.js, Node.js, and Laravel, I build high-performance web systems that are user-friendly and efficient."
+    },
+    {
+      "title": "UI/UX Designing",
+      "description": "As a UX/UI designer, I specialize in crafting intuitive and visually appealing digital experiences. My focus is on enhancing user satisfaction through thoughtful design that seamlessly integrates functionality with aesthetics."
+    },
+    {
+      "title": "Software Development",
+      "description": "I specialize in developing complex software solutions using various technologies like React.js, Node.js, Laravel, and more. My focus is on creating robust and scalable applications that drive innovation."
+    }
+  ],
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "experience": "Work Experience",
+    "skills": "Skills",
+    "projects": "Projects"
+  }
+  ,
+  "about": {
+    "greeting": "Hi, It's",
+    "typed": [
+      "I'm a Web developer",
+      "I'm a Web designer",
+      "I'm a Software developer"
+    ],
+    "description": "Junior Full Stack Developer with a talent for problem-solving and a creative mindset. Dedicated to delivering innovative web solutions.",
+    "download": "Download CV"
+  },
+  "work_experience_title": "Work Experience",
+  "workExp": [
+    {
+      "title": "Fullstack developer - Software factory - CDITI Dosquebradas",
+      "date": "3 - JULY 2022 | 20 - SEPTEMBER 2023",
+      "resp": [
+        "I developed a comprehensive system with Laravel to centralize and efficiently manage information from multiple databases of a non-profit foundation.",
+        "I implemented collaboration and version control with Git and GitLab for efficient code management.",
+        "I optimized the performance of the database with MySQL to ensure reliable storage and retrieval of data.",
+        "I designed a secure and scalable architecture with Laravel to enhance the organization, accessibility, and security of data, facilitating decision-making and goal achievement in social work."
+      ]
+    },
+    {
+      "title": "Fullstack Developer - Suzuki Motor of Colombia",
+      "date": "25 - SEPTEMBER 2023 | 1 - MAY 2025",
+      "resp": [
+        "Active participation in full stack development at Suzuki, using React and Node to design and implement web solutions and systems from scratch.",
+        "Comprehensive contribution from design to implementation, ensuring coherence and efficiency throughout the development process.",
+        "Effective collaboration using Git and GitLab to manage versions and facilitate teamwork.",
+        "Significant professional growth and contribution to the company's success, thanks to acquired experience and solutions implemented with React, Node, Git, GitLab, and PostgreSQL."
+      ]
+    }
+  ]
+}
+
+

@@ -3,10 +3,14 @@ import { WORK_EXPERIENCE } from '../../utils/data'
 import './WorkExperience.css'
 import { WorkExperienceCard } from './WorkExperienceCard/WorkExperienceCard'
 import Slider from "react-slick";
+import { useTranslation } from 'react-i18next';
+
 
 export function WorkExperience() {
     
     const sliderRef = useRef();
+    const { t } = useTranslation();
+
 
     const settings = {
         dots: false,
@@ -37,7 +41,7 @@ export function WorkExperience() {
 
     return (
         <section className='experience-container'>
-            <h5>Work Experience</h5>
+            <h5>{t('work_experience_title')}</h5>
 
             <div className='experience-content'>
 

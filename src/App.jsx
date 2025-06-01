@@ -6,6 +6,8 @@ import { AboutMe } from './assets/components/AboutMe/AboutMe'
 import { Services } from './assets/components/Services/Services'
 import { Technologies } from './assets/components/Technologies/Technologies'
 import { Projects } from './assets/components/Projects/Projects'
+import './i18n';
+
 
 function App() {
   

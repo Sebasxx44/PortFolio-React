@@ -35,270 +35,245 @@ import azharslimpieza from '/images/azharslimpieza.png'
 
 
 export const WORK_EXPERIENCE = [
-
     {
-
-        title : 'Fullstack developer - Software factory - CDITI Dosquebradas',
-        date : '3 - JULY 2022 | 20 - SEPTEMBER 2023',
-        responsabilities : [
-            'I developed a comprehensive system with Laravel to centralize and efficiently manage information from multiple databases of a non-profit foundation.',
-            'I implemented collaboration and version control with Git and GitLab for efficient code management.',
-            'I optimized the performance of the database with MySQL to ensure reliable storage and retrieval of data.',
-            'I designed a secure and scalable architecture with Laravel to enhance the organization, accessibility, and security of data, facilitating decision-making and goal achievement in social work.'
-        ]
-
+        title: 'workExp.0.title',
+        date: 'workExp.0.date',
+        responsabilities: [
+            'workExp.0.resp.0',
+            'workExp.0.resp.1',
+            'workExp.0.resp.2',
+            'workExp.0.resp.3',
+        ],
     },
     {
-
-        title : 'Fullstack Developer - Suzuki Motor of Colombia',
-        date : '25 - SEPTEMBER 2023 | 1 - MAY 2025',
-        responsabilities : [
-            'Active participation in full stack development at Suzuki, using React and Node to design and implement web solutions and systems from scratch.',
-            'Comprehensive contribution from design to implementation, ensuring coherence and efficiency throughout the development process.',
-            'Effective collaboration using Git and GitLab to manage versions and facilitate teamwork.',
-            "Significant professional growth and contribution to the company's success, thanks to acquired experience and solutions implemented with React, Node, Git, GitLab, and PostgreSQL."
-        ]
-
+        title: 'workExp.1.title',
+        date: 'workExp.1.date',
+        responsabilities: [
+            'workExp.1.resp.0',
+            'workExp.1.resp.1',
+            'workExp.1.resp.2',
+            'workExp.1.resp.3',
+        ],
     },
-
-]
+];
 
 export const SERVICES = [
-
-    {
-        title : 'Web development',
-        description : 
-        "I'm a web developer specialized in crafting engaging and functional online experiences. Using technologies like React.js, Node.js, and Laravel, I build high-performance web systems that are user-friendly and efficient.",
-        icon : 'fa-solid fa-code'
-    },
-    {
-        title : 'UI/UX Designing',
-        description : 'As a UX/UI designer, I specialize in crafting intuitive and visually appealing digital experiences. My focus is on enhancing user satisfaction through thoughtful design that seamlessly integrates functionality with aesthetics.',
-        icon : 'fa-solid fa-palette'
-
-    },
-    {
-        title: "Software Development",
-        description: "I specialize in developing complex software solutions using various technologies like React.js, Node.js, Laravel, and more. My focus is on creating robust and scalable applications that drive innovation",
-        icon: "fa-solid fa-cogs"
-    }
-    
-]
+  {
+    title: 'services.0.title',
+    description: 'services.0.description',
+    icon: 'fa-solid fa-code',
+  },
+  {
+    title: 'services.1.title',
+    description: 'services.1.description',
+    icon: 'fa-solid fa-palette',
+  },
+  {
+    title: 'services.2.title',
+    description: 'services.2.description',
+    icon: 'fa-solid fa-cogs',
+  },
+];
 
 export const TECHNOLOGIES = [
-
-        {
-            name: 'Html5',
-            experience : 'Advanced',
-            icon : htmlIcon,
-            color : '#ef652a'
-        },
-
-        {
-            name: 'Css',
-            experience : 'Intermedate',
-            icon : cssIcon,
-            color : '#1b73ba'
-
-        },
-
-        {
-            name: 'Sass',
-            experience : 'Intermedate',
-            icon : sass,
-            color : '#cf649a'
-            
-        },
-        {
-            name: 'Material UI',
-            experience : 'Intermedate',
-            icon : muiIcon,
-            color : '#00b0ff'
-            
-        },
-        {
-            name: 'Tailwindcss',
-            experience : 'Basic',
-            icon : tailwindcss,
-            color : '#1ab0ba'
-        },
-
-        {
-            name: 'Javascript',
-            experience : 'Intermedate',
-            icon : JavascriptIcon,
-            color : '#e9ca32'
-        },
-
-        {
-            name: 'Typescript',
-            experience : 'Basic',
-            icon : typescriptIcon,
-            color : '#007acc'
-        },
-
-        {
-            name: 'Php',
-            experience : 'Intermedate',
-            icon : phpIcon,
-            color : '#8993be'
-        },
-
-        {
-            name: 'ReactJs',
-            experience : 'Intemedate',
-            icon : reactIcon,
-            color : '#61dafb'
-        },
-        {
-            name: 'NextJs',
-            experience : 'Basic',
-            icon : nextIcon,
-            color : '#000000'
-        },
-        {
-            name: 'Laravel',
-            experience : 'Intermedate',
-            icon : laravelIcon,
-            color : '#7e474a'
-        },
-        {
-            name: 'NodeJs',
-            experience : 'Intermedate',
-            icon : nodeIcon,
-            color : '#8cc84b'
-        },
-        {
-            name: 'NestJs',
-            experience : 'Basic',
-            icon : nestIcon,
-            color : '#ea2853'
-        },
-        {
-            name: 'Postgresql',
-            experience : 'Intermedate',
-            icon : postgresqlIcon,
-            color : '#336791'
-        },
-        {
-            name: 'Mysql',
-            experience : 'Intermedate',
-            icon : mySqlIcon,
-            color : '#f3e2ca'
-        },
-        {
-            name: 'MariaDB',
-            experience : 'Intermedate',
-            icon : mariadbIcon,
-            color : '#40608b'
-        },
-        {
-            name: 'Sequelize',
-            experience : 'Intermedate',
-            icon : sequelizeIcon,
-            color : '#51aee4'
-        },
-        {
-            name: 'Prisma',
-            experience : 'Basic',
-            icon : prismaIcon,
-            color : '#000'
-        },
-
-        {
-            name: 'Firebase',
-            experience : 'Basic',
-            icon : firebaseIcon,
-            color : '#fca512'
-        },
-
-        {
-            name: 'Git',
-            experience : 'Intermedate',
-            icon : gitIcon,
-            color : '#de4c36'
-        },
-
-        {
-            name: 'GitHub',
-            experience : 'Intermedate',
-            icon : githubIcon,
-            color : '#000000'
-        },
-
-        {
-            name: 'ViteJs',
-            experience : 'Basic',
-            icon : viteIcon,
-            color : '#916cff'
-        },
-
-        {
-            name: 'Docker',
-            experience : 'Basic',
-            icon : dockerIcon,
-            color : '#0091e2'
-        },
-]
+    {
+        name: 'technologies.html5.name',
+        experience: 'technologies.html5.experience',
+        icon: htmlIcon,
+        color: '#ef652a',
+    },
+    {
+        name: 'technologies.css.name',
+        experience: 'technologies.css.experience',
+        icon: cssIcon,
+        color: '#1b73ba',
+    },
+    {
+        name: 'technologies.sass.name',
+        experience: 'technologies.sass.experience',
+        icon: sass,
+        color: '#cf649a',
+    },
+    {
+        name: 'technologies.materialUi.name',
+        experience: 'technologies.materialUi.experience',
+        icon: muiIcon,
+        color: '#00b0ff',
+    },
+    {
+        name: 'technologies.tailwindcss.name',
+        experience: 'technologies.tailwindcss.experience',
+        icon: tailwindcss,
+        color: '#1ab0ba',
+    },
+    {
+        name: 'technologies.javascript.name',
+        experience: 'technologies.javascript.experience',
+        icon: JavascriptIcon,
+        color: '#e9ca32',
+    },
+    {
+        name: 'technologies.typescript.name',
+        experience: 'technologies.typescript.experience',
+        icon: typescriptIcon,
+        color: '#007acc',
+    },
+    {
+        name: 'technologies.php.name',
+        experience: 'technologies.php.experience',
+        icon: phpIcon,
+        color: '#8993be',
+    },
+    {
+        name: 'technologies.reactjs.name',
+        experience: 'technologies.reactjs.experience',
+        icon: reactIcon,
+        color: '#61dafb',
+    },
+    {
+        name: 'technologies.nextjs.name',
+        experience: 'technologies.nextjs.experience',
+        icon: nextIcon,
+        color: '#000000',
+    },
+    {
+        name: 'technologies.laravel.name',
+        experience: 'technologies.laravel.experience',
+        icon: laravelIcon,
+        color: '#7e474a',
+    },
+    {
+        name: 'technologies.nodejs.name',
+        experience: 'technologies.nodejs.experience',
+        icon: nodeIcon,
+        color: '#8cc84b',
+    },
+    {
+        name: 'technologies.nestjs.name',
+        experience: 'technologies.nestjs.experience',
+        icon: nestIcon,
+        color: '#ea2853',
+    },
+    {
+        name: 'technologies.postgresql.name',
+        experience: 'technologies.postgresql.experience',
+        icon: postgresqlIcon,
+        color: '#336791',
+    },
+    {
+        name: 'technologies.mysql.name',
+        experience: 'technologies.mysql.experience',
+        icon: mySqlIcon,
+        color: '#f3e2ca',
+    },
+    {
+        name: 'technologies.mariadb.name',
+        experience: 'technologies.mariadb.experience',
+        icon: mariadbIcon,
+        color: '#40608b',
+    },
+    {
+        name: 'technologies.sequelize.name',
+        experience: 'technologies.sequelize.experience',
+        icon: sequelizeIcon,
+        color: '#51aee4',
+    },
+    {
+        name: 'technologies.prisma.name',
+        experience: 'technologies.prisma.experience',
+        icon: prismaIcon,
+        color: '#000000',
+    },
+    {
+        name: 'technologies.firebase.name',
+        experience: 'technologies.firebase.experience',
+        icon: firebaseIcon,
+        color: '#fca512',
+    },
+    {
+        name: 'technologies.git.name',
+        experience: 'technologies.git.experience',
+        icon: gitIcon,
+        color: '#de4c36',
+    },
+    {
+        name: 'technologies.github.name',
+        experience: 'technologies.github.experience',
+        icon: githubIcon,
+        color: '#000000',
+    },
+    {
+        name: 'technologies.vitejs.name',
+        experience: 'technologies.vitejs.experience',
+        icon: viteIcon,
+        color: '#916cff',
+    },
+    {
+        name: 'technologies.docker.name',
+        experience: 'technologies.docker.experience',
+        icon: dockerIcon,
+        color: '#0091e2',
+    },
+];
 
 export const PROJECTS = [
-      {
-        name : 'Landing Page - Azhars Limpieza',
-        link : 'https://azharslimpieza.com.co/',
-        github: 'https://github.com/Sebasxx44',
-        image : azharslimpieza,
-        description : 'Landing page for a professional cleaning company, delivering spotless results for homes and businesses through expert services, eco-friendly products, and personalized care.',
-        technologies : [reactIcon,JavascriptIcon,cssIcon]
-    },
-    {
-        name : 'Landing Page - Consteladora Familiar',
-        link : 'https://newlife01.com/',
-        github: 'https://github.com/Sebasxx44',
-        image : consteladora,
-        description : 'Landing page for a Family Constellations company, offering guidance and healing through transformative workshops and personalized support.',
-        technologies : [reactIcon,JavascriptIcon,cssIcon]
-    },
-    {
-        name : 'Landing Page - Gascertcol',
-        link : 'https://www.gascertcol.com/',
-        github: 'https://github.com/Sebasxx44',
-        image : gascertcol,
-        description : 'Landing page for a Gas Network Inspection company, highlighting expert services, safety, and reliability with clear calls-to-action and client-focused content.',
-        technologies : [reactIcon,JavascriptIcon,tailwindcss]
-    },
-    {
-        name : 'Articles Generator GPT-4',
-        link : 'https://articlesopenai.netlify.app/',
-        github: 'https://github.com/Sebasxx44/OpenAI_Articles_Generator',
-        image : appOpenAI,
-        description : 'This application, developed with React, connects to the GPT-4 API to generate article summaries. Users can input the text or URL of an article, and the application uses GPT-4 to process and produce a concise and coherent summary.',
-        technologies : [reactIcon,JavascriptIcon,tailwindcss]
-    },
-    {
-        name : 'Dashboard',
-        link : 'https://dashboard-sebaz.vercel.app/',
-        github: 'https://github.com/Sebasxx44/DashboardReact',
-        image : appDashboard,
-        description : 'This application, developed with React and styled with Sass, is a sophisticated interactive dashboard. Designed to offer a smooth and attractive user experience, it allows real-time data visualization through dynamic and intuitive charts.',
-        technologies : [reactIcon,typescriptIcon,sass]
-    },
-    {
-        name : 'Real Time Chat App',
-        link : 'https://talkzones.vercel.app/',
-        github : 'https://github.com/Sebasxx44/chat-real-time',
-        image : appRealTimeChat,
-        description : 'Real-time chat application developed with React and Firebase. The application allows users to sign in with Google and participate in the chat where they can send and receive messages instantly. Thanks to Firebase Firestore, messages are updated in real-time.',
-        technologies : [reactIcon,JavascriptIcon,firebaseIcon,cssIcon]
-    },
-    {
-        name : 'Travel Landing Page',
-        link : 'https://natunest.vercel.app/',
-        github: 'https://github.com/Sebasxx44/landing_page_app_travel',
-        image : appTravel,
-        description : 'I have developed an attractive landing page for camping in Pereira using Next.js and TailwindCSS. This page highlights the stunning views and rich biodiversity of the region, offering fast navigation and a responsive design.',
-        technologies : [nextIcon,typescriptIcon,tailwindcss]
-    }
+  {
+    name: 'projects.azhars.name',
+    description: 'projects.azhars.description',
+    link: 'https://azharslimpieza.com.co/',
+    github: 'https://github.com/Sebasxx44',
+    image: azharslimpieza,
+    technologies: [reactIcon, JavascriptIcon, cssIcon],
+  },
+  {
+    name: 'projects.consteladora.name',
+    description: 'projects.consteladora.description',
+    link: 'https://newlife01.com/',
+    github: 'https://github.com/Sebasxx44',
+    image: consteladora,
+    technologies: [reactIcon, JavascriptIcon, cssIcon],
+  },
+  {
+    name: 'projects.gascertcol.name',
+    description: 'projects.gascertcol.description',
+    link: 'https://www.gascertcol.com/',
+    github: 'https://github.com/Sebasxx44',
+    image: gascertcol,
+    technologies: [reactIcon, JavascriptIcon, tailwindcss],
+  },
+  {
+    name: 'projects.articlesGPT.name',
+    description: 'projects.articlesGPT.description',
+    link: 'https://articlesopenai.netlify.app/',
+    github: 'https://github.com/Sebasxx44/OpenAI_Articles_Generator',
+    image: appOpenAI,
+    technologies: [reactIcon, JavascriptIcon, tailwindcss],
+  },
+  {
+    name: 'projects.dashboard.name',
+    description: 'projects.dashboard.description',
+    link: 'https://dashboard-sebaz.vercel.app/',
+    github: 'https://github.com/Sebasxx44/DashboardReact',
+    image: appDashboard,
+    technologies: [reactIcon, typescriptIcon, sass],
+  },
+  {
+    name: 'projects.realTimeChat.name',
+    description: 'projects.realTimeChat.description',
+    link: 'https://talkzones.vercel.app/',
+    github: 'https://github.com/Sebasxx44/chat-real-time',
+    image: appRealTimeChat,
+    technologies: [reactIcon, JavascriptIcon, firebaseIcon, cssIcon],
+  },
+  {
+    name: 'projects.travelLanding.name',
+    description: 'projects.travelLanding.description',
+    link: 'https://natunest.vercel.app/',
+    github: 'https://github.com/Sebasxx44/landing_page_app_travel',
+    image: appTravel,
+    technologies: [nextIcon, typescriptIcon, tailwindcss],
+  },
+];
 
-]
 
 

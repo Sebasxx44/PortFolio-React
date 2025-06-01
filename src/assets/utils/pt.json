@@ -1,0 +1,186 @@
+
+
+{
+  "projects": {
+    "title": "Últimos Projetos",
+    "azhars": {
+      "name": "Página Inicial - Azhars Limpeza",
+      "description": "Página inicial para uma empresa profissional de limpeza, oferecendo resultados impecáveis para residências e empresas através de serviços especializados, produtos ecológicos e atendimento personalizado."
+    },
+    "consteladora": {
+      "name": "Página Inicial - Constelação Familiar",
+      "description": "Página inicial para uma empresa de Constelação Familiar, oferecendo orientação e cura através de workshops transformadores e suporte personalizado."
+    },
+    "gascertcol": {
+      "name": "Página Inicial - Gascertcol",
+      "description": "Página inicial para uma empresa de inspeção de redes de gás, destacando serviços especializados, segurança e confiabilidade com chamadas claras para ação e conteúdo focado no cliente."
+    },
+    "articlesGPT": {
+      "name": "Gerador de Artigos GPT-4",
+      "description": "Aplicativo desenvolvido com React que conecta à API GPT-4 para gerar resumos de artigos. Os usuários podem inserir texto ou URLs e obter resumos concisos e coerentes."
+    },
+    "dashboard": {
+      "name": "Painel Interativo",
+      "description": "Aplicativo desenvolvido com React e estilizado com Sass, oferecendo uma experiência de usuário sofisticada e interativa com visualização de dados em tempo real através de gráficos dinâmicos e intuitivos."
+    },
+    "realTimeChat": {
+      "name": "Aplicativo de Chat em Tempo Real",
+      "description": "Aplicativo de chat em tempo real construído com React e Firebase. Permite login via Google e mensagens instantâneas atualizadas em tempo real graças ao Firebase Firestore."
+    },
+    "travelLanding": {
+      "name": "Página Inicial de Viagens",
+      "description": "Página inicial atraente para camping em Pereira, construída com Next.js e TailwindCSS. Apresenta vistas impressionantes e rica biodiversidade com navegação rápida e design responsivo."
+    }
+  },
+  "skillsTitle": "Habilidades",
+  "technologies": {
+    "html5": {
+      "name": "Html5",
+      "experience": "Avançado"
+    },
+    "css": {
+      "name": "CSS",
+      "experience": "Intermediário"
+    },
+    "sass": {
+      "name": "Sass",
+      "experience": "Intermediário"
+    },
+    "materialUi": {
+      "name": "Material UI",
+      "experience": "Intermediário"
+    },
+    "tailwindcss": {
+      "name": "Tailwindcss",
+      "experience": "Básico"
+    },
+    "javascript": {
+      "name": "JavaScript",
+      "experience": "Intermediário"
+    },
+    "typescript": {
+      "name": "TypeScript",
+      "experience": "Básico"
+    },
+    "php": {
+      "name": "PHP",
+      "experience": "Intermediário"
+    },
+    "reactjs": {
+      "name": "ReactJs",
+      "experience": "Intermediário"
+    },
+    "nextjs": {
+      "name": "NextJs",
+      "experience": "Básico"
+    },
+    "laravel": {
+      "name": "Laravel",
+      "experience": "Intermediário"
+    },
+    "nodejs": {
+      "name": "NodeJs",
+      "experience": "Intermediário"
+    },
+    "nestjs": {
+      "name": "NestJs",
+      "experience": "Básico"
+    },
+    "postgresql": {
+      "name": "PostgreSQL",
+      "experience": "Intermediário"
+    },
+    "mysql": {
+      "name": "MySQL",
+      "experience": "Intermediário"
+    },
+    "mariadb": {
+      "name": "MariaDB",
+      "experience": "Intermediário"
+    },
+    "sequelize": {
+      "name": "Sequelize",
+      "experience": "Intermediário"
+    },
+    "prisma": {
+      "name": "Prisma",
+      "experience": "Básico"
+    },
+    "firebase": {
+      "name": "Firebase",
+      "experience": "Básico"
+    },
+    "git": {
+      "name": "Git",
+      "experience": "Intermediário"
+    },
+    "github": {
+      "name": "GitHub",
+      "experience": "Intermediário"
+    },
+    "vitejs": {
+      "name": "ViteJs",
+      "experience": "Básico"
+    },
+    "docker": {
+      "name": "Docker",
+      "experience": "Básico"
+    }
+  },
+  "servicesTitle": "Serviços",
+   "services": [
+    {
+      "title": "Desenvolvimento Web",
+      "description": "Sou um desenvolvedor web especializado em criar experiências online envolventes e funcionais. Uso tecnologias como React.js, Node.js e Laravel para construir sistemas web de alto desempenho que são amigáveis e eficientes."
+    },
+    {
+      "title": "Design UI/UX",
+      "description": "Como designer UX/UI, me especializo em criar experiências digitais intuitivas e visualmente atraentes. Meu foco é melhorar a satisfação do usuário por meio de um design cuidadoso que integra funcionalidade e estética."
+    },
+    {
+      "title": "Desenvolvimento de Software",
+      "description": "Especializo-me no desenvolvimento de soluções complexas de software usando várias tecnologias como React.js, Node.js, Laravel e outras. Meu foco é criar aplicações robustas e escaláveis que promovam inovação."
+    }
+  ],
+   "navbar": {
+    "home": "Início",
+    "services": "Serviços",
+    "experience": "Experiência Profissional",
+    "skills": "Habilidades",
+    "projects": "Projetos"
+  },
+  "about": {
+    "greeting": "Olá, eu sou",
+    "typed": [
+      "Sou desenvolvedor web",
+      "Sou designer web",
+      "Sou desenvolvedor de software"
+    ],
+    "description": "Desenvolvedor Full Stack júnior com talento para resolver problemas e uma mentalidade criativa. Dedicado a fornecer soluções web inovadoras.",
+    "download": "Baixar CV"
+  },
+  "work_experience_title": "Experiência Laboral",
+  "workExp": [
+    {
+      "title": "Desenvolvedor Fullstack - Fábrica de Software - CDITI Dosquebradas",
+      "date": "3 - JULHO 2022 | 20 - SETEMBRO 2023",
+      "resp": [
+        "Desenvolvi um sistema integrado com Laravel para centralizar e gerenciar informações de vários bancos de dados de uma fundação sem fins lucrativos.",
+        "Implementei colaboração e controle de versão com Git e GitLab para uma gestão eficiente do código.",
+        "Otimizei o desempenho do banco de dados com MySQL para garantir armazenamento e recuperação de dados confiáveis.",
+        "Desenhei uma arquitetura segura e escalável com Laravel para melhorar a organização, acessibilidade e segurança dos dados, facilitando a tomada de decisões e o alcance de metas no trabalho social."
+      ]
+    },
+    {
+      "title": "Desenvolvedor Fullstack - Suzuki Motor de Colombia",
+      "date": "25 - SETEMBRO 2023 | 1 - MAIO 2025",
+      "resp": [
+        "Participação ativa no desenvolvimento full stack na Suzuki, utilizando React e Node para projetar e implementar soluções web do zero.",
+        "Contribuição integral desde o design até a implementação, garantindo coerência e eficiência no desenvolvimento.",
+        "Colaboração eficaz usando Git e GitLab para gerenciar versões e facilitar o trabalho em equipe.",
+        "Crescimento profissional significativo e contribuição para o sucesso da empresa graças à experiência adquirida e às soluções implementadas com React, Node, Git, GitLab e PostgreSQL."
+      ]
+    }
+  ]
+}
+

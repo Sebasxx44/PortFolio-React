@@ -1,11 +1,12 @@
-import { useState } from "react"
+import { useTranslation } from "react-i18next";
 import { ReactTyped } from "react-typed";
-import './AboutMe.css'
-import photo from '/images/principal.jpg'
-import cv from '/cvs/CV-Sebastian-Sanchez.pdf'
-import gmailIcon from '/images/gmailIcon.svg'
+import './AboutMe.css';
+import photo from '/images/principal.jpg';
+import cv from '/cvs/CV-Sebastian-Sanchez.pdf';
+import gmailIcon from '/images/gmailIcon.svg';
 
 export function AboutMe() {
+    const { t } = useTranslation();
 
     const downloadCv = () => {
         const urlPDF = cv;
@@ -15,60 +16,44 @@ export function AboutMe() {
         link.click();
     };
 
-    return(
-        <>
-
+    return (
         <section className="about-container">
             <div className="about-content">
-
                 <div className="about-info">
-
                     <h5>
-                        Hi, It's<span> Sebaz</span>
+                        {t('about.greeting')}<span> Sebaz</span>
                     </h5>
 
-
                     <ReactTyped
-                    className="
-                    "
-                        strings={[
-                            "I'm a Web developer",
-                            "I'm a Web designer",
-                            "I'm a Software developer"
-                        ]}
+                        strings={t('about.typed', { returnObjects: true })}
                         typeSpeed={55}
                         backSpeed={70}
-                        attr="placeholder"
                         loop
-                >
-                <input disabled type="text" className="input-typed"/>
+                    >
+                        <input disabled type="text" className="input-typed"/>
                     </ReactTyped>
 
+                    <p>{t('about.description')}</p>
 
-                    <p>Junior Full Stack Developer with a talent for problem-solving and a creative mindset. Dedicated to delivering innovative web solutions.</p>
-                
-                        <div className="contact-section">
-                            <img src={gmailIcon} alt="gmailIcon" />
-                            <p>sanchezz3s47@gmail.com</p>
-                        </div>
-
-                    <div className="content-buttons">
-                        <button onClick={downloadCv} className="button-download-cv"><i className="fa-regular fa-file"></i> Download CV</button>
-                        <button className="button-github" onClick={() => window.open("https://github.com/Sebasxx44")}><i className="fa-brands fa-github"></i> Github</button>
+                    <div className="contact-section">
+                        <img src={gmailIcon} alt="gmailIcon" />
+                        <p>sanchezz3s47@gmail.com</p>
                     </div>
 
+                    <div className="content-buttons">
+                        <button onClick={downloadCv} className="button-download-cv">
+                            <i className="fa-regular fa-file"></i> {t('about.download')}
+                        </button>
+                        <button className="button-github" onClick={() => window.open("https://github.com/Sebasxx44")}>
+                            <i className="fa-brands fa-github"></i> Github
+                        </button>
+                    </div>
                 </div>
 
                 <div className="about-picture">
                     <img src={photo} alt="photo" />
                 </div>
-
-                
-
             </div>
         </section>
-
-        
-        </>
-    )
-};
+    );
+}
