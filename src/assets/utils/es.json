@@ -2,6 +2,10 @@
 
 
 {
+  "aboutCv": {
+  "download": "Descargar CV",
+  "chooseCvLanguage": "Selecciona el idioma del CV"
+},
   "projects": {
     "title": "Últimos Proyectos",
     "azhars": {
