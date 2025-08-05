@@ -108,13 +108,13 @@
 .about-picture {
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 50%;
 }
 
 .about-picture img {
     border-radius: 50%;
-    width: 450px;
-    height: 450px;
+    width: 550px;
+    height: 550px;
     object-fit: cover;
     box-shadow: rgba(0, 166, 251, 0.411) 0px 0px 10px 5px, rgba(223, 5, 5, 0.1) 0px 14px 12px;
     transition: all 0.2s ease;

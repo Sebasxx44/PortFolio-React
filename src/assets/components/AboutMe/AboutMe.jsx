@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ReactTyped } from "react-typed";
 import './AboutMe.css';
-import photo from '/images/principal.jpg';
+import photo from '/images/principal.jpeg';
 import cvEN from '/cvs/CV-Sebastian-Sanchez-English.pdf';
 import cvES from '/cvs/CV-Sebastian-Sanchez-Espanol.pdf';
 import cvPT from '/cvs/CV-Sebastian-Sanchez-Portugues.pdf';
