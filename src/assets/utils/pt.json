@@ -7,6 +7,7 @@
 },
   "projects": {
     "title": "Últimos Projetos",
+    "openNewTab": "Abrir em nova aba",
     "azhars": {
       "name": "Página Inicial - Azhars Limpeza",
       "description": "Página inicial para uma empresa profissional de limpeza, oferecendo resultados impecáveis para residências e empresas através de serviços especializados, produtos ecológicos e atendimento personalizado."
@@ -37,6 +38,10 @@
     }
   },
   "skillsTitle": "Habilidades",
+  "servicesSubtitle": "Experiências digitais ponta a ponta, prontas para produção e com acessibilidade em primeiro lugar.",
+  "workExperienceSubtitle": "Experiência construindo produtos de ponta a ponta em equipes multidisciplinares.",
+  "technologiesSubtitle": "Stack pronto para lançar produtos rápidos, acessíveis e fáceis de manter.",
+  "projectsSubtitle": "Seleção de projetos recentes com foco em performance, narrativa clara e microinterações bem cuidadas.",
   "technologies": {
     "html5": {
       "name": "Html5",
@@ -187,4 +192,3 @@
     }
   ]
 }
-

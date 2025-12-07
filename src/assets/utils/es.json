@@ -8,6 +8,7 @@
 },
   "projects": {
     "title": "Últimos Proyectos",
+    "openNewTab": "Abrir en nueva pestaña",
     "azhars": {
       "name": "Landing Page - Azhars Limpieza",
       "description": "Landing page para una empresa profesional de limpieza, ofreciendo resultados impecables para hogares y negocios mediante servicios expertos, productos ecológicos y atención personalizada."
@@ -38,6 +39,10 @@
     }
   },
   "skillsTitle": "Habilidades",
+  "servicesSubtitle": "Experiencias digitales de principio a fin, listas para producción y pensadas primero en accesibilidad.",
+  "workExperienceSubtitle": "Experiencia construyendo productos de extremo a extremo en equipos multidisciplinarios.",
+  "technologiesSubtitle": "Stack listo para lanzar productos rápidos, accesibles y mantenibles.",
+  "projectsSubtitle": "Selección de proyectos recientes con foco en rendimiento, narrativa clara y microinteracciones cuidadas.",
   "technologies": {
     "html5": {
       "name": "Html5",

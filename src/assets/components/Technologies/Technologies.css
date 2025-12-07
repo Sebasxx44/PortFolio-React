@@ -1,101 +1,99 @@
 .technologies-container{
     position: relative;
-    margin: 5rem 1rem 1rem 1rem;
-    height: 80vh;
+    margin: 3.5rem 0 1rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.technologies-container h5 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+.technologies-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+.technologies-subtitle {
+    color: var(--muted);
+    max-width: 680px;
+    font-size: 0.98rem;
 }
 
 .technologies-content {
-    padding: 5px;
+    padding: 6px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); 
-    gap: 15px; 
+    grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); 
+    gap: 14px; 
 }
-
 
 .technologie-card{
     display: flex; 
-    justify-content: space-evenly;
-    padding: 15px;
-    border-radius: 3px;
-    background-color: rgb(39 41 42 / 80%);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
     align-items: center;
+    gap: 8px;
+    transition: transform var(--transition), border var(--transition), background var(--transition), box-shadow var(--transition);
 }
 
 .technologie-card:hover{
-    transition: all 0.2s ease;
-    transform: scale(1.02);
-    background-color: #006494;
+    transform: translateY(-3px);
+    background-color: var(--surface-strong);
+    border-color: rgba(125, 211, 252, 0.6);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
 }
 
 .technologie-info{
     display: flex;
     flex-direction: column;
-    text-align: center;
-    background-color: rgb(0, 255, 0);
-    margin: 0;
-    gap: 0;
+    gap: 2px;
     background-color: transparent;
 }
 
 .technologie-info h1 {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 600;
     background-color: transparent;
 }
 
 .technologie-info p {
-    font-size: 13px;
+    font-size: 12px;
+    color: var(--muted);
     background-color: transparent;
 }
 
 .technologie-card img {
-    width: 30px;
+    width: 32px;
     background-color: transparent;
 }
 
 @media(max-width: 769px) {
 
     .technologies-container{
-        position: relative;
-        margin: 1rem 0rem 3rem 0rem;
-        height: auto;
+        margin: 2.5rem 0 1rem 0;
     }
 
     .technologies-content {
-        padding: 1px;
-        grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); 
-        gap: 15px; 
+        grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); 
+        gap: 12px; 
     }
-    
     
     .technologie-card{
         padding: 10px;
-        justify-content: space-between;
     }
 
     .technologie-info h1 {
-        font-size: 11px;
-        font-weight: 500;
-        background-color: transparent;
+        font-size: 13px;
     }
     
     .technologie-info p {
-        font-size: 9px;
-        background-color: transparent;
+        font-size: 11px;
     }
     
     .technologie-card img {
-        width: 20px;
-        background-color: transparent;
+        width: 24px;
     }
 
 }

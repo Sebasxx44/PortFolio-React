@@ -8,7 +8,7 @@ import { LanguageSwitcher } from '../buttonLenguage';
 export function Navbar() {
 
     const [openMenu, setOpenMenu] = useState(false);
-    const { t,i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const toggleMenu = () => {
         setOpenMenu(!openMenu);
@@ -17,23 +17,16 @@ export function Navbar() {
     const handleScroll = (id) => {
         const element = document.getElementById(id);
         if (element) {
-          element.classList.add('visible');
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
         }
+        setOpenMenu(false);
     };
-
-    const toggleLang = () => {
-        const newLang = i18n.language === 'en' ? 'es' : 'en';
-        i18n.changeLanguage(newLang);
-        localStorage.setItem('language', newLang);
-    };
-
 
     return(
 
         <>
 
-        <MobileNavbar toggleMenu={toggleMenu} isOpen={openMenu}/>
+        <MobileNavbar toggleMenu={toggleMenu} isOpen={openMenu} onNavigate={handleScroll}/>
 
             <nav className="nav-wrapper">
                 <div className="nav-content">
@@ -42,12 +35,12 @@ export function Navbar() {
 
                     <ul>
                         <LanguageSwitcher />
-                        
-                        <li><a className="menu-item" href="#about-me">{t('navbar.home')}</a></li>
-                        <li><a className="menu-item" href="#services" onClick={() => handleScroll('services')}>{t('navbar.services')}</a></li>
-                        <li><a className="menu-item" href="#work-experience">{t('navbar.experience')}</a></li>
-                        <li><a className="menu-item" href="#technologies">{t('navbar.skills')}</a></li>
-                        <li><a className="menu-item" href="#projects">{t('navbar.projects')}</a></li>
+
+                        <li><a className="menu-item" href="#about-me" onClick={(e) => {e.preventDefault(); handleScroll('about-me');}}>{t('navbar.home')}</a></li>
+                        <li><a className="menu-item" href="#services" onClick={(e) => {e.preventDefault(); handleScroll('services');}}>{t('navbar.services')}</a></li>
+                        <li><a className="menu-item" href="#work-experience" onClick={(e) => {e.preventDefault(); handleScroll('work-experience');}}>{t('navbar.experience')}</a></li>
+                        <li><a className="menu-item" href="#technologies" onClick={(e) => {e.preventDefault(); handleScroll('technologies');}}>{t('navbar.skills')}</a></li>
+                        <li><a className="menu-item" href="#projects" onClick={(e) => {e.preventDefault(); handleScroll('projects');}}>{t('navbar.projects')}</a></li>
 
                     </ul>
 

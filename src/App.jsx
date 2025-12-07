@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import './index.css'
 import { Navbar } from './assets/components/Navbar/NavbarComponent'
 import { WorkExperience } from './assets/components/WorkExperience/WorkExperience'
@@ -10,40 +9,29 @@ import './i18n';
 
 
 function App() {
-  
-  useEffect(() => {
-    window.ScrollReveal().reveal('.reveal', {
-      distance: '50px',
-      duration: 800,
-      easing: 'ease-in-out',
-      origin: 'bottom',
-      reset: true, 
-    });
-  }, []);
 
   return (
     <>
 
       <Navbar/>
 
-      <section className='renderAppContent'>
-
-        <div id="about-me" className="reveal">
+      <main className='renderAppContent'>
+        <div id="about-me">
           <AboutMe />
         </div>
-        <div id="services" className="reveal">
+        <div id="services">
           <Services />
         </div>
-        <div id="work-experience" className="reveal">
+        <div id="work-experience">
           <WorkExperience />
         </div>
-        <div id="technologies" className="reveal">
+        <div id="technologies">
           <Technologies />
         </div>
-        <div id="projects" className="reveal">
+        <div id="projects">
           <Projects />
         </div>
-      </section>
+      </main>
 
     </>
   )

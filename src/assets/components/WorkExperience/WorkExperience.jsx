@@ -4,6 +4,7 @@ import './WorkExperience.css'
 import { WorkExperienceCard } from './WorkExperienceCard/WorkExperienceCard'
 import Slider from "react-slick";
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 
 export function WorkExperience() {
@@ -41,17 +42,21 @@ export function WorkExperience() {
 
     return (
         <section className='experience-container'>
-            <h5>{t('work_experience_title')}</h5>
+            <motion.div className='experience-header' initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} viewport={{ amount: 0.3, once: false }}>
+                <span className='eyebrow'>{t('work_experience_title')}</span>
+                <h5 className="section-title">{t('work_experience_title')}</h5>
+                <p className='experience-subtitle'>{t('workExperienceSubtitle', 'Experiencia construyendo productos de extremo a extremo en equipos multidisciplinares.')}</p>
+            </motion.div>
 
-            <div className='experience-content'>
+            <motion.div className='experience-content' initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.05 }} viewport={{ amount: 0.3, once: false }}>
 
-                <div className='arrow-right' onClick={sliderRight}>
+                <button className='arrow-right' onClick={sliderRight} aria-label="Siguiente experiencia">
                     <span className='material-symbols-outlined'>chevron_right</span>
-                </div>
+                </button>
 
-                <div className='arrow-left' onClick={sliderLeft}>
-                    <span disabled className='material-symbols-outlined'>chevron_left</span>
-                </div>
+                <button className='arrow-left' onClick={sliderLeft} aria-label="Anterior experiencia">
+                    <span className='material-symbols-outlined'>chevron_left</span>
+                </button>
 
                 <Slider ref={sliderRef} {...settings}>
                     {WORK_EXPERIENCE.map((item) => (
@@ -59,7 +64,7 @@ export function WorkExperience() {
                     ))}
                 </Slider>
 
-            </div>
+            </motion.div>
         </section>
     );
 }
