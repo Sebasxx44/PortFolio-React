@@ -9,9 +9,9 @@
 }
 
 .services-subtitle {
-    color: var(--muted);
+    color: var(--soft);
     max-width: 620px;
-    font-size: 0.98rem;
+    font-size: 1.05rem;
 }
 
 .services-content{
@@ -19,41 +19,43 @@
     margin-top: 1.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); 
-    gap: 18px; 
+    gap: 16px; 
 }
 
 .service-card{
     position: relative;
-    background: var(--surface);
-    padding: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.04));
+    padding: 22px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     justify-content: center;
     align-items: flex-start;
-    border-radius: 16px;
+    border-radius: var(--radius);
     text-align: left;
     user-select: none;
     border: 1px solid var(--border);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform var(--transition), border var(--transition), background var(--transition);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    transition: transform var(--transition), border var(--transition), background var(--transition), box-shadow var(--transition);
 }
 
 .service-card::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(125, 211, 252, 0.25), transparent 32%),
-        radial-gradient(circle at 80% 0%, rgba(192, 132, 252, 0.28), transparent 30%);
+    background: linear-gradient(130deg, rgba(245,245,247,0.12), rgba(41,151,255,0.16), transparent 68%);
     opacity: 0;
     transition: opacity var(--transition);
 }
 
 .service-card:hover{
-    border: 1px solid rgba(125, 211, 252, 0.6);
-    transform: translateY(-4px);
-    background: var(--surface-strong);
+    border: 1px solid rgba(255,255,255,0.24);
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.09);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
 }
 
 .service-card:hover::before {
@@ -65,27 +67,28 @@
     height: 48px;
     display: grid;
     place-items: center;
-    border-radius: 14px;
-    background: linear-gradient(140deg, rgba(125, 211, 252, 0.18), rgba(192, 132, 252, 0.18));
+    border-radius: var(--radius);
+    background: rgba(245, 245, 247, 0.1);
     color: var(--text);
     z-index: 1;
     border: 1px solid var(--border);
 }
 
-.service-icon i {
-    font-size: 1.5rem;
+.service-icon svg {
+    width: 1.55rem;
+    height: 1.55rem;
     color: var(--text);
 }
 
 .service-card h5 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin: 0;
     z-index: 1;
 }
 
 .service-card p {
     font-size: 0.95rem;
-    color: var(--muted);
+    color: var(--soft);
     z-index: 1;
 }
 

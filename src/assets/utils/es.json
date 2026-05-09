@@ -4,7 +4,12 @@
 {
   "aboutCv": {
   "download": "Descargar CV",
-  "chooseCvLanguage": "Selecciona el idioma del CV"
+  "chooseCvLanguage": "Elige tu CV",
+  "description": "Descarga una versión limpia y actualizada según el idioma que necesites.",
+  "format": "PDF actualizado",
+  "spanish": "Español",
+  "english": "Inglés",
+  "portuguese": "Portugués"
 },
   "projects": {
     "title": "Últimos Proyectos",
@@ -167,28 +172,36 @@
       "Soy desarrollador de software"
     ],
     "description": "Desarrollador Full Stack Junior con talento para resolver problemas y una mentalidad creativa. Dedicado a entregar soluciones web innovadoras.",
-    "download": "Descargar CV"
+    "download": "Descargar CV",
+    "available": "Disponible para proyectos",
+    "availableSub": "Frontend · Backend · UI"
+  },
+  "footer": {
+    "tagline": "Desarrollador Full Stack — Construyendo productos rápidos, accesibles y mantenibles.",
+    "rights": "Todos los derechos reservados.",
+    "backToTop": "Volver arriba"
   },
   "work_experience_title": "Experiencia Laboral",
   "workExp": [
     {
-      "title": "Desarrollador Fullstack - Fábrica de software - CDITI Dosquebradas",
-      "date": "3 - JULIO 2022 | 20 - SEPTIEMBRE 2023",
+      "title": "Desarrollador fullstack senior - Fábrica de software - CDITI Dosquebradas",
+      "date": "11 - JUNIO DE 2025 | ACTUALIDAD",
       "resp": [
-        "Desarrollé un sistema integral con Laravel para centralizar y gestionar información de múltiples bases de datos de una fundación sin ánimo de lucro.",
-        "Implementé colaboración y control de versiones con Git y GitLab para una gestión eficiente del código.",
-        "Optimizé el rendimiento de la base de datos con MySQL para garantizar un almacenamiento y recuperación de datos fiable.",
-        "Diseñé una arquitectura segura y escalable con Laravel para mejorar la organización, accesibilidad y seguridad de los datos, facilitando la toma de decisiones y el logro de metas en el trabajo social."
+        "Desarrollador de Software Senior en el proyecto Tayana del SENA, participando en el diseño, desarrollo y evolución de plataformas institucionales de alto impacto. Trabajo principalmente con Laravel y Nuxt para la construcción de soluciones web modernas, utilizando PostgreSQL para la gestión de bases de datos y Docker para la administración de entornos y contenedores."
       ]
     },
     {
-      "title": "Desarrollador Fullstack - Suzuki Motor de Colombia",
-      "date": "25 - SEPTIEMBRE 2023 | 1 - MAYO 2025",
+      "title": "Desarrollador fullstack - Suzuki Motor de Colombia",
+      "date": "1 - OCTUBRE DE 2023 | 1 - MAYO DE 2025",
       "resp": [
-        "Participación activa en el desarrollo full stack en Suzuki, usando React y Node para diseñar e implementar soluciones web desde cero.",
-        "Contribución integral desde el diseño hasta la implementación, asegurando coherencia y eficiencia en el desarrollo.",
-        "Colaboración efectiva usando Git y GitLab para manejar versiones y facilitar el trabajo en equipo.",
-        "Crecimiento profesional significativo y contribución al éxito de la empresa gracias a la experiencia adquirida y soluciones implementadas con React, Node, Git, GitLab y PostgreSQL."
+        "En Suzuki participé en el desarrollo de sistemas de importaciones e inventario, trabajando en frontend y backend. Contribuí en la implementación de funcionalidades que optimizaron procesos internos y fortalecieron mis habilidades como desarrollador full stack."
+      ]
+    },
+    {
+      "title": "Desarrollador fullstack - Fábrica de software - CDITI Dosquebradas",
+      "date": "13 - JULIO DE 2022 | 20 - SEPTIEMBRE DE 2023",
+      "resp": [
+        "Formé parte de un equipo de desarrollo encargado de crear un sistema de información completo para una fundación sin ánimo de lucro, utilizando Laravel y MySQL. Este sistema fue diseñado para centralizar y gestionar eficientemente la información, mejorando la organización, accesibilidad y seguridad de los datos."
       ]
     }
   ]

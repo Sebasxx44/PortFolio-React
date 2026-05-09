@@ -4,6 +4,7 @@ import { ProjectsCard } from "./ProjectsCard/ProjectsCard";
 import './Projects.css';
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 
 export function Projects() {
     const { t } = useTranslation();
@@ -21,11 +22,11 @@ export function Projects() {
         <>
             <section className="projects-container">
 
-                 <motion.div className="projects-header" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} viewport={{ once: false, amount: 0.3 }}>
+                 <div className="projects-header">
                     <span className="eyebrow">{t('projects.title')}</span>
-                    <h5 className="section-title">{t('projects.title')}</h5>
-                    <p className="projects-subtitle">{t('projectsSubtitle', 'Selección de productos recientes con foco en performance, contenido claro y microinteracciones cuidando la accesibilidad.')}</p>
-                 </motion.div>
+                    <h2 className="section-title">{t('projects.title')}</h2>
+                    <p className="projects-subtitle">{t('projectsSubtitle', 'Selection of recent builds focused on performance, clear storytelling, and thoughtful micro-interactions.')}</p>
+                 </div>
 
                 <div className="projects-content">
                     {PROJECTS.map((project, index) => {
@@ -34,6 +35,7 @@ export function Projects() {
                 </div>
             </section>
 
+            {/* Modal still uses framer-motion for enter/exit */}
             <AnimatePresence>
                 {selectedProject && (
                     <motion.div
@@ -51,7 +53,7 @@ export function Projects() {
                             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className="project-modal__close" onClick={closePreview} aria-label="Cerrar vista previa">
+                            <button className="project-modal__close" onClick={closePreview} aria-label="Close preview">
                                 <span className="material-symbols-outlined">close</span>
                             </button>
                             <div className="project-modal__header">
@@ -62,10 +64,10 @@ export function Projects() {
                                 </div>
                                 <div className="project-modal__links">
                                     <button className="project-btn-link" onClick={() => window.open(selectedProject.link, '_blank', 'noopener')}>
-                                        {t('projects.openNewTab', 'Abrir en pestaña nueva')}
+                                        <FaArrowUpRightFromSquare aria-hidden="true" /> {t('projects.openNewTab', 'Open in new tab')}
                                     </button>
                                     <button className="project-btn-github" onClick={() => window.open(selectedProject.github, '_blank', 'noopener')}>
-                                        <i className="fa-brands fa-github"></i> Github
+                                        <FaGithub aria-hidden="true" /> Github
                                     </button>
                                 </div>
                             </div>

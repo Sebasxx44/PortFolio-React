@@ -15,7 +15,6 @@ import mariadbIcon from '/images/mariadb.svg'
 import viteIcon from '/images/vitejs.svg'
 import dockerIcon from '/images/docker.svg'
 import typescriptIcon from '/images/typescript.svg'
-import figmaIcon from '/images/figma.svg'
 import tailwindcss from '/images/tailwindcss.svg'
 import sass from '/images/sass.svg'
 import sequelizeIcon from '/images/Sequelize.svg'
@@ -38,21 +37,25 @@ export const WORK_EXPERIENCE = [
     {
         title: 'workExp.0.title',
         date: 'workExp.0.date',
+        technologies: ['Javascript', 'PostgreSQL', 'Laravel', 'Vue Js', 'Git'],
         responsabilities: [
             'workExp.0.resp.0',
-            'workExp.0.resp.1',
-            'workExp.0.resp.2',
-            'workExp.0.resp.3',
         ],
     },
     {
         title: 'workExp.1.title',
         date: 'workExp.1.date',
+        technologies: ['Javascript', 'PostgreSQL', 'Node Js', 'React Js', 'Git'],
         responsabilities: [
             'workExp.1.resp.0',
-            'workExp.1.resp.1',
-            'workExp.1.resp.2',
-            'workExp.1.resp.3',
+        ],
+    },
+    {
+        title: 'workExp.2.title',
+        date: 'workExp.2.date',
+        technologies: ['Php', 'Laravel', 'Mysql', 'Git'],
+        responsabilities: [
+            'workExp.2.resp.0',
         ],
     },
 ];
@@ -61,17 +64,17 @@ export const SERVICES = [
   {
     title: 'services.0.title',
     description: 'services.0.description',
-    icon: 'fa-solid fa-code',
+    icon: 'code',
   },
   {
     title: 'services.1.title',
     description: 'services.1.description',
-    icon: 'fa-solid fa-palette',
+    icon: 'design',
   },
   {
     title: 'services.2.title',
     description: 'services.2.description',
-    icon: 'fa-solid fa-cogs',
+    icon: 'software',
   },
 ];
 
@@ -274,6 +277,3 @@ export const PROJECTS = [
     technologies: [nextIcon, typescriptIcon, tailwindcss],
   },
 ];
-
-
-
