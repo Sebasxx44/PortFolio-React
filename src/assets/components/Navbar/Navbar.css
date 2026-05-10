@@ -33,7 +33,6 @@
 
 .logoImgMovile {
     width: 150px;
-    margin-bottom: 32px;
 }
 
 .nav-content ul {
@@ -129,7 +128,9 @@
     width: 100%;
     height: 100vh;
     padding: 2rem 1.5rem;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .mobile-menu.active {
@@ -138,11 +139,68 @@
     pointer-events: auto;
 }
 
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logoImgMovile {
+    width: 140px;
+}
+
+.mobile-menu-nav {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .mobile-menu ul {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     list-style: none;
+    width: 100%;
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu.active li {
+    opacity: 0;
+    animation: slideUpFade 0.4s ease forwards;
+}
+
+.mobile-menu ul li a {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+}
+
+.mobile-menu ul li a .material-symbols-outlined {
+    font-size: 1.6rem;
+    color: var(--accent-2);
+}
+
+.mobile-menu-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.mobile-menu-divider {
+    width: 60px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
 }
 
 .mobile-menu ul li a{
@@ -155,9 +213,6 @@
 }
 
 .close-menu-btn {
-    position: absolute;
-    top: 18px;
-    right: 18px;
     width: 2.6rem;
     height: 2.6rem;
     border-radius: 999px;

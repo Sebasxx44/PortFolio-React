@@ -98,12 +98,31 @@
         margin: 0;
     }
 
+    .services-content {
+        grid-template-columns: 1fr;
+        padding: 10px 0;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .service-icon svg {
+        width: 1.45rem;
+        height: 1.45rem;
+    }
+
     .service-card h5 {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
     }
     
     .service-card p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
 }
