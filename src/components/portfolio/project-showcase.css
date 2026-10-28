@@ -280,6 +280,10 @@
   transform: scale(1.012);
 }
 
+.showcase-screen:hover img[src$="/ricardo-orozco.webp"] {
+  transform: none;
+}
+
 .showcase-screen-link {
   position: absolute;
   bottom: 18px;
