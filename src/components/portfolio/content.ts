@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "hv-santa-monica",
+    title: "HV Santa Mónica",
+    kind: "web",
+    description: {
+      es: "Cuidado veterinario con identidad propia, un catálogo interactivo y un recorrido visual conectado.",
+      en: "Distinctive veterinary care with an interactive service catalog and a connected visual journey.",
+      pt: "Cuidado veterinário com identidade própria, catálogo interativo e uma jornada visual conectada.",
+    },
+    image: "hv-santa-monica",
+    url: "https://hv-santa-monica-sebaz.vercel.app/",
+    source: `${github}/hv-santa-monica`,
+    stack: ["Astro", "TypeScript", "SVG"],
+    tone: "teal",
+  },
+  {
     id: "ricardo-orozco",
     title: "Dr. Ricardo Orozco",
     kind: "web",

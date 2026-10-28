@@ -271,7 +271,8 @@
 }
 
 .showcase-screen img[src$="/consteladora.webp"],
-.showcase-screen img[src$="/ricardo-orozco.webp"] {
+.showcase-screen img[src$="/ricardo-orozco.webp"],
+.showcase-screen img[src$="/hv-santa-monica.webp"] {
   object-fit: contain;
   object-position: center;
 }
@@ -280,7 +281,8 @@
   transform: scale(1.012);
 }
 
-.showcase-screen:hover img[src$="/ricardo-orozco.webp"] {
+.showcase-screen:hover img[src$="/ricardo-orozco.webp"],
+.showcase-screen:hover img[src$="/hv-santa-monica.webp"] {
   transform: none;
 }
 
