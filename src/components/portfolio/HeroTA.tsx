@@ -66,13 +66,6 @@ export const HeroTA = ({
           role="group"
           aria-label={copy.sculpture}
         >
-          <span className="stage-cross stage-cross--one" aria-hidden="true">
-            +
-          </span>
-          <span className="stage-cross stage-cross--two" aria-hidden="true">
-            +
-          </span>
-          <div className="stage-grid" aria-hidden="true" />
           <div className="sculpture-fallback" aria-hidden="true">
             <img src="/models/sebaz-avatar-texture.webp" alt="" width="1200" height="1185" />
           </div>

@@ -180,6 +180,51 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "hito",
+    title: "HITO Destinos",
+    kind: "web",
+    description: {
+      es: "Un atlas visual para descubrir lugares y guardar nuevas rutas.",
+      en: "A visual atlas to discover places and save new routes.",
+      pt: "Um atlas visual para descobrir lugares e salvar novas rotas.",
+    },
+    image: "hito-destinos",
+    url: "https://hito-destinos-sebaz.vercel.app/",
+    source: `${github}/hito-destinos`,
+    stack: ["Astro", "TypeScript", "CSS"],
+    tone: "sand",
+  },
+  {
+    id: "vertice",
+    title: "VÉRTICE Drive",
+    kind: "web",
+    description: {
+      es: "Movilidad con carácter y un simulador de alquiler a medida.",
+      en: "Distinctive mobility with a personalized rental simulator.",
+      pt: "Mobilidade com personalidade e simulador de aluguel personalizado.",
+    },
+    image: "vertice-drive",
+    url: "https://vertice-drive-sebaz.vercel.app/",
+    source: `${github}/vertice-drive`,
+    stack: ["Astro", "TypeScript", "CSS"],
+    tone: "silver",
+  },
+  {
+    id: "segundo",
+    title: "SEGUNDO Relojes",
+    kind: "web",
+    description: {
+      es: "Una tienda editorial de relojes, favoritos y compra simulada.",
+      en: "An editorial watch store with favorites and simulated checkout.",
+      pt: "Uma loja editorial de relógios, favoritos e compra simulada.",
+    },
+    image: "segundo-relojes",
+    url: "https://segundo-relojes-sebaz.vercel.app/",
+    source: `${github}/segundo-relojes`,
+    stack: ["TypeScript", "Vite", "CSS"],
+    tone: "silver",
+  },
+  {
     id: "forma",
     title: "FORMA Objects",
     kind: "app",

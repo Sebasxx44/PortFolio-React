@@ -49,15 +49,9 @@ export const createSculptureScene = (canvas: HTMLCanvasElement): SculptureScene 
   key.shadow.normalBias = 0.015;
   const fill = new THREE.DirectionalLight("#dce9ff", 1.3);
   fill.position.set(3, 1, 3);
-  const rim = new THREE.DirectionalLight("#d5f6aa", 2.4);
+  const rim = new THREE.DirectionalLight("#edf1f8", 2.4);
   rim.position.set(1, 2, -3);
   scene.add(key, fill, rim);
-  const haloGeometry = new THREE.TorusGeometry(1.62, 0.007, 6, 150);
-  const haloMaterial = new THREE.MeshBasicMaterial({ color: "#a8bd85", transparent: true, opacity: 0.42 });
-  const halo = new THREE.Mesh(haloGeometry, haloMaterial);
-  halo.position.set(0, 0.1, -0.9);
-  halo.rotation.y = -0.2;
-  scene.add(halo);
 
   // Public API
   const resize = () => {
@@ -79,7 +73,7 @@ export const createSculptureScene = (canvas: HTMLCanvasElement): SculptureScene 
     },
     dispose: () => {
       disposed = true;
-      avatar?.dispose(); haloGeometry.dispose(); haloMaterial.dispose();
+      avatar?.dispose();
       key.shadow.map?.dispose(); environment.dispose(); renderer.dispose();
     },
   };
