@@ -1,0 +1,35 @@
+/* Keep the decorative layer behind page content and above the root backdrop. */
+#root:has(.space-backdrop) {
+  position: relative;
+  isolation: isolate;
+}
+
+.space-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+  background:
+    radial-gradient(ellipse at 90% 4%, rgb(39 44 85 / 0.22), transparent 58%),
+    radial-gradient(ellipse at 0% 80%, rgb(20 49 67 / 0.13), transparent 48%),
+    #080c17;
+}
+
+.space-backdrop-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-backdrop-canvas {
+    opacity: 0.86;
+  }
+}
