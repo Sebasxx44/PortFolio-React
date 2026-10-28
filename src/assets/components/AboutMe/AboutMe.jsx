@@ -96,7 +96,7 @@ export function AboutMe() {
                             <button className="button-github" onClick={() => window.open("https://github.com/Sebasxx44", '_blank', 'noopener')} aria-label="Open Github profile">
                                 <FaGithub aria-hidden="true" /> Github
                             </button>
-                            <button className="button-linkedin" onClick={() => window.open("https://www.linkedin.com/in/sebastian-sanchez-osorio/", '_blank', 'noopener')} aria-label="Open LinkedIn profile">
+                            <button className="button-linkedin" onClick={() => window.open("https://www.linkedin.com/in/sebazz/", '_blank', 'noopener')} aria-label="Open LinkedIn profile">
                                 <FaLinkedinIn aria-hidden="true" /> LinkedIn
                             </button>
                         </div>

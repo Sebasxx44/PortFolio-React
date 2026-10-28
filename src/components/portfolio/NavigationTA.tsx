@@ -14,7 +14,7 @@ export const NavigationTA = ({
   const { copy, locale, setLocale } = preferences;
   const ids = ["work", "about", "experience"];
   return (
-    <header className="site-header">
+    <header className="site-navigation">
       <a href="#home" className="wordmark" aria-label={`Sebaz · ${copy.home}`}>
         sebaz<span className="wordmark-dot">®</span>
       </a>

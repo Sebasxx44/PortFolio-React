@@ -5,7 +5,7 @@ import pt from "@/assets/utils/pt.json";
 
 export const email = "sanchezz3s47@gmail.com";
 export const github = "https://github.com/Sebasxx44";
-export const linkedin = "https://www.linkedin.com/in/sebastian-sanchez-osorio/";
+export const linkedin = "https://www.linkedin.com/in/sebazz/";
 export const experience = { es: es.workExp, en: en.workExp, pt: pt.workExp };
 export const cv: Record<Locale, string> = {
   es: "/cvs/CV-Sebastian-Sanchez-Espanol.pdf",
@@ -285,32 +285,32 @@ export const projects: Project[] = [
   },
   {
     id: "dashboard",
-    title: "Data in motion",
+    title: "Data in Motion",
     kind: "app",
     description: {
-      es: "Datos complejos, una perspectiva más clara.",
-      en: "Complex data. A clearer perspective.",
-      pt: "Dados complexos. Uma perspectiva mais clara.",
+      es: "Métricas, tendencias y transacciones en una experiencia analítica interactiva.",
+      en: "Metrics, trends and transactions in an interactive analytics workspace.",
+      pt: "Métricas, tendências e transações em uma experiência analítica interativa.",
     },
     image: "dashboard",
     url: "https://dashboard-sebaz.vercel.app/",
     source: `${github}/DashboardReact`,
-    stack: ["React", "TypeScript", "Sass"],
+    stack: ["React", "TypeScript", "Recharts"],
     tone: "violet",
   },
   {
     id: "natunest",
-    title: "Natunest",
+    title: "NatuNest",
     kind: "web",
     description: {
-      es: "Una invitación a explorar la naturaleza de Pereira.",
-      en: "An invitation to explore the nature of Pereira.",
-      pt: "Um convite para explorar a natureza de Pereira.",
+      es: "Destinos del Eje Cafetero, favoritos y rutas para explorar a tu ritmo.",
+      en: "Coffee Region destinations, saved places and routes to explore at your own pace.",
+      pt: "Destinos do Eixo Cafeeiro, favoritos e roteiros para explorar no seu ritmo.",
     },
     image: "app-travel",
     url: "https://natunest.vercel.app/",
     source: `${github}/landing_page_app_travel`,
-    stack: ["Next.js", "TypeScript", "Tailwind"],
+    stack: ["Next.js", "TypeScript", "CSS"],
     tone: "sand",
   },
   {

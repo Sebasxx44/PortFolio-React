@@ -58,7 +58,7 @@ export function Footer() {
                         <a href="https://github.com/Sebasxx44" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="GitHub">
                             <FaGithub aria-hidden="true" />
                         </a>
-                        <a href="https://www.linkedin.com/in/sebastian-sanchez-osorio/" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/sebazz/" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="LinkedIn">
                             <FaLinkedinIn aria-hidden="true" />
                         </a>
                         <a href="mailto:sanchezz3s47@gmail.com" className="footer-social-link" aria-label="Email">

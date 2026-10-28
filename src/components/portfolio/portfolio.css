@@ -42,7 +42,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 112px;
+  scroll-padding-top: 32px;
 }
 body {
   margin: 0;
@@ -124,19 +124,17 @@ select:focus-visible {
   transform-origin: 0 50%;
   z-index: 99;
 }
-.site-header {
+.site-navigation {
   height: 90px;
   padding: 0 max(4.5vw, 24px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
+  position: absolute;
+  inset: 0 0 auto;
   z-index: 30;
-  background: rgb(8 12 23 / 0.86);
-  backdrop-filter: blur(16px);
+  background: transparent;
 }
 .wordmark {
   font-family: var(--display);
@@ -270,7 +268,7 @@ select:focus-visible {
   margin-inline: auto;
 }
 .hero {
-  padding-top: 35px;
+  padding-top: 125px;
   position: relative;
 }
 .hero-topline {
@@ -584,7 +582,7 @@ h1 > span {
   color: var(--muted);
 }
 .about-section {
-  background: #10182a80;
+  background: transparent;
   color: var(--ink);
   border-block: 1px solid var(--line);
   padding-block: 95px 100px;
@@ -856,7 +854,7 @@ h1 > span {
   color: var(--muted);
 }
 .contact-section {
-  background: #070c18b3;
+  background: transparent;
   color: var(--ink);
   border-top: 1px solid var(--line);
   max-width: none;
@@ -996,7 +994,7 @@ h1 > span {
 }
 
 @media (min-width: 1721px) {
-  .site-header {
+  .site-navigation {
     padding-inline: calc((100vw - 1565px) / 2);
   }
   .hero-composition {
@@ -1021,7 +1019,7 @@ h1 > span {
   .header-actions {
     gap: 15px;
   }
-  .site-header {
+  .site-navigation {
     height: 80px;
   }
   .hero-composition {
@@ -1084,9 +1082,9 @@ h1 > span {
 }
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 86px;
+    scroll-padding-top: 24px;
   }
-  .site-header {
+  .site-navigation {
     height: 73px;
     gap: 16px;
     padding-inline: 22px;
@@ -1111,7 +1109,7 @@ h1 > span {
     padding-inline: 22px;
   }
   .hero {
-    padding-top: 26px;
+    padding-top: 99px;
   }
   .hero-topline {
     gap: 10px;
@@ -1400,7 +1398,7 @@ h1 > span {
   .section-shell {
     padding-inline: 16px;
   }
-  .site-header {
+  .site-navigation {
     padding-inline: 16px;
   }
   .hero-coordinate {
