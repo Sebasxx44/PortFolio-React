@@ -1,9 +1,26 @@
 import { useState } from "react";
-import { FiArrowDownRight } from "react-icons/fi";
+import {
+  FiActivity,
+  FiArrowDownRight,
+  FiArrowUpRight,
+  FiCode,
+  FiCommand,
+  FiDisc,
+} from "react-icons/fi";
 import { ActionHeaderTA } from "@/components/portfolio/ActionHeaderTA";
+import { AsteriskTA } from "@/components/portfolio/AsteriskTA";
 import { RevealTA } from "@/components/portfolio/RevealTA";
 import { stackGroups } from "@/components/portfolio/content";
 import type { Copy } from "@/components/portfolio/types";
+
+const stackSymbols = [
+  <FiCommand key="command" />,
+  <FiCode key="code" />,
+  <FiArrowUpRight key="arrow" />,
+  <FiDisc key="disc" />,
+  <FiActivity key="activity" />,
+  <AsteriskTA key="asterisk" />,
+];
 
 export const StackSectionTA = ({ copy }: { copy: Copy }) => {
   const [group, setGroup] = useState(0);
@@ -39,7 +56,7 @@ export const StackSectionTA = ({ copy }: { copy: Copy }) => {
             {stackGroups[group].map((name, index) => (
               <li key={name}>
                 <span className="stack-symbol" aria-hidden="true">
-                  {["⌘", "{ }", "↗", "◎", "⌁", "✳"][index]}
+                  {stackSymbols[index]}
                 </span>
                 <span>{name}</span>
                 <small>0{index + 1}</small>

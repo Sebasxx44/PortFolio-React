@@ -1,5 +1,6 @@
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
 import { ActionHeaderTA } from "@/components/portfolio/ActionHeaderTA";
+import { AsteriskTA } from "@/components/portfolio/AsteriskTA";
 import { RevealTA } from "@/components/portfolio/RevealTA";
 import { github, linkedin } from "@/components/portfolio/content";
 import type { Copy } from "@/components/portfolio/types";
@@ -28,14 +29,14 @@ export const AboutSectionTA = ({ copy }: { copy: Copy }) => (
           <div className="portrait-label">
             <FiMapPin aria-hidden="true" />
             <span>Pereira, Colombia</span>
-            <span>↗</span>
+            <span aria-hidden="true"><FiArrowUpRight /></span>
           </div>
         </div>
         <span className="portrait-signature">Sebastián.</span>
       </RevealTA>
       <RevealTA delay={0.1} className="about-story">
         <span className="about-asterisk" aria-hidden="true">
-          ✳
+          <AsteriskTA />
         </span>
         <p className="about-lead">{copy.aboutText}</p>
         <p className="about-note">{copy.aboutNote}</p>

@@ -1,6 +1,7 @@
 import { FiArrowUp, FiArrowUpRight, FiCheck, FiCopy } from "react-icons/fi";
 import { email, github, linkedin } from "@/components/portfolio/content";
 import { RevealTA } from "@/components/portfolio/RevealTA";
+import { AsteriskTA } from "@/components/portfolio/AsteriskTA";
 import { useContact } from "@/composables/portfolio/useContact";
 import type { Copy } from "@/components/portfolio/types";
 
@@ -15,7 +16,7 @@ export const ContactSectionTA = ({ copy }: { copy: Copy }) => {
             {copy.contactLabel}
           </p>
           <span className="contact-star" aria-hidden="true">
-            ✳
+            <AsteriskTA />
           </span>
         </div>
         <a className="contact-heading" href={`mailto:${email}`}>
