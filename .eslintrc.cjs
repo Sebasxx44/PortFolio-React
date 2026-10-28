@@ -7,6 +7,12 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
+  overrides: [{
+    files: ['src/components/portfolio/**/*.{ts,tsx}', 'src/composables/portfolio/**/*.{ts,tsx}'],
+    parser: '@typescript-eslint/parser',
+    extends: ['plugin:@typescript-eslint/recommended'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  }],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },

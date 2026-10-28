@@ -24,13 +24,10 @@ import muiIcon from '/images/mui.svg'
 
 // images apps
 
-import appOpenAI from '/images/app-OpenAI.png'
-import appRealTimeChat from '/images/app-realtime-chat.png'
 import appTravel from '/images/app-travel.png'
 import appDashboard from '/images/dashboard.png'
 import gascertcol from '/images/gascertcol.png'
 import consteladora from '/images/consteladora.png'
-import azharslimpieza from '/images/azharslimpieza.png'
 
 
 export const WORK_EXPERIENCE = [
@@ -220,14 +217,7 @@ export const TECHNOLOGIES = [
 ];
 
 export const PROJECTS = [
-  {
-    name: 'projects.azhars.name',
-    description: 'projects.azhars.description',
-    link: 'https://azharslimpieza.com.co/',
-    github: 'https://github.com/Sebasxx44',
-    image: azharslimpieza,
-    technologies: [reactIcon, JavascriptIcon, cssIcon],
-  },
+
   {
     name: 'projects.consteladora.name',
     description: 'projects.consteladora.description',
@@ -244,14 +234,7 @@ export const PROJECTS = [
     image: gascertcol,
     technologies: [reactIcon, JavascriptIcon, tailwindcss],
   },
-  {
-    name: 'projects.articlesGPT.name',
-    description: 'projects.articlesGPT.description',
-    link: 'https://articlesopenai.netlify.app/',
-    github: 'https://github.com/Sebasxx44/OpenAI_Articles_Generator',
-    image: appOpenAI,
-    technologies: [reactIcon, JavascriptIcon, tailwindcss],
-  },
+
   {
     name: 'projects.dashboard.name',
     description: 'projects.dashboard.description',
@@ -260,14 +243,7 @@ export const PROJECTS = [
     image: appDashboard,
     technologies: [reactIcon, typescriptIcon, sass],
   },
-  {
-    name: 'projects.realTimeChat.name',
-    description: 'projects.realTimeChat.description',
-    link: 'https://talkzones.vercel.app/',
-    github: 'https://github.com/Sebasxx44/chat-real-time',
-    image: appRealTimeChat,
-    technologies: [reactIcon, JavascriptIcon, firebaseIcon, cssIcon],
-  },
+
   {
     name: 'projects.travelLanding.name',
     description: 'projects.travelLanding.description',

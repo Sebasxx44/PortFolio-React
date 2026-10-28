@@ -1,8 +1,25 @@
-# React + Vite
+# Sebaz · Portafolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio personal de Sebastián Sánchez. React 19, TypeScript, Vite 8, Three.js y Motion.
 
-Currently, two official plugins are available:
+## Desarrollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Requiere Node.js 22.12 o superior (recomendado: 24 LTS).
+
+```sh
+npm install
+npm run dev
+```
+
+```sh
+npm run test
+npm run typecheck
+npm run lint
+npm run build
+```
+
+El contenido y los enlaces están en `src/components/portfolio/content.ts`. Los componentes nuevos usan el sufijo TA y los alias `@/`. La lógica de preferencias, navegación y renderizado vive en `src/composables/portfolio`.
+
+La escena 3D se carga por separado, admite ratón, gestos horizontales y botones accesibles. Detiene la animación fuera de pantalla y respeta movimiento reducido. Mantiene una composición CSS si WebGL no está disponible. Los idiomas ES, EN y PT conservan sus CV originales.
+
+Dirección visual inspirada en [MotionSites](https://motionsites.ai/), con composición y escena 3D propias. La publicación corresponde al proyecto existente de Vercel; no se modifica desde los comandos de desarrollo.

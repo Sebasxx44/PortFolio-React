@@ -1,0 +1,8 @@
+{
+  "owner": "Sebastián Sánchez",
+  "texture": "/models/sebaz-avatar-texture.webp",
+  "model": "/models/sebaz-avatar.glb",
+  "imageTool": "Built-in image_gen; identity references supplied by the owner",
+  "geometry": "Facial landmarks reconstructed locally into a depth mesh, with a curved back shell and animated eye openings and eyelids. Estimated geometry, not a volumetric scan. The web portrait has a fixed frontal orientation and centered gaze; only blinking is animated.",
+  "finalPrompt": "Use case: style-transfer. Input 1 and 2 are identity references. Input 3 is the EDIT TARGET. Change ONLY the rendering style of the third image into a clearly stylized premium animated-feature CGI character, like a beautifully sculpted modern 3D portfolio avatar. It must unmistakably look like an artist-made 3D CHARACTER, not a cutout photograph: smooth warm tan skin with subtle soft shading, slightly larger expressive brown eyes, simplified strong facial planes, groomed short beard made of softly sculpted masses with subtle strands rather than photographic stubble, short black wavy curls designed as natural soft 3D clumps with fine highlights, fade on sides, dark thick eyebrows, medium full lips, stud earrings and thin necklace as in the original. Keep his adult identity and facial proportions recognizable. No baby face, no giant eyes, no long hair. Keep exact same perfectly straight-on head pose, full head, short neck and black collar, transparent background, centered upright orthographic camera. Both ears equally visible, gaze straight ahead, mouth gently closed. Premium believable stylized rendering, calm approachable expression, matte materials, soft even neutral studio lighting. No scenery, no text, no watermark. Preserve actual transparent alpha."
+}
