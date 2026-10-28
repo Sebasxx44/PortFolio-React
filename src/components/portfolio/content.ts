@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "ricardo-orozco",
+    title: "Dr. Ricardo Orozco",
+    kind: "web",
+    description: {
+      es: "Odontología con una nueva identidad, vectores conectados al scroll y un diario de salud oral.",
+      en: "A fresh dental identity, scroll-connected vectors and an oral health journal.",
+      pt: "Odontologia com nova identidade, vetores conectados à rolagem e um diário de saúde oral.",
+    },
+    image: "ricardo-orozco",
+    url: "https://ricardo-orozco-sebaz.vercel.app/inicio",
+    source: `${github}/ricardo-orozco-odontologia`,
+    stack: ["Astro", "TypeScript", "SVG"],
+    tone: "blue",
+  },
+  {
     id: "hito",
     title: "HITO Destinos",
     kind: "web",
