@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "automotores-andina",
+    title: "Automotores Andina",
+    kind: "web",
+    description: {
+      es: "Rediseño conceptual automotriz con una selección de 106 vehículos del catálogo original, filtros, favoritos y fichas con fotografías reales.",
+      en: "An automotive redesign concept featuring a snapshot of 106 original catalog vehicles, filters, favorites and detail pages with real photography.",
+      pt: "Redesign conceitual automotivo com uma seleção de 106 veículos do catálogo original, filtros, favoritos e páginas com fotografias reais.",
+    },
+    image: "automotores-andina",
+    url: "https://automotores-andina-next.vercel.app/",
+    source: `${github}/automotores-andina-next`,
+    stack: ["Vue 3", "TypeScript", "Vite"],
+    tone: "slate",
+  },
+  {
     id: "family-pet",
     title: "Family Pet",
     kind: "web",
