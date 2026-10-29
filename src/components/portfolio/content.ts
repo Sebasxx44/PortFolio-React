@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "draconis-3d",
+    title: "Draconis 3D",
+    kind: "web",
+    description: {
+      es: "Vitrina premium de dragones coleccionables, con un dragón 3D original animado, catálogo interactivo y consultas por WhatsApp.",
+      en: "A premium collectible dragon showcase with an original animated 3D dragon, an interactive catalog and WhatsApp inquiries.",
+      pt: "Vitrine premium de dragões colecionáveis, com um dragão 3D original animado, catálogo interativo e consultas pelo WhatsApp.",
+    },
+    image: "draconis",
+    url: "https://draconis-3d.vercel.app/",
+    source: `${github}/draconis-3d`,
+    stack: ["Next.js", "TypeScript", "React Three Fiber"],
+    tone: "slate",
+  },
+  {
     id: "automotores-andina",
     title: "Automotores Andina",
     kind: "web",
