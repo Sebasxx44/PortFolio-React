@@ -45,18 +45,14 @@ const IndexFixtureTA = () => {
           {item.title}
         </button>
       ))}
-      <select
+      <button
         ref={navigation.selectorRef}
+        type="button"
         aria-label="Choose project"
-        value={selection.active?.id}
-        onChange={(event) => selection.select(event.target.value)}
+        aria-haspopup="dialog"
       >
-        {collection.visible.map((item) => (
-          <option key={item.id} value={item.id}>
-            {item.title}
-          </option>
-        ))}
-      </select>
+        {selection.active?.title}
+      </button>
       <div ref={navigation.panelRef}>
         <div key={selection.active?.id}>
           <a href={selection.active?.url}>Demo {selection.active?.title}</a>
@@ -213,7 +209,7 @@ describe("project showcase navigation", () => {
     expect(document.activeElement).toBe(target);
   });
 
-  it("transfers focus between the active index row and native selector across the mobile breakpoint", () => {
+  it("transfers focus between the active index row and project picker across the mobile breakpoint", () => {
     const viewport = mockViewport();
     render(<IndexFixtureTA />);
     const selected = screen.getByRole("button", { name: "four" });
@@ -222,7 +218,7 @@ describe("project showcase navigation", () => {
     // A browser may blur the display:none tab before the media event arrives.
     act(() => selected.blur());
     viewport.dispatch();
-    expect(document.activeElement).toBe(screen.getByRole("combobox"));
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "Choose project" }));
     viewport.setMobile(false);
     viewport.dispatch();
     expect(document.activeElement).toBe(selected);

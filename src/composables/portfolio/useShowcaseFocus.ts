@@ -5,7 +5,7 @@ type FocusArea = "index" | "selector" | null;
 
 export const useShowcaseFocus = (activeId: string): ShowcaseFocusState => {
   const panelRef = useRef<HTMLDivElement>(null);
-  const selectorRef = useRef<HTMLSelectElement>(null);
+  const selectorRef = useRef<HTMLButtonElement>(null);
   const indexRefs = useRef(new Map<string, HTMLButtonElement>());
 
   // Keep the focused control available when its responsive counterpart appears.
@@ -34,7 +34,7 @@ export const useShowcaseFocus = (activeId: string): ShowcaseFocusState => {
       const previousArea =
         document.activeElement === document.body ? focusedArea : null;
       const area = currentArea ?? previousArea;
-      if (event.matches && area === "index") selectorRef.current?.focus();
+      if (event.matches && area === "index") selectorRef.current?.focus({ preventScroll: true });
       else if (!event.matches && area === "selector")
         indexRefs.current.get(activeId)?.focus();
       previousMobile = event.matches;

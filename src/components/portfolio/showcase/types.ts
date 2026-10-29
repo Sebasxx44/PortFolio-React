@@ -32,7 +32,7 @@ export interface ShowcaseNavigation {
   previous: () => void;
   next: () => void;
   panelRef: RefObject<HTMLDivElement | null>;
-  selectorRef: RefObject<HTMLSelectElement | null>;
+  selectorRef: RefObject<HTMLButtonElement | null>;
   setIndexRef: (id: string) => RefCallback<HTMLButtonElement>;
   onIndexPointerEnter: (
     event: PointerEvent<HTMLButtonElement>,
@@ -46,7 +46,7 @@ export interface ShowcaseNavigation {
 
 export interface ShowcaseFocusState {
   panelRef: RefObject<HTMLDivElement | null>;
-  selectorRef: RefObject<HTMLSelectElement | null>;
+  selectorRef: RefObject<HTMLButtonElement | null>;
   setIndexRef: (id: string) => RefCallback<HTMLButtonElement>;
   focusIndex: (id: string) => void;
   isPreviewFocused: () => boolean;

@@ -7,6 +7,7 @@ import {
 } from "react-icons/fi";
 import { ActionHeaderTA } from "@/components/portfolio/ActionHeaderTA";
 import { RevealTA } from "@/components/portfolio/RevealTA";
+import { ProjectPickerTA } from "@/components/portfolio/showcase/ProjectPickerTA";
 import { showcaseLabels } from "@/components/portfolio/showcase/copy";
 import { useProjectShowcase } from "@/composables/portfolio/useProjectShowcase";
 import type { PortfolioPreferences } from "@/components/portfolio/types";
@@ -100,22 +101,14 @@ export const WorkSectionTA = ({
             <p className="project-index-hint">{labels.keyboard}</p>
           </aside>
           <div className="showcase-feature">
-            <div className="showcase-mobile-selector">
-              <label htmlFor="showcase-project-select">{labels.select}</label>
-              <select
-                ref={navigation.selectorRef}
-                id="showcase-project-select"
-                value={active.id}
-                aria-controls="project-showcase-panel"
-                onChange={(event) => selection.select(event.target.value)}
-              >
-                {collection.visible.map((project, index) => (
-                  <option key={project.id} value={project.id}>
-                    {String(index + 1).padStart(2, "0")} — {project.title}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <ProjectPickerTA
+              active={active}
+              projects={collection.visible}
+              position={selection.position}
+              locale={locale}
+              triggerRef={navigation.selectorRef}
+              onSelect={selection.select}
+            />
             <div className="showcase-preview-topline" aria-hidden="true">
               <span>{active.kind === "web" ? labels.website : labels.application}</span>
               <span>{new URL(active.url).hostname}</span>
