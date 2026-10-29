@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "family-pet",
+    title: "Family Pet",
+    kind: "web",
+    description: {
+      es: "Propuesta de guardería canina con fotos oficiales, páginas optimizadas para SEO y un recorrido vectorial animado al scroll.",
+      en: "A dog daycare proposal with official photography, SEO-focused pages and a vector journey animated on scroll.",
+      pt: "Proposta de creche canina com fotos oficiais, páginas otimizadas para SEO e um percurso vetorial animado ao rolar.",
+    },
+    image: "family-pet",
+    url: "https://family-pet-sebaz.vercel.app/",
+    source: `${github}/family-pet-guarderia`,
+    stack: ["JavaScript", "CSS", "SVG"],
+    tone: "sage",
+  },
+  {
     id: "senderos",
     title: "Senderos",
     kind: "web",
