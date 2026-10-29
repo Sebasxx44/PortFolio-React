@@ -188,7 +188,7 @@ export const projects: Project[] = [
       en: "A dog daycare proposal with official photography, SEO-focused pages and a vector journey animated on scroll.",
       pt: "Proposta de creche canina com fotos oficiais, páginas otimizadas para SEO e um percurso vetorial animado ao rolar.",
     },
-    image: "family-pet",
+    image: "family-pet-cafe",
     url: "https://family-pet-sebaz.vercel.app/",
     source: `${github}/family-pet-guarderia`,
     stack: ["JavaScript", "CSS", "SVG"],
