@@ -180,6 +180,36 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "senderos",
+    title: "Senderos",
+    kind: "web",
+    description: {
+      es: "Propuesta para un jardín campestre, con fotos reales, videos y un mundo ilustrado que cobra vida al desplazarse.",
+      en: "A countryside preschool proposal with real photography, videos and an illustrated world brought to life on scroll.",
+      pt: "Proposta para uma escola infantil no campo, com fotos reais, vídeos e um mundo ilustrado que ganha vida ao rolar.",
+    },
+    image: "senderos",
+    url: "https://senderos-jardin-infantil-sebaz.vercel.app/",
+    source: `${github}/senderos-jardin-infantil`,
+    stack: ["JavaScript", "CSS", "SVG"],
+    tone: "sage",
+  },
+  {
+    id: "habitu",
+    title: "Habitu",
+    kind: "app",
+    description: {
+      es: "Descubrimiento de servicios y reservas en Pereira, con herramientas para negocios, profesionales y clientes.",
+      en: "Service discovery and bookings in Pereira, with tools for businesses, professionals and customers.",
+      pt: "Descoberta de serviços e reservas em Pereira, com ferramentas para negócios, profissionais e clientes.",
+    },
+    image: "habitu",
+    url: "https://habitu-sebaz.vercel.app/",
+    source: `${github}/habitu`,
+    stack: ["React", "TypeScript", "Laravel", "PostgreSQL"],
+    tone: "violet",
+  },
+  {
     id: "hv-santa-monica",
     title: "HV Santa Mónica",
     kind: "web",
