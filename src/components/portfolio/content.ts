@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "purple-cocktail",
+    title: "Purple Cocktail",
+    kind: "web",
+    description: {
+      es: "Recorre con el scroll los granizados y hamburguesas de Purple. Explora sus ingredientes en 3D, arma tu pedido y envíalo por WhatsApp.",
+      en: "Scroll through Purple’s slushies and burgers, explore their ingredients in 3D, then build your order and send it on WhatsApp.",
+      pt: "Percorra a vitrine de raspadinhas e hambúrgueres da Purple, explore os ingredientes em 3D e envie seu pedido pelo WhatsApp.",
+    },
+    image: "purple-cocktail",
+    url: "https://purple-cocktail.vercel.app/",
+    source: `${github}/purple-cocktail`,
+    stack: ["WebGL", "JavaScript", "CSS"],
+    tone: "violet",
+  },
+  {
     id: "cholados-faber-y-paty",
     title: "Faber & Paty",
     kind: "web",
