@@ -180,6 +180,21 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "cholados-faber-y-paty",
+    title: "Faber & Paty",
+    kind: "web",
+    description: {
+      es: "Carta interactiva para un puesto de cholados de Quimbaya y su local en Armenia. Cada giro de la rueda descubre otro vaso en 3D, con sus frutas, hielo y barquillos.",
+      en: "An interactive menu for a shaved-ice stand in Quimbaya and its shop in Armenia, Colombia. Scroll through six drinks in 3D, surrounded by their fruit, ice and wafers.",
+      pt: "Cardápio interativo para uma barraca de raspadinhas em Quimbaya e sua loja em Armenia, na Colômbia. A rolagem percorre seis bebidas em 3D com frutas, gelo e canudinhos de biscoito.",
+    },
+    image: "cholados-faber-y-paty",
+    url: "https://cholados-faber-y-paty.vercel.app/",
+    source: `${github}/cholados-faber-y-paty`,
+    stack: ["WebGL", "JavaScript", "CSS"],
+    tone: "violet",
+  },
+  {
     id: "lovely-moments",
     title: "Lovely Moments",
     kind: "web",
