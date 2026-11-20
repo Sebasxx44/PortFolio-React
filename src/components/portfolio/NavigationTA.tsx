@@ -1,4 +1,4 @@
-import { FiArrowUpRight, FiGlobe, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useNavigation } from "@/composables/portfolio/useNavigation";
 import type {
   Locale,
@@ -28,13 +28,11 @@ export const NavigationTA = ({
             }
           >
             {label}
-            <span className="nav-dot" />
           </a>
         ))}
       </nav>
       <div className="header-actions">
         <label className="language-select">
-          <FiGlobe aria-hidden="true" />
           <span className="sr-only">{copy.language}</span>
           <select
             value={locale}
@@ -47,7 +45,6 @@ export const NavigationTA = ({
         </label>
         <a className="header-contact" href="#contact">
           {copy.contact}
-          <FiArrowUpRight aria-hidden="true" />
         </a>
         <button
           className="menu-toggle"
@@ -69,15 +66,11 @@ export const NavigationTA = ({
         <nav aria-label={copy.menu}>
           {copy.nav.map((label, index) => (
             <a href={`#${ids[index]}`} onClick={navigation.close} key={label}>
-              <small>0{index + 1}</small>
               {label}
-              <FiArrowUpRight aria-hidden="true" />
             </a>
           ))}
           <a href="#contact" onClick={navigation.close}>
-            <small>04</small>
             {copy.contact}
-            <FiArrowUpRight aria-hidden="true" />
           </a>
         </nav>
       </div>

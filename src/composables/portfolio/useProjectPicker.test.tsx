@@ -265,7 +265,7 @@ describe("mobile project picker", () => {
       expect(
         screen.getByRole("dialog", {
           name:
-            locale === "en" ? "Explore my projects." : "Explore meus projetos.",
+            locale === "en" ? "Choose a project" : "Escolha um projeto",
         }),
       ).toBeTruthy();
     },

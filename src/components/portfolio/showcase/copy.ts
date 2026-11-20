@@ -3,6 +3,9 @@ import type { ShowcaseLabels } from "@/components/portfolio/showcase/types";
 
 export const showcaseLabels: Record<Locale, ShowcaseLabels> = {
   es: {
+    more: "Ver más proyectos",
+    archive: "Más proyectos",
+    backToFeatured: "Volver a los destacados",
     index: "Índice de proyectos",
     selected: "Proyecto seleccionado",
     previous: "Proyecto anterior",
@@ -18,6 +21,9 @@ export const showcaseLabels: Record<Locale, ShowcaseLabels> = {
     stack: "Tecnologías del proyecto",
   },
   en: {
+    more: "View more projects",
+    archive: "More projects",
+    backToFeatured: "Back to featured projects",
     index: "Project index",
     selected: "Selected project",
     previous: "Previous project",
@@ -33,6 +39,9 @@ export const showcaseLabels: Record<Locale, ShowcaseLabels> = {
     stack: "Project technologies",
   },
   pt: {
+    more: "Ver mais projetos",
+    archive: "Mais projetos",
+    backToFeatured: "Voltar aos destaques",
     index: "Índice de projetos",
     selected: "Projeto selecionado",
     previous: "Projeto anterior",

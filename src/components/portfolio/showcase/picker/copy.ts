@@ -5,8 +5,6 @@ import type { ProjectPickerLabels } from "@/components/portfolio/showcase/picker
 // CONSTANTS
 export const projectPickerLabels: Record<Locale, ProjectPickerLabels> = {
   es: {
-    title: "Explora mis proyectos.",
-    subtitle: "PROYECTOS SELECCIONADOS",
     search: "Buscar proyecto o tecnología",
     close: "Cerrar proyectos",
     clear: "Limpiar búsqueda",
@@ -14,8 +12,6 @@ export const projectPickerLabels: Record<Locale, ProjectPickerLabels> = {
     current: "Seleccionado",
   },
   en: {
-    title: "Explore my projects.",
-    subtitle: "SELECTED PROJECTS",
     search: "Search projects or technologies",
     close: "Close projects",
     clear: "Clear search",
@@ -23,8 +19,6 @@ export const projectPickerLabels: Record<Locale, ProjectPickerLabels> = {
     current: "Selected",
   },
   pt: {
-    title: "Explore meus projetos.",
-    subtitle: "PROJETOS SELECIONADOS",
     search: "Buscar projeto ou tecnologia",
     close: "Fechar projetos",
     clear: "Limpar busca",

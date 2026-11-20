@@ -25,7 +25,6 @@ export const copy: Record<Locale, Copy> = {
       "Soy Sebastián Sánchez. Transformo ideas complejas en experiencias digitales que se sienten simples.",
     viewWork: "Explorar proyectos",
     cv: "Descargar CV",
-    explore: "DESLIZA PARA EXPLORAR",
     sculpture:
       "Retrato 3D de Sebastián con la mirada centrada y parpadeo natural.",
     pause: "Pausar movimiento",
@@ -34,10 +33,7 @@ export const copy: Record<Locale, Copy> = {
     acid: "Arcilla",
     home: "Inicio",
     now: "ACTUALIDAD",
-    workLabel: "TRABAJO SELECCIONADO",
-    workTitle: "Ideas que ya\nviven en la web.",
-    workIntro:
-      "Productos reales, interfaces con intención y mucho código detrás.",
+    filterByType: "Filtrar proyectos por tipo",
     filters: ["Todo", "Sitios web", "Aplicaciones"],
     live: "Visitar proyecto",
     source: "Ver código",
@@ -79,7 +75,6 @@ export const copy: Record<Locale, Copy> = {
       "I’m Sebastián Sánchez. I turn complex ideas into digital experiences that feel simple.",
     viewWork: "Explore my work",
     cv: "Download CV",
-    explore: "SCROLL TO EXPLORE",
     sculpture:
       "3D portrait of Sebastián with a centered gaze and natural blinking.",
     pause: "Pause motion",
@@ -88,10 +83,7 @@ export const copy: Record<Locale, Copy> = {
     acid: "Clay",
     home: "Home",
     now: "NOW",
-    workLabel: "SELECTED WORK",
-    workTitle: "Ideas out in\nthe real world.",
-    workIntro:
-      "Real products, intentional interfaces, and a lot of code behind the scenes.",
+    filterByType: "Filter projects by type",
     filters: ["All work", "Websites", "Applications"],
     live: "Visit project",
     source: "View source",
@@ -133,7 +125,6 @@ export const copy: Record<Locale, Copy> = {
       "Sou Sebastián Sánchez. Transformo ideias complexas em experiências digitais que parecem simples.",
     viewWork: "Explorar projetos",
     cv: "Baixar currículo",
-    explore: "ROLE PARA EXPLORAR",
     sculpture:
       "Retrato 3D de Sebastián com olhar centralizado e piscar natural.",
     pause: "Pausar movimento",
@@ -142,10 +133,7 @@ export const copy: Record<Locale, Copy> = {
     acid: "Argila",
     home: "Início",
     now: "ATUALMENTE",
-    workLabel: "TRABALHOS SELECIONADOS",
-    workTitle: "Ideias que já\nvivem na web.",
-    workIntro:
-      "Produtos reais, interfaces com intenção e muito código nos bastidores.",
+    filterByType: "Filtrar projetos por tipo",
     filters: ["Todos", "Sites", "Aplicações"],
     live: "Visitar projeto",
     source: "Ver código",

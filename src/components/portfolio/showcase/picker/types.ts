@@ -13,8 +13,6 @@ export interface ProjectPickerProps {
 }
 
 export interface ProjectPickerLabels {
-  title: string;
-  subtitle: string;
   search: string;
   close: string;
   clear: string;

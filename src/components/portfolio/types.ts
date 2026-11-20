@@ -14,7 +14,6 @@ export interface Copy {
   intro: string;
   viewWork: string;
   cv: string;
-  explore: string;
   sculpture: string;
   pause: string;
   play: string;
@@ -22,9 +21,7 @@ export interface Copy {
   acid: string;
   home: string;
   now: string;
-  workLabel: string;
-  workTitle: string;
-  workIntro: string;
+  filterByType: string;
   filters: [string, string, string];
   live: string;
   source: string;

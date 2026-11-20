@@ -1,22 +1,22 @@
 @font-face {
-  font-family: "DM Sans Variable";
+  font-family: "Instrument Sans";
   font-style: normal;
   font-display: swap;
-  font-weight: 100 1000;
-  src: url("@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2")
+  font-weight: 400 700;
+  src: url("@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2")
     format("woff2");
 }
 @font-face {
-  font-family: "Space Grotesk Variable";
+  font-family: "Bricolage Grotesque";
   font-style: normal;
   font-display: swap;
-  font-weight: 300 700;
-  src: url("@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2")
+  font-weight: 200 800;
+  src: url("@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-standard-normal.woff2")
     format("woff2");
 }
 
 :root {
-  font-family: "DM Sans Variable", sans-serif;
+  font-family: "Instrument Sans", system-ui, sans-serif;
   color: #eef2fb;
   background: #080c17;
   color-scheme: dark;
@@ -33,7 +33,7 @@
   --surface: #10182a;
   --surface-deep: #0a1020;
   --cyan: #8bd8f3;
-  --display: "Space Grotesk Variable", sans-serif;
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
 }
 *,
 *::before,
@@ -42,11 +42,13 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 32px;
+  scroll-padding-top: 0;
 }
 body {
   margin: 0;
 }
+/* Keep decorative transforms outside the horizontal scrollable area. */
+#root { overflow-x: clip; }
 button,
 input,
 select {
@@ -159,24 +161,25 @@ select:focus-visible {
   margin-left: 75px;
 }
 .desktop-nav a {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 550;
   position: relative;
   padding: 12px 0;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.nav-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 6px;
+  height: 1px;
   background: currentColor;
-  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
 }
-.desktop-nav a:hover .nav-dot,
-.desktop-nav a[aria-current] .nav-dot {
-  opacity: 1;
-}
+.desktop-nav a:hover::after, .desktop-nav a[aria-current]::after { transform: scaleX(1); }
 .header-actions {
   display: flex;
   align-items: center;
@@ -188,11 +191,9 @@ select:focus-visible {
   gap: 6px;
   font-size: 13px;
 }
-.language-select svg {
-  width: 15px;
-  height: 15px;
-}
 .language-select select {
+  min-height: 44px;
+  min-width: 44px;
   border: 0;
   background: transparent;
   padding: 10px 0;
@@ -202,6 +203,8 @@ select:focus-visible {
   color: var(--ink);
 }
 .header-contact {
+  min-height: 44px;
+  font-weight: 600;
   border: 1px solid #a5b9e64d;
   border-radius: 30px;
   display: flex;
@@ -215,16 +218,13 @@ select:focus-visible {
   background: var(--acid);
   color: var(--paper);
 }
-.header-contact svg {
-  font-size: 18px;
-}
 .menu-toggle {
   display: none;
   width: 44px;
   height: 44px;
   background: none;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 50%;
   font-size: 22px;
   align-items: center;
   justify-content: center;
@@ -254,13 +254,6 @@ select:focus-visible {
   font-size: 26px;
   border-bottom: 1px solid var(--line);
 }
-.mobile-navigation small {
-  font-size: 11px;
-  color: var(--muted);
-}
-.mobile-navigation svg {
-  margin-left: auto;
-}
 .section-shell,
 .hero {
   padding-inline: max(4.5vw, 24px);
@@ -269,6 +262,7 @@ select:focus-visible {
 }
 .hero {
   padding-top: 125px;
+  padding-bottom: clamp(24px, 4vh, 56px);
   position: relative;
 }
 .hero-topline {
@@ -294,16 +288,6 @@ select:focus-visible {
   border-radius: 50%;
   box-shadow: 0 0 12px #78d6b040, 0 0 0 4px #78d6b00d;
 }
-.hero-coordinate {
-  font-size: 10px;
-  font-family: var(--display);
-  letter-spacing: 0.04em;
-  margin: 0;
-}
-.hero-coordinate span {
-  margin-left: 24px;
-  color: var(--muted);
-}
 .hero-composition {
   position: relative;
   min-height: 570px;
@@ -326,15 +310,12 @@ select:focus-visible {
   margin: 0 0 28px;
   font-weight: 500;
 }
-.hero-discipline span {
-  color: var(--muted);
-}
 h1 {
   font-family: var(--display);
   font-size: clamp(60px, 6.6vw, 112px);
-  font-weight: 500;
-  line-height: 1.035;
-  letter-spacing: -0.075em;
+  font-weight: 620;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
   margin: 0 0 30px;
   white-space: nowrap;
 }
@@ -356,23 +337,17 @@ h1 > span {
 .button {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 26px;
-  padding: 17px 20px;
-  font-size: 12px;
+  padding: 13px 23px;
+  min-height: 46px;
+  font-size: 14px;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 100px;
   border: 1px solid transparent;
   transition:
     transform 0.25s,
     background 0.25s;
-}
-.button svg {
-  font-size: 22px;
-  transition: transform 0.25s;
-}
-.button:hover svg {
-  transform: translate(2px, 2px);
 }
 .button--acid {
   background: var(--acid);
@@ -382,6 +357,13 @@ h1 > span {
   background: #b0bfff;
   transform: translateY(-2px);
 }
+.button--secondary {
+  border-color: #9dadd263;
+  background: transparent;
+  color: var(--ink);
+}
+.button--secondary:hover { border-color: var(--accent-light); background: var(--accent-soft); }
+.button:active { transform: translateY(1px); }
 .text-link {
   font-size: 12px;
   display: inline-flex;
@@ -447,76 +429,8 @@ h1 > span {
   height: 100%;
   object-fit: contain;
 }
-.sculpture-caption {
-  position: absolute;
-  top: 125px;
-  left: 9%;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: var(--display);
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  white-space: nowrap;
-  color: var(--muted);
-}
-.sculpture-index {
-  position: absolute;
-  top: 85px;
-  right: 7%;
-  font-family: var(--display);
-  font-size: 10px;
-  color: var(--muted);
-}
-.hero-bottom {
-  border-top: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 22px 0;
-}
-.scroll-cue {
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.scroll-cue-icon {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  font-size: 15px;
-}
-.hero-bottom > p {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-}
-.hero-bottom > p span {
-  margin-inline: 14px;
-  color: #6c7d9b;
-}
-.hero-monogram {
-  font-size: 24px;
-}
 .section-header {
   padding-bottom: 38px;
-}
-.section-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid currentColor;
-  opacity: 0.6;
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  font-size: 9px;
-  letter-spacing: 0;
 }
 .section-heading-row {
   display: flex;
@@ -529,8 +443,8 @@ h1 > span {
   font-family: var(--display);
   font-size: clamp(36px, 4.2vw, 66px);
   line-height: 1.08;
-  letter-spacing: -0.065em;
-  font-weight: 500;
+  letter-spacing: -0.055em;
+  font-weight: 600;
   white-space: pre-line;
   margin: 0;
 }
@@ -540,46 +454,6 @@ h1 > span {
   line-height: 1.7;
   max-width: 290px;
   margin: 0 0 4px;
-}
-.work-section {
-  padding-block: 100px 110px;
-}
-.work-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--line);
-  padding: 24px 0 32px;
-}
-.project-filters {
-  display: flex;
-  gap: 8px;
-}
-.project-filters button {
-  border: 1px solid transparent;
-  border-radius: 30px;
-  background: none;
-  font-size: 12px;
-  padding: 10px 18px;
-  transition: background 0.2s;
-}
-.project-filters button[aria-pressed="true"] {
-  background: var(--accent-soft);
-  border-color: #8a9bff59;
-  color: var(--accent-light);
-}
-.project-filters button:hover:not([aria-pressed="true"]) {
-  border-color: var(--line);
-}
-.project-filters sup {
-  font-size: 8px;
-  margin-left: 7px;
-  opacity: 0.6;
-}
-.work-counter {
-  font-family: var(--display);
-  font-size: 11px;
-  color: var(--muted);
 }
 .about-section {
   background: transparent;
@@ -630,24 +504,6 @@ h1 > span {
   filter: grayscale(0);
   transform: scale(1.025);
 }
-.portrait-label {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #0a1020e8;
-  color: var(--ink);
-  backdrop-filter: blur(10px);
-  padding: 14px 16px;
-  font-size: 10px;
-  border-radius: 3px;
-}
-.portrait-label > span:last-child {
-  margin-left: auto;
-}
 .portrait-signature {
   font-family: var(--display);
   font-size: 46px;
@@ -660,13 +516,6 @@ h1 > span {
   transform: rotate(-9deg);
   color: var(--accent-light);
   mix-blend-mode: screen;
-}
-.about-asterisk {
-  font-size: 74px;
-  line-height: 1;
-  color: var(--accent-light);
-  display: block;
-  margin-bottom: 20px;
 }
 .about-lead {
   font-family: var(--display);
@@ -697,17 +546,6 @@ h1 > span {
 }
 .about-links a:hover {
   color: var(--acid);
-}
-.about-details {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  border-top: 1px solid #47503f;
-  padding-top: 22px;
-  margin-top: 50px;
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  color: var(--muted);
 }
 .experience-section {
   padding-block: 100px;
@@ -799,20 +637,8 @@ h1 > span {
 .stack-navigation button:first-child {
   border-top: 1px solid var(--line);
 }
-.stack-navigation button > span {
-  font-size: 9px;
-  opacity: 0.5;
-}
-.stack-navigation button > svg {
-  margin-left: auto;
-  font-size: 25px;
-  transition: transform 0.3s;
-}
 .stack-navigation button[aria-pressed="true"] {
   background: var(--accent-soft);
-}
-.stack-navigation button[aria-pressed="true"] > svg {
-  transform: rotate(-45deg);
 }
 .stack-list {
   list-style: none;
@@ -826,11 +652,11 @@ h1 > span {
   border: 1px solid var(--line);
   border-radius: 5px;
   padding: 19px 15px;
-  min-height: 120px;
+  min-height: 68px;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   font-family: var(--display);
   font-size: 14px;
@@ -841,17 +667,6 @@ h1 > span {
 .stack-list li:hover {
   background: var(--accent-soft);
   transform: translateY(-4px);
-}
-.stack-symbol {
-  font-size: 26px;
-  line-height: 1;
-}
-.stack-list small {
-  position: absolute;
-  right: 12px;
-  top: 14px;
-  font-size: 8px;
-  color: var(--muted);
 }
 .contact-section {
   background: transparent;
@@ -868,10 +683,6 @@ h1 > span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.contact-star {
-  font-size: 60px;
-  line-height: 1;
 }
 .contact-heading {
   display: flex;
@@ -935,8 +746,8 @@ h1 > span {
   padding-bottom: 3px;
 }
 .email-row > button {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   background: transparent;
@@ -982,8 +793,8 @@ h1 > span {
   color: #c1c8d1;
 }
 .back-top {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border: 1px solid #ffffff50;
   border-radius: 50%;
   display: grid;
@@ -992,6 +803,8 @@ h1 > span {
 .back-top:hover {
   background: #8298ff26;
 }
+.email-row > button:hover { background: var(--accent-soft); border-color: var(--accent-light); }
+.about-links a, .contact-socials a { min-height: 44px; align-items: center; }
 
 @media (min-width: 1721px) {
   .site-navigation {
@@ -1040,9 +853,6 @@ h1 > span {
     width: 54%;
     right: -28px;
   }
-  .hero-coordinate span {
-    display: none;
-  }
   .hero-actions {
     gap: 18px;
   }
@@ -1055,10 +865,6 @@ h1 > span {
   }
   .about-grid {
     gap: 7%;
-  }
-  .about-details {
-    font-size: 7px;
-    gap: 10px;
   }
   .experience-row {
     grid-template-columns: 0.6fr 1fr 1.4fr;
@@ -1076,14 +882,8 @@ h1 > span {
     height: 90px;
     font-size: 55px;
   }
-  .hero-bottom > p {
-    font-size: 7px;
-  }
 }
 @media (max-width: 760px) {
-  html {
-    scroll-padding-top: 24px;
-  }
   .site-navigation {
     height: 73px;
     gap: 16px;
@@ -1119,9 +919,6 @@ h1 > span {
     letter-spacing: 0.09em;
     gap: 9px;
   }
-  .hero-coordinate {
-    font-size: 8px;
-  }
   .hero-composition {
     display: flex;
     flex-direction: column;
@@ -1135,9 +932,6 @@ h1 > span {
   .hero-discipline {
     font-size: 8px;
     margin-bottom: 22px;
-  }
-  .hero-discipline span {
-    display: none;
   }
   h1 {
     font-size: clamp(43px, 9vw, 68px);
@@ -1157,7 +951,7 @@ h1 > span {
   }
   .button {
     padding: 14px 17px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .text-link {
     font-size: 11px;
@@ -1171,40 +965,11 @@ h1 > span {
     margin-top: -10px;
     z-index: 1;
   }
-  .sculpture-caption {
-    top: 95px;
-    left: 2%;
-    font-size: 7px;
-  }
-  .sculpture-index {
-    top: 50px;
-    right: 4%;
-  }
   .sculpture-fallback {
     inset: 4% 8% 15%;
   }
-  .hero-bottom {
-    padding-block: 19px;
-  }
-  .hero-bottom > p {
-    display: none;
-  }
-  .scroll-cue {
-    font-size: 8px;
-  }
-  .hero-monogram {
-    font-size: 20px;
-  }
-  .work-section {
-    padding-block: 66px 70px;
-  }
   .section-header {
     padding-bottom: 28px;
-  }
-  .section-number {
-    width: 23px;
-    height: 23px;
-    font-size: 8px;
   }
   .section-heading-row {
     display: block;
@@ -1219,23 +984,6 @@ h1 > span {
     font-size: 12px;
     margin-top: 20px;
     max-width: 300px;
-  }
-  .work-toolbar {
-    padding: 17px 0 24px;
-  }
-  .project-filters {
-    gap: 2px;
-  }
-  .project-filters button {
-    font-size: 10px;
-    padding: 10px 12px;
-  }
-  .project-filters sup {
-    font-size: 7px;
-    margin-left: 5px;
-  }
-  .work-counter {
-    font-size: 9px;
   }
   .about-section {
     padding-block: 60px 65px;
@@ -1260,21 +1008,12 @@ h1 > span {
   .portrait-frame > img {
     object-position: center 62%;
   }
-  .about-asterisk {
-    font-size: 52px;
-    margin-bottom: 18px;
-  }
   .about-lead {
     font-size: 23px;
     line-height: 1.5;
   }
   .about-note {
     font-size: 12px;
-  }
-  .about-details {
-    font-size: 8px;
-    margin-top: 35px;
-    padding-top: 20px;
   }
   .experience-section {
     padding-block: 65px;
@@ -1319,17 +1058,11 @@ h1 > span {
   }
   .stack-list li {
     font-size: 12px;
-    min-height: 112px;
+    min-height: 56px;
     padding: 16px 12px;
-  }
-  .stack-symbol {
-    font-size: 25px;
   }
   .contact-section {
     padding-top: 40px;
-  }
-  .contact-star {
-    font-size: 42px;
   }
   .contact-heading {
     margin-top: 30px;
@@ -1401,9 +1134,6 @@ h1 > span {
   .site-navigation {
     padding-inline: 16px;
   }
-  .hero-coordinate {
-    display: none;
-  }
   h1 {
     font-size: 40px;
   }
@@ -1413,9 +1143,6 @@ h1 > span {
   .button {
     gap: 13px;
     padding: 12px;
-  }
-  .project-filters button {
-    padding: 9px;
   }
   .email-row > a {
     font-size: 16px;

@@ -1,11 +1,5 @@
 import { lazy, Suspense } from "react";
 import { useReducedMotion } from "framer-motion";
-import {
-  FiArrowDown,
-  FiArrowDownRight,
-  FiArrowUpRight,
-  FiDownload,
-} from "react-icons/fi";
 import { cv } from "@/components/portfolio/content";
 import { RevealTA } from "@/components/portfolio/RevealTA";
 import type { PortfolioPreferences } from "@/components/portfolio/types";
@@ -28,16 +22,12 @@ export const HeroTA = ({
           <span className="status-dot" />
           {copy.availability}
         </p>
-        <p className="hero-coordinate">
-          PEREIRA, CO <span>04°48′ N · 75°41′ W</span>
-        </p>
       </div>
       <div className="hero-composition">
         <div className="hero-copy">
           <RevealTA>
             <p className="hero-discipline">
               {copy.discipline}
-              <span> / CREATIVE ENGINEER</span>
             </p>
           </RevealTA>
           <RevealTA delay={0.08}>
@@ -52,11 +42,9 @@ export const HeroTA = ({
             <div className="hero-actions">
               <a href="#work" className="button button--acid">
                 {copy.viewWork}
-                <FiArrowDownRight aria-hidden="true" />
               </a>
-              <a className="text-link" href={cv[locale]} download>
+              <a className="button button--secondary" href={cv[locale]} download>
                 {copy.cv}
-                <FiDownload aria-hidden="true" />
               </a>
             </div>
           </RevealTA>
@@ -76,27 +64,7 @@ export const HeroTA = ({
               reducedMotion={reducedMotion}
             />
           </Suspense>
-          <span className="sculpture-caption">
-            FIG. 01 — SEBAZ / INTERACTIVE PORTRAIT
-          </span>
-          <span className="sculpture-index" aria-hidden="true">
-            S/01
-          </span>
         </div>
-      </div>
-      <div className="hero-bottom">
-        <a className="scroll-cue" href="#work">
-          <span className="scroll-cue-icon">
-            <FiArrowDown aria-hidden="true" />
-          </span>
-          {copy.explore}
-        </a>
-        <p>
-          FRONTEND <span>×</span> BACKEND <span>×</span> HUMAN EXPERIENCE
-        </p>
-        <a className="hero-monogram" href="#about" aria-label={copy.nav[1]}>
-          <FiArrowUpRight />
-        </a>
       </div>
     </section>
   );
