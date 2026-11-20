@@ -180,6 +180,20 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "corintios-pizza-corales",
+    title: "Corintios Pizza Corales",
+    kind: "web",
+    description: {
+      es: "Carta interactiva de una pizzería de Pereira. Recorre las pizzas rectangulares y las sodas en 3D, elige un sabor y prepara tu pedido para WhatsApp.",
+      en: "An interactive menu for a pizzeria in Pereira. Browse rectangular pizzas and fruit sodas in 3D, choose a flavor, and put together a WhatsApp order.",
+      pt: "Cardápio interativo de uma pizzaria em Pereira. Conheça as pizzas retangulares e as sodas em 3D, escolha um sabor e monte seu pedido pelo WhatsApp.",
+    },
+    image: "corintios-pizza-corales",
+    url: "https://corintios-pizza-corales.vercel.app/#destacado/sodas-saborizadas",
+    stack: ["WebGL", "JavaScript", "CSS"],
+    tone: "violet",
+  },
+  {
     id: "purple-cocktail",
     title: "Purple Cocktail",
     kind: "web",
