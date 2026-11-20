@@ -180,6 +180,20 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "milkshake-bogota",
+    title: "MilkShake Bogotá",
+    kind: "web",
+    description: {
+      es: "La Octava Maravilla abre la carta en 3D de MilkShake Bogotá. Personaliza tu pedido con sabores y adiciones y elige la sede.",
+      en: "The Octava Maravilla shake opens MilkShake Bogotá’s 3D menu. Customize your order with flavors and toppings, then choose a location.",
+      pt: "A Octava Maravilla abre o cardápio em 3D da MilkShake Bogotá. Personalize seu pedido com sabores e adicionais e escolha a unidade.",
+    },
+    image: "milkshake-bogota",
+    url: "https://milkshake-carta-bogota.vercel.app/#destacado/octava-maravilla",
+    stack: ["WebGL", "JavaScript", "CSS"],
+    tone: "sand",
+  },
+  {
     id: "corintios-pizza-corales",
     title: "Corintios Pizza Corales",
     kind: "web",
