@@ -59,9 +59,6 @@ export interface ProjectShowcaseState {
 }
 
 export interface ShowcaseLabels {
-  more: string;
-  archive: string;
-  backToFeatured: string;
   index: string;
   selected: string;
   previous: string;

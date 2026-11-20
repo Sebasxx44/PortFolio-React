@@ -70,6 +70,7 @@ export const ProjectPickerTA = ({
           id={`${id}-dialog`}
           className="project-picker-dialog"
           aria-labelledby={`${id}-heading`}
+          aria-describedby={`${id}-description`}
           tabIndex={-1}
           onKeyDown={dialog.onKeyDown}
           onClick={dialog.onBackdrop}
@@ -80,8 +81,12 @@ export const ProjectPickerTA = ({
           onClose={dialog.close}
         >
           <div className="project-picker-surface">
+            <div className="project-picker-handle" aria-hidden="true" />
             <header className="project-picker-header">
-              <h2 id={`${id}-heading`}>{labels.select}</h2>
+              <div>
+                <p id={`${id}-description`}>{copy.subtitle}</p>
+                <h2 id={`${id}-heading`}>{copy.title}</h2>
+              </div>
               <button
                 type="button"
                 onClick={dialog.close}

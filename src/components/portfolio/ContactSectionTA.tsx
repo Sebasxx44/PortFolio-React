@@ -1,6 +1,7 @@
 import { FiArrowUp, FiArrowUpRight, FiCheck, FiCopy } from "react-icons/fi";
 import { email, github, linkedin } from "@/components/portfolio/content";
 import { RevealTA } from "@/components/portfolio/RevealTA";
+import { AsteriskTA } from "@/components/portfolio/AsteriskTA";
 import { useContact } from "@/composables/portfolio/useContact";
 import type { Copy } from "@/components/portfolio/types";
 
@@ -11,8 +12,12 @@ export const ContactSectionTA = ({ copy }: { copy: Copy }) => {
       <RevealTA>
         <div className="contact-topline">
           <p className="eyebrow">
+            <span className="section-number">05</span>
             {copy.contactLabel}
           </p>
+          <span className="contact-star" aria-hidden="true">
+            <AsteriskTA />
+          </span>
         </div>
         <a className="contact-heading" href={`mailto:${email}`}>
           <h2>
@@ -44,9 +49,11 @@ export const ContactSectionTA = ({ copy }: { copy: Copy }) => {
           <div className="contact-socials">
             <a href={github} target="_blank" rel="noopener noreferrer">
               GitHub
+              <FiArrowUpRight />
             </a>
             <a href={linkedin} target="_blank" rel="noopener noreferrer">
               LinkedIn
+              <FiArrowUpRight />
             </a>
           </div>
         </div>

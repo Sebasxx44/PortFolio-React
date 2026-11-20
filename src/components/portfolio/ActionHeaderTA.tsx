@@ -9,6 +9,7 @@ export const ActionHeaderTA = ({
 }: SectionHeaderProps) => (
   <header className={`section-header ${light ? "section-header--light" : ""}`}>
     <p className="eyebrow">
+      <span className="section-number">{number}</span>
       {label}
     </p>
     <div className="section-heading-row">

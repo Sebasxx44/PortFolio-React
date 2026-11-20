@@ -7,7 +7,6 @@ import { ExperienceSectionTA } from "@/components/portfolio/ExperienceSectionTA"
 import { StackSectionTA } from "@/components/portfolio/StackSectionTA";
 import { ContactSectionTA } from "@/components/portfolio/ContactSectionTA";
 import { SpaceBackdropTA } from "@/components/portfolio/SpaceBackdropTA";
-import { PointerTA } from "@/components/portfolio/PointerTA";
 import { usePortfolio } from "@/composables/portfolio/usePortfolio";
 import "@/components/portfolio/portfolio.css";
 
@@ -17,7 +16,6 @@ export const PortfolioPageTA = () => {
   return (
     <LazyMotion features={domAnimation} strict>
       <SpaceBackdropTA />
-      <PointerTA />
       <a href="#main-content" className="skip-link">
         {preferences.copy.skip}
       </a>
