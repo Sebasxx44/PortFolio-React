@@ -180,6 +180,34 @@ export const copy: Record<Locale, Copy> = {
 
 export const projects: Project[] = [
   {
+    id: "salchiwarrior",
+    title: "Salchiwarrior",
+    kind: "web",
+    description: {
+      es: "Explora las salchipapas en 3D, elige la porción y las adiciones y prepara tu pedido por WhatsApp para la sede de Manizales o Dosquebradas.",
+      en: "Explore Salchiwarrior’s loaded fries in 3D, choose a portion and toppings, and put together a WhatsApp order for the Manizales or Dosquebradas location.",
+      pt: "Explore as salchipapas em 3D, escolha a porção e os adicionais e monte seu pedido pelo WhatsApp para a unidade de Manizales ou Dosquebradas.",
+    },
+    image: "salchiwarrior",
+    url: "https://salchiwarrior.vercel.app/",
+    stack: ["WebGL", "JavaScript", "CSS"],
+    tone: "orange",
+  },
+  {
+    id: "everest-cocktails",
+    title: "Everest Cocktails",
+    kind: "web",
+    description: {
+      es: "Recorre la carta de cócteles granizados en 3D, combina tus sabores favoritos y encuentra las sedes de Everest en Cali, Pereira y Dosquebradas.",
+      en: "Browse the frozen cocktails in 3D, mix and match your favorite flavors, and find Everest locations in Cali, Pereira and Dosquebradas.",
+      pt: "Explore o cardápio de coquetéis frozen em 3D, combine seus sabores favoritos e encontre as unidades da Everest em Cali, Pereira e Dosquebradas.",
+    },
+    image: "everest-cocktails",
+    url: "https://everest-cocktail-colombia.vercel.app/",
+    stack: ["WebGL", "JavaScript", "CSS"],
+    tone: "violet",
+  },
+  {
     id: "milkshake-bogota",
     title: "MilkShake Bogotá",
     kind: "web",
