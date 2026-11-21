@@ -38,7 +38,7 @@ export const ProjectFilmGridTA = ({ preferences }: { preferences: PortfolioPrefe
     const player = video.current;
     if (!player || !dialog.current || dialog.current.open) return;
     dialog.current.showModal();
-    player.src = "/media/portafolio-sebaz.mp4";
+    player.src = "/media/portafolio-sebaz.mp4?v=instrumental";
     void player.play().catch(() => { /* Native controls also allow manual playback. */ });
   };
   const releaseFilm = () => {
@@ -81,7 +81,7 @@ export const ProjectFilmGridTA = ({ preferences }: { preferences: PortfolioPrefe
             <button type="button" aria-label={strings.close} onClick={() => dialog.current?.close()}><FiX aria-hidden="true" /></button>
           </header>
           <video ref={video} controls playsInline preload="none" aria-label={strings.title}>
-            <track kind="captions" src="/media/portafolio-es.vtt" srcLang="es" label="Español" />
+            <track kind="captions" src="/media/portafolio-es.vtt?v=instrumental" srcLang="es" label="Español" />
           </video>
         </div>
       </dialog>
