@@ -4,10 +4,12 @@ import {
   FiArrowRight,
   FiArrowUpRight,
   FiCode,
+  FiChevronDown,
 } from "react-icons/fi";
 import { ActionHeaderTA } from "@/components/portfolio/ActionHeaderTA";
 import { RevealTA } from "@/components/portfolio/RevealTA";
 import { ProjectPickerTA } from "@/components/portfolio/showcase/ProjectPickerTA";
+import { ProjectFilmGridTA, allProjectsLabel } from "@/components/portfolio/showcase/ProjectFilmGridTA";
 import { showcaseLabels } from "@/components/portfolio/showcase/copy";
 import { useProjectShowcase } from "@/composables/portfolio/useProjectShowcase";
 import type { PortfolioPreferences } from "@/components/portfolio/types";
@@ -38,6 +40,9 @@ export const WorkSectionTA = ({
           <p>{copy.workIntro}</p>
         </ActionHeaderTA>
       </RevealTA>
+      <ProjectFilmGridTA preferences={preferences} />
+      <details className="film-archive">
+        <summary>{allProjectsLabel(locale)}<FiChevronDown aria-hidden="true" /></summary>
       <div className="showcase-toolbar">
         <div
           className="showcase-filters"
@@ -195,6 +200,7 @@ export const WorkSectionTA = ({
           </div>
         </RevealTA>
       )}
+      </details>
     </section>
   );
 };

@@ -109,6 +109,7 @@ export const useProjectPicker = ({
   useLayoutEffect(() => {
     const dialog = dialogRef.current;
     if (!open || !dialog) return;
+    const trigger = triggerRef.current;
     const body = document.body;
     const html = document.documentElement;
     const x = window.scrollX;
@@ -157,7 +158,7 @@ export const useProjectPicker = ({
       html.style.scrollBehavior = saved.scrollBehavior;
       const target = desktop.matches
         ? document.getElementById(`showcase-tab-${activeId}`)
-        : triggerRef.current;
+        : trigger;
       target?.focus({ preventScroll: true });
     };
   }, [open, activeId, triggerRef]);

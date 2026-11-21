@@ -1,0 +1,66 @@
+.project-film-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(4px, .4vw, 7px);
+  margin: clamp(25px, 3.4vw, 48px) 0 0;
+  padding: clamp(3px, .25vw, 5px);
+  list-style: none;
+  background: #252e42;
+}
+.project-film-grid li { min-width: 0; }
+.film-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #0a0e17;
+  cursor: pointer;
+}
+.film-tile img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.film-tile:focus-visible { z-index: 1; outline: 3px solid var(--acid); outline-offset: -3px; }
+@media (hover: hover) {
+  .film-tile:hover::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 2px #b0bded; pointer-events: none; }
+}
+.film-watch, .film-archive > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.film-watch { margin-top: 10px; }
+.film-watch svg, .film-archive > summary svg { color: var(--acid); }
+.film-watch span { color: var(--muted); font-size: .84em; font-variant-numeric: tabular-nums; }
+.film-archive { margin-top: 8px; border-top: 1px solid var(--line); }
+.film-archive > summary { width: 100%; justify-content: space-between; text-align: left; list-style: none; }
+.film-archive > summary::-webkit-details-marker { display: none; }
+.film-archive[open] > summary svg { transform: rotate(180deg); }
+.film-archive .showcase-toolbar { margin-top: 0; }
+.project-film-dialog {
+  width: min(94vw, 1200px, calc((100dvh - 90px) * 16 / 9));
+  max-width: none;
+  max-height: 95dvh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #3d4860;
+  background: #0b1019;
+  color: #f3f4fc;
+}
+.project-film-dialog::backdrop { background: rgb(3 6 13 / .88); }
+.film-player header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 6px 10px 6px 16px; }
+.film-player h3 { margin: 0; font: 600 16px/1.25 var(--display); }
+.film-player header button { width: 44px; height: 44px; display: grid; place-items: center; color: inherit; background: transparent; cursor: pointer; border: 0; }
+.film-player video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #090d16; }
+@media (max-width: 767px) {
+  .project-film-grid { grid-template-columns: minmax(0, 1fr); }
+}
