@@ -1,11 +1,12 @@
 import type { ReactNode, RefObject } from "react";
 
 export type Locale = "es" | "en" | "pt";
+export const navigationSections = ["work", "laboratorio", "about", "experience"] as const;
 export type ProjectFilter = "all" | "web" | "app";
 export type Finish = "natural" | "clay";
 
 export interface Copy {
-  nav: string[];
+  nav: Record<(typeof navigationSections)[number], string>;
   contact: string;
   availability: string;
   discipline: string;

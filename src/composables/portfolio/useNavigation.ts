@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { NavigationState } from "@/components/portfolio/types";
+import { navigationSections, type NavigationState } from "@/components/portfolio/types";
 
 export const useNavigation = (): { navigation: NavigationState } => {
   // State
@@ -18,7 +18,7 @@ export const useNavigation = (): { navigation: NavigationState } => {
       },
       { rootMargin: "-20% 0px -60% 0px" },
     );
-    for (const id of ["work", "about", "experience"]) {
+    for (const id of navigationSections) {
       const target = document.getElementById(id);
       if (target) observer.observe(target);
     }

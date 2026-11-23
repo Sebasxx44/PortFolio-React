@@ -94,7 +94,7 @@ export const HeroTA = ({
         <p>
           FRONTEND <span aria-hidden="true">·</span> BACKEND <span aria-hidden="true">·</span> HUMAN EXPERIENCE
         </p>
-        <a className="hero-monogram" href="#about" aria-label={copy.nav[1]}>
+        <a className="hero-monogram" href="#about" aria-label={copy.nav.about}>
           <FiArrowUpRight />
         </a>
       </div>

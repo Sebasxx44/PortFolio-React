@@ -1,5 +1,6 @@
 import { FiArrowUpRight, FiGlobe, FiMenu, FiX } from "react-icons/fi";
 import { useNavigation } from "@/composables/portfolio/useNavigation";
+import { navigationSections } from "@/components/portfolio/types";
 import type {
   Locale,
   PortfolioPreferences,
@@ -12,22 +13,21 @@ export const NavigationTA = ({
 }) => {
   const { navigation } = useNavigation();
   const { copy, locale, setLocale } = preferences;
-  const ids = ["work", "about", "experience"];
   return (
     <header className="site-navigation">
       <a href="#home" className="wordmark" aria-label={`Sebaz · ${copy.home}`}>
         sebaz<span className="wordmark-dot">®</span>
       </a>
       <nav className="desktop-nav" aria-label={copy.menu}>
-        {copy.nav.map((label, index) => (
+        {navigationSections.map((id) => (
           <a
-            href={`#${ids[index]}`}
-            key={label}
+            href={`#${id}`}
+            key={id}
             aria-current={
-              navigation.active === ids[index] ? "location" : undefined
+              navigation.active === id ? "location" : undefined
             }
           >
-            {label}
+            {copy.nav[id]}
             <span className="nav-dot" />
           </a>
         ))}
@@ -67,15 +67,15 @@ export const NavigationTA = ({
         hidden={!navigation.open}
       >
         <nav aria-label={copy.menu}>
-          {copy.nav.map((label, index) => (
-            <a href={`#${ids[index]}`} onClick={navigation.close} key={label}>
+          {navigationSections.map((id, index) => (
+            <a href={`#${id}`} onClick={navigation.close} key={id}>
               <small>0{index + 1}</small>
-              {label}
+              {copy.nav[id]}
               <FiArrowUpRight aria-hidden="true" />
             </a>
           ))}
           <a href="#contact" onClick={navigation.close}>
-            <small>04</small>
+            <small>{String(navigationSections.length + 1).padStart(2,"0")}</small>
             {copy.contact}
             <FiArrowUpRight aria-hidden="true" />
           </a>

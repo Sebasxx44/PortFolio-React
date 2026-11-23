@@ -15,7 +15,7 @@ export const cv: Record<Locale, string> = {
 
 export const copy: Record<Locale, Copy> = {
   es: {
-    nav: ["Proyectos", "Sobre mí", "Trayectoria"],
+    nav: { work: "Proyectos", laboratorio: "Laboratorio", about: "Sobre mí", experience: "Trayectoria" },
     contact: "Hablemos",
     availability: "Abierto a nuevas conexiones",
     discipline: "DESARROLLADOR FULL STACK",
@@ -69,7 +69,7 @@ export const copy: Record<Locale, Copy> = {
     language: "Idioma",
   },
   en: {
-    nav: ["Work", "About", "Experience"],
+    nav: { work: "Work", laboratorio: "Lab", about: "About", experience: "Experience" },
     contact: "Let’s talk",
     availability: "Open to new connections",
     discipline: "FULL STACK DEVELOPER",
@@ -123,7 +123,7 @@ export const copy: Record<Locale, Copy> = {
     language: "Language",
   },
   pt: {
-    nav: ["Projetos", "Sobre mim", "Trajetória"],
+    nav: { work: "Projetos", laboratorio: "Laboratório", about: "Sobre mim", experience: "Trajetória" },
     contact: "Vamos conversar",
     availability: "Aberto a novas conexões",
     discipline: "DESENVOLVEDOR FULL STACK",

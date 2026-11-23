@@ -2,6 +2,7 @@ import { LazyMotion, domAnimation, m, useScroll } from "framer-motion";
 import { NavigationTA } from "@/components/portfolio/NavigationTA";
 import { HeroTA } from "@/components/portfolio/HeroTA";
 import { WorkSectionTA } from "@/components/portfolio/WorkSectionTA";
+import { FlowLab } from "@/components/portfolio/lab/FlowLab";
 import { AboutSectionTA } from "@/components/portfolio/AboutSectionTA";
 import { ExperienceSectionTA } from "@/components/portfolio/ExperienceSectionTA";
 import { StackSectionTA } from "@/components/portfolio/StackSectionTA";
@@ -28,6 +29,7 @@ export const PortfolioPageTA = () => {
       <main id="main-content">
         <HeroTA preferences={preferences} />
         <WorkSectionTA preferences={preferences} />
+        <FlowLab locale={preferences.locale} />
         <AboutSectionTA copy={preferences.copy} />
         <ExperienceSectionTA preferences={preferences} />
         <StackSectionTA copy={preferences.copy} />
