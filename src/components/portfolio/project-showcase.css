@@ -46,7 +46,7 @@
 
 .showcase-filters button[aria-pressed="true"] {
   border-color: var(--line);
-  background: var(--accent-soft, #8298ff14);
+  background: var(--accent-soft);
   color: var(--ink);
 }
 
@@ -74,7 +74,7 @@
   height: 5px;
   border-radius: 50%;
   background: var(--acid);
-  box-shadow: 0 0 12px var(--accent-soft, #8298ff14);
+  box-shadow: 0 0 12px var(--accent-soft);
   margin-right: 4px;
 }
 
@@ -157,7 +157,7 @@
 .project-index-item[aria-selected="true"] {
   background: linear-gradient(
     90deg,
-    var(--accent-soft, #8298ff14),
+    var(--accent-soft),
     transparent
   );
   color: var(--ink);
@@ -257,7 +257,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: var(--surface-deep, #0a1020);
+  background: var(--surface-deep);
   isolation: isolate;
 }
 

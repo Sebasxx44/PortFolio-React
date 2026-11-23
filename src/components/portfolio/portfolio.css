@@ -1,39 +1,47 @@
 @font-face {
-  font-family: "DM Sans Variable";
+  font-family: "Instrument Sans Variable";
   font-style: normal;
   font-display: swap;
-  font-weight: 100 1000;
-  src: url("@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2")
+  font-weight: 400 700;
+  src: url("@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2")
     format("woff2");
 }
 @font-face {
-  font-family: "Space Grotesk Variable";
+  font-family: "Instrument Sans Variable";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-italic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Bricolage Grotesque Variable";
   font-style: normal;
   font-display: swap;
-  font-weight: 300 700;
-  src: url("@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2")
+  font-weight: 200 800;
+  src: url("@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-standard-normal.woff2")
     format("woff2");
 }
 
 :root {
-  font-family: "DM Sans Variable", sans-serif;
-  color: #eef2fb;
-  background: #080c17;
+  font-family: "Instrument Sans Variable", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
   color-scheme: dark;
   font-synthesis: none;
   font-optical-sizing: auto;
   font-weight: 400;
-  --paper: #080c17;
-  --ink: #eef2fb;
-  --muted: #9ca9c0;
-  --acid: #8a9bff;
-  --accent-soft: #8298ff14;
-  --accent-light: #c0ccff;
-  --line: #99b2e729;
-  --surface: #10182a;
-  --surface-deep: #0a1020;
-  --cyan: #8bd8f3;
-  --display: "Space Grotesk Variable", sans-serif;
+  --paper: #091315;
+  --ink: #eff6f2;
+  --muted: #a5b9b4;
+  --acid: #75e2bf;
+  --accent-soft: #75e2bf18;
+  --accent-border: #75e2bf66;
+  --accent-light: #b7f1d9;
+  --line: #9fcbbb30;
+  --surface: #122326;
+  --surface-deep: #0d1b1e;
+  --display: "Bricolage Grotesque Variable", system-ui, sans-serif;
 }
 *,
 *::before,
@@ -139,7 +147,7 @@ select:focus-visible {
 .wordmark {
   font-family: var(--display);
   font-weight: 700;
-  letter-spacing: -3px;
+  letter-spacing: -0.055em;
   font-size: 38px;
   line-height: 1;
   display: inline-flex;
@@ -202,7 +210,7 @@ select:focus-visible {
   color: var(--ink);
 }
 .header-contact {
-  border: 1px solid #a5b9e64d;
+  border: 1px solid var(--accent-border);
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -288,11 +296,11 @@ select:focus-visible {
   margin: 0;
 }
 .status-dot {
-  background: #78d6b0;
+  background: var(--acid);
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  box-shadow: 0 0 12px #78d6b040, 0 0 0 4px #78d6b00d;
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 .hero-coordinate {
   font-size: 10px;
@@ -332,14 +340,14 @@ select:focus-visible {
 h1 {
   font-family: var(--display);
   font-size: clamp(60px, 6.6vw, 112px);
-  font-weight: 500;
-  line-height: 1.035;
-  letter-spacing: -0.075em;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   margin: 0 0 30px;
   white-space: nowrap;
 }
 h1 > span {
-  color: #a4b7e1;
+  color: var(--acid);
 }
 .hero-intro {
   font-size: 16px;
@@ -379,7 +387,7 @@ h1 > span {
   color: var(--paper);
 }
 .button--acid:hover {
-  background: #b0bfff;
+  background: var(--accent-light);
   transform: translateY(-2px);
 }
 .text-link {
@@ -405,7 +413,7 @@ h1 > span {
   content: "";
   position: absolute;
   inset: 12% 12% 15% 18%;
-  border: 1px solid #94b7ed2b;
+  border: 1px solid var(--line);
   border-radius: 50%;
   transform: rotate(-22deg);
   z-index: -1;
@@ -414,7 +422,7 @@ h1 > span {
   content: "";
   position: absolute;
   inset: 8% 8% 11% 14%;
-  border: 1px solid #94b7ed12;
+  border: 1px solid var(--accent-soft);
   border-radius: 50%;
   transform: rotate(18deg);
   z-index: -1;
@@ -435,8 +443,6 @@ h1 > span {
 .sculpture-fallback {
   position: absolute;
   inset: 7% 8% 12%;
-  display: grid;
-  place-items: center;
   transition: opacity 0.6s;
 }
 .sculpture-stage:has(.is-ready) .sculpture-fallback {
@@ -498,7 +504,7 @@ h1 > span {
 }
 .hero-bottom > p span {
   margin-inline: 14px;
-  color: #6c7d9b;
+  color: var(--acid);
 }
 .hero-monogram {
   font-size: 24px;
@@ -529,8 +535,8 @@ h1 > span {
   font-family: var(--display);
   font-size: clamp(36px, 4.2vw, 66px);
   line-height: 1.08;
-  letter-spacing: -0.065em;
-  font-weight: 500;
+  letter-spacing: -0.025em;
+  font-weight: 560;
   white-space: pre-line;
   margin: 0;
 }
@@ -565,7 +571,7 @@ h1 > span {
 }
 .project-filters button[aria-pressed="true"] {
   background: var(--accent-soft);
-  border-color: #8a9bff59;
+  border-color: var(--accent-border);
   color: var(--accent-light);
 }
 .project-filters button:hover:not([aria-pressed="true"]) {
@@ -593,7 +599,7 @@ h1 > span {
   margin-inline: auto;
 }
 .section-header--light .eyebrow {
-  color: #c5cdd8;
+  color: var(--muted);
 }
 .about-grid {
   display: grid;
@@ -638,7 +644,7 @@ h1 > span {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #0a1020e8;
+  background: #0d1b1ee8;
   color: var(--ink);
   backdrop-filter: blur(10px);
   padding: 14px 16px;
@@ -649,11 +655,10 @@ h1 > span {
   margin-left: auto;
 }
 .portrait-signature {
-  font-family: var(--display);
   font-size: 46px;
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.07em;
+  font-weight: 500;
+  letter-spacing: -0.045em;
   position: absolute;
   bottom: -2px;
   right: -25px;
@@ -661,17 +666,10 @@ h1 > span {
   color: var(--accent-light);
   mix-blend-mode: screen;
 }
-.about-asterisk {
-  font-size: 74px;
-  line-height: 1;
-  color: var(--accent-light);
-  display: block;
-  margin-bottom: 20px;
-}
 .about-lead {
   font-family: var(--display);
   font-size: clamp(20px, 2.15vw, 32px);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.015em;
   line-height: 1.5;
   margin: 0 0 25px;
   max-width: 600px;
@@ -740,9 +738,9 @@ h1 > span {
   flex-shrink: 0;
 }
 .experience-dot--active {
-  background: var(--cyan);
-  border-color: var(--cyan);
-  box-shadow: 0 0 0 4px #739b3b12;
+  background: var(--acid);
+  border-color: var(--acid);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 .experience-company h3 {
   font-family: var(--display);
@@ -864,15 +862,6 @@ h1 > span {
   max-width: 1565px;
   margin-inline: auto;
 }
-.contact-topline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.contact-star {
-  font-size: 60px;
-  line-height: 1;
-}
 .contact-heading {
   display: flex;
   align-items: center;
@@ -884,8 +873,8 @@ h1 > span {
   font-family: var(--display);
   font-size: clamp(52px, 7.2vw, 120px);
   line-height: 1.05;
-  font-weight: 500;
-  letter-spacing: -0.075em;
+  font-weight: 560;
+  letter-spacing: -0.03em;
   margin: 0;
 }
 .contact-heading h2 > span {
@@ -906,7 +895,7 @@ h1 > span {
 }
 .contact-heading:hover .contact-arrow {
   transform: rotate(45deg);
-  background: #8298ff26;
+  background: var(--accent-soft);
 }
 .contact-bottom {
   display: flex;
@@ -990,7 +979,7 @@ h1 > span {
   place-items: center;
 }
 .back-top:hover {
-  background: #8298ff26;
+  background: var(--accent-soft);
 }
 
 @media (min-width: 1721px) {
@@ -1038,7 +1027,7 @@ h1 > span {
   .sculpture-stage {
     height: 510px;
     width: 54%;
-    right: -28px;
+    right: 0;
   }
   .hero-coordinate span {
     display: none;
@@ -1141,7 +1130,6 @@ h1 > span {
   }
   h1 {
     font-size: clamp(43px, 9vw, 68px);
-    letter-spacing: -0.07em;
     margin-bottom: 22px;
     line-height: 1.07;
     white-space: normal;
@@ -1213,7 +1201,6 @@ h1 > span {
   .section-heading-row h2 {
     font-size: clamp(33px, 7.5vw, 47px);
     line-height: 1.12;
-    letter-spacing: -0.06em;
   }
   .section-heading-row > p {
     font-size: 12px;
@@ -1259,10 +1246,6 @@ h1 > span {
   }
   .portrait-frame > img {
     object-position: center 62%;
-  }
-  .about-asterisk {
-    font-size: 52px;
-    margin-bottom: 18px;
   }
   .about-lead {
     font-size: 23px;
@@ -1328,9 +1311,6 @@ h1 > span {
   .contact-section {
     padding-top: 40px;
   }
-  .contact-star {
-    font-size: 42px;
-  }
   .contact-heading {
     margin-top: 30px;
     gap: 10px;
@@ -1338,7 +1318,6 @@ h1 > span {
   }
   .contact-heading h2 {
     font-size: clamp(37px, 8.3vw, 60px);
-    letter-spacing: -0.07em;
   }
   .contact-arrow {
     width: 45px;

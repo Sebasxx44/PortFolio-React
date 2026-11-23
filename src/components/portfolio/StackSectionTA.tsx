@@ -6,9 +6,9 @@ import {
   FiCode,
   FiCommand,
   FiDisc,
+  FiLayers,
 } from "react-icons/fi";
 import { ActionHeaderTA } from "@/components/portfolio/ActionHeaderTA";
-import { AsteriskTA } from "@/components/portfolio/AsteriskTA";
 import { RevealTA } from "@/components/portfolio/RevealTA";
 import { stackGroups } from "@/components/portfolio/content";
 import type { Copy } from "@/components/portfolio/types";
@@ -19,7 +19,7 @@ const stackSymbols = [
   <FiArrowUpRight key="arrow" />,
   <FiDisc key="disc" />,
   <FiActivity key="activity" />,
-  <AsteriskTA key="asterisk" />,
+  <FiLayers key="layers" />,
 ];
 
 export const StackSectionTA = ({ copy }: { copy: Copy }) => {

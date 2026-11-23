@@ -13,9 +13,9 @@
   user-select: none;
   contain: strict;
   background:
-    radial-gradient(ellipse at 90% 4%, rgb(39 44 85 / 0.22), transparent 58%),
-    radial-gradient(ellipse at 0% 80%, rgb(20 49 67 / 0.13), transparent 48%),
-    #080c17;
+    radial-gradient(ellipse at 90% 4%, rgb(25 71 61 / 0.22), transparent 58%),
+    radial-gradient(ellipse at 0% 80%, rgb(24 65 70 / 0.13), transparent 48%),
+    var(--paper);
 }
 
 .space-backdrop-canvas {

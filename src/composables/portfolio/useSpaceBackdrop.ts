@@ -35,23 +35,23 @@ const createAurora = (viewport: SpaceViewport): HTMLCanvasElement | null => {
 
   const { width, height } = surface;
   const radius = Math.max(width, height) * 0.7;
-  const indigo = context.createRadialGradient(
+  const jade = context.createRadialGradient(
     width * 0.88, height * 0.1, 0,
     width * 0.88, height * 0.1, radius,
   );
-  indigo.addColorStop(0, "rgba(89, 87, 195, 0.12)");
-  indigo.addColorStop(0.45, "rgba(56, 74, 145, 0.045)");
-  indigo.addColorStop(1, "rgba(56, 74, 145, 0)");
-  context.fillStyle = indigo;
+  jade.addColorStop(0, "rgba(57, 149, 117, 0.12)");
+  jade.addColorStop(0.45, "rgba(38, 103, 89, 0.045)");
+  jade.addColorStop(1, "rgba(38, 103, 89, 0)");
+  context.fillStyle = jade;
   context.fillRect(0, 0, width, height);
 
   const cyan = context.createRadialGradient(
     width * 0.04, height * 0.8, 0,
     width * 0.04, height * 0.8, radius * 0.7,
   );
-  cyan.addColorStop(0, "rgba(80, 151, 181, 0.065)");
-  cyan.addColorStop(0.55, "rgba(46, 86, 119, 0.02)");
-  cyan.addColorStop(1, "rgba(46, 86, 119, 0)");
+  cyan.addColorStop(0, "rgba(65, 146, 151, 0.065)");
+  cyan.addColorStop(0.55, "rgba(38, 92, 98, 0.02)");
+  cyan.addColorStop(1, "rgba(38, 92, 98, 0)");
   context.fillStyle = cyan;
   context.fillRect(0, 0, width, height);
   return surface;
@@ -96,7 +96,7 @@ export const useSpaceBackdrop = (): SpaceBackdropControls => {
         drawingContext.drawImage(aurora, -18 + driftX, -14 + driftY, width + 36, height + 28);
       }
 
-      drawingContext.fillStyle = "#d5e2ff";
+      drawingContext.fillStyle = "#dcefe7";
       stars.forEach((star) => {
         const depth = star.depth;
         const x = ((star.x * width + elapsed * star.speed * depth) % width) + pointer.x * depth * 8;
@@ -109,12 +109,12 @@ export const useSpaceBackdrop = (): SpaceBackdropControls => {
 
       drawingContext.globalAlpha = 1;
       drawingContext.lineWidth = 0.65;
-      drawingContext.strokeStyle = "rgba(146, 166, 241, 0.065)";
+      drawingContext.strokeStyle = "rgba(117, 226, 191, 0.065)";
       drawingContext.beginPath();
       drawingContext.ellipse(width * 0.91 + pointer.x * 5, height * 0.29, width * 0.32, height * 0.22, -0.35, 0, Math.PI * 2);
       drawingContext.stroke();
       if (!compact) {
-        drawingContext.strokeStyle = "rgba(139, 216, 243, 0.035)";
+        drawingContext.strokeStyle = "rgba(143, 204, 197, 0.035)";
         drawingContext.beginPath();
         drawingContext.ellipse(width * 0.83, height * 0.31 + pointer.y * 3, width * 0.35, height * 0.29, -0.42, 0, Math.PI * 2);
         drawingContext.stroke();

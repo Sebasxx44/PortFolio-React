@@ -29,7 +29,7 @@
 .project-picker-trigger:hover,
 .project-picker-trigger[aria-expanded="true"] {
   border-color: var(--acid);
-  background: #131e34;
+  background: var(--surface-deep);
 }
 .project-picker-trigger > img {
   width: 76px;
@@ -92,7 +92,7 @@
   outline: none;
 }
 .project-picker-dialog::backdrop {
-  background: #030712b3;
+  background: #040d0eb3;
   backdrop-filter: blur(7px);
 }
 .project-picker-dialog[open] {
@@ -110,7 +110,7 @@
   border: 1px solid var(--line);
   border-bottom: 0;
   border-radius: inherit;
-  background: #0d1424;
+  background: var(--surface);
 }
 .project-picker-handle {
   flex-shrink: 0;
@@ -118,7 +118,7 @@
   height: 3px;
   margin: 0 auto 23px;
   border-radius: 8px;
-  background: #9ca9c045;
+  background: var(--line);
 }
 .project-picker-header {
   display: flex;
@@ -229,7 +229,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: #9ca9c039 transparent;
+  scrollbar-color: var(--accent-border) transparent;
 }
 .project-picker-list li {
   flex-shrink: 0;
@@ -250,7 +250,7 @@
     border-color 160ms ease;
 }
 .project-picker-list button[aria-current="true"] {
-  border-color: #8a9bff66;
+  border-color: var(--accent-border);
   background: var(--accent-soft);
 }
 .project-picker-list button:hover {

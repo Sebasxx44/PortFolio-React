@@ -92,7 +92,7 @@ export const HeroTA = ({
           {copy.explore}
         </a>
         <p>
-          FRONTEND <span>×</span> BACKEND <span>×</span> HUMAN EXPERIENCE
+          FRONTEND <span aria-hidden="true">·</span> BACKEND <span aria-hidden="true">·</span> HUMAN EXPERIENCE
         </p>
         <a className="hero-monogram" href="#about" aria-label={copy.nav[1]}>
           <FiArrowUpRight />
