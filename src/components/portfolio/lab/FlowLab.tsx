@@ -56,8 +56,22 @@ export function FlowLab({
         "data-journey-fragment",
         location.hash === "#laboratorio",
       );
+    let fragmentFrame = 0;
+    const onFragment = () => {
+      syncFragment();
+      cancelAnimationFrame(fragmentFrame);
+      if (location.hash !== "#laboratorio") return;
+      // The browser may start an anchor scroll with the portfolio masthead's old offset.
+      // Align after the mobile menu closes so the camera occupies the entire viewport.
+      fragmentFrame = requestAnimationFrame(() => {
+        window.scrollTo({
+          top: window.scrollY + section.getBoundingClientRect().top,
+          behavior: "instant",
+        });
+      });
+    };
     syncFragment();
-    window.addEventListener("hashchange", syncFragment);
+    window.addEventListener("hashchange", onFragment);
     let frame = 0,
       active = true;
     const caption = stage.querySelector<HTMLElement>(".journey-caption");
@@ -113,12 +127,13 @@ export function FlowLab({
     return () => {
       cancelAnimationFrame(frame);
       cancelAnimationFrame(initial);
+      cancelAnimationFrame(fragmentFrame);
       observer.disconnect();
       resize.disconnect();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       window.removeEventListener("load", align);
-      window.removeEventListener("hashchange", syncFragment);
+      window.removeEventListener("hashchange", onFragment);
       document.documentElement.removeAttribute("data-journey-fragment");
     };
   }, []);
