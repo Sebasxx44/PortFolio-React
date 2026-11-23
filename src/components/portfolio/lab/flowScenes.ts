@@ -51,7 +51,7 @@ export function visualTime(progress: number, reduced: boolean) {
     : reducedViews[chapter];
 }
 
-// The exterior shot keeps its original spatial path. Each close-up reserves scroll distance for assembly.
+// The exterior shot keeps its original spatial path. Each close-up reserves time for assembly.
 const travelStops = [
   [0, 0],
   [0.06, 0.081],
@@ -106,8 +106,12 @@ export function immersion(t: number) {
 }
 interface Copy {
   name: string;
-  scroll: string;
-  end: string;
+  play: string;
+  pause: string;
+  replay: string;
+  back: string;
+  upHint: string;
+  skipShort: string;
   skip: string;
   progress: string;
   visit: string;
@@ -123,8 +127,12 @@ interface Copy {
 export const words: Record<Locale, Copy> = {
   es: {
     name: "Estudio de diseño web",
-    scroll: "Scroll para recorrer",
-    end: "Fin del recorrido",
+    play: "Reproducir",
+    pause: "Pausar",
+    replay: "Repetir",
+    back: "Volver",
+    upHint: "Sube para volver a Proyectos",
+    skipShort: "Saltar",
     skip: "Saltar el recorrido",
     progress: "Progreso del recorrido",
     visit: "Visitar las webs",
@@ -150,7 +158,7 @@ export const words: Record<Locale, Copy> = {
       ],
       [
         "Abro el carrito",
-        "Sigo el trazo violeta hasta Everest Cocktails y entro en su panel de pedido.",
+        "Un pulso violeta recorre el cable hasta el carrito de Everest Cocktails.",
       ],
       [
         "Compongo el carrito",
@@ -158,7 +166,7 @@ export const words: Record<Locale, Copy> = {
       ],
       [
         "Entro en la carta",
-        "La cámara sigue el trazo dorado hasta la carta de MilkShake Bogotá.",
+        "Sigo el pulso dorado del cable hasta la carta de MilkShake Bogotá.",
       ],
       [
         "Ordeno la carta",
@@ -173,8 +181,12 @@ export const words: Record<Locale, Copy> = {
   },
   en: {
     name: "Web design studio",
-    scroll: "Scroll to explore",
-    end: "End of the journey",
+    play: "Play",
+    pause: "Pause",
+    replay: "Replay",
+    back: "Back",
+    upHint: "Scroll up to return to Projects",
+    skipShort: "Skip",
     skip: "Skip the journey",
     progress: "Journey progress",
     visit: "Visit the sites",
@@ -200,7 +212,7 @@ export const words: Record<Locale, Copy> = {
       ],
       [
         "Opening the cart",
-        "I follow the violet path to Everest Cocktails and enter its order panel.",
+        "A violet pulse runs along the cable to the Everest Cocktails cart.",
       ],
       [
         "Building the cart",
@@ -208,7 +220,7 @@ export const words: Record<Locale, Copy> = {
       ],
       [
         "Into the menu",
-        "The camera follows the golden line into the MilkShake Bogotá menu.",
+        "The camera follows a golden pulse along the cable to the MilkShake Bogotá menu.",
       ],
       [
         "Laying out the menu",
@@ -223,8 +235,12 @@ export const words: Record<Locale, Copy> = {
   },
   pt: {
     name: "Estúdio de design web",
-    scroll: "Role para explorar",
-    end: "Fim do percurso",
+    play: "Reproduzir",
+    pause: "Pausar",
+    replay: "Repetir",
+    back: "Voltar",
+    upHint: "Role para cima para voltar aos projetos",
+    skipShort: "Pular",
     skip: "Pular o percurso",
     progress: "Progresso do percurso",
     visit: "Visitar os sites",
@@ -250,7 +266,7 @@ export const words: Record<Locale, Copy> = {
       ],
       [
         "Abro o carrinho",
-        "Sigo o traço violeta até o Everest Cocktails e entro no painel do pedido.",
+        "Um pulso violeta percorre o cabo até o carrinho do Everest Cocktails.",
       ],
       [
         "Monto o carrinho",
@@ -258,7 +274,7 @@ export const words: Record<Locale, Copy> = {
       ],
       [
         "Entro no cardápio",
-        "A câmera segue a linha dourada até o cardápio do MilkShake Bogotá.",
+        "A câmera segue o pulso dourado do cabo até o cardápio do MilkShake Bogotá.",
       ],
       [
         "Organizo o cardápio",

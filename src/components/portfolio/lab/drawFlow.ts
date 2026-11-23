@@ -3,6 +3,7 @@ import { models, type Model } from "./flowModels";
 import {
   cameraPath,
   caseTrace,
+  cableProgress,
   phoneSurface,
   proofSurface,
   FOV,
@@ -96,10 +97,45 @@ function convexOutline(pts: Pixel[]) {
   };
   return [...half(sorted), ...half(sorted.reverse())];
 }
-const paths = [sketchPath, layoutPath].map((path) => ({
-  path,
-  points: path.getSpacedPoints(96),
-}));
+const paths = [sketchPath, layoutPath].map((path, index) => {
+  const points = path.getSpacedPoints(112);
+  const frames = path.computeFrenetFrames(points.length - 1, false);
+  const strands = [0, Math.PI].map((phase) =>
+    points.map((p, i) => {
+      const u = i / (points.length - 1);
+      const turn = phase + u * Math.PI * 7;
+      const radius = 0.068 * Math.sin(Math.PI * u);
+      return p
+        .clone()
+        .addScaledVector(frames.normals[i], radius * Math.cos(turn))
+        .addScaledVector(frames.binormals[i], radius * Math.sin(turn));
+    }),
+  );
+  const gates = [0.17, 0.5, 0.81].map((along) => {
+    const tangent = path.getTangentAt(along);
+    const side = point(-tangent.z, 0, tangent.x).normalize();
+    const vertical = side.clone().cross(tangent).normalize();
+    const center = path.getPointAt(along).add(point(0, 0.17, 0));
+    const rim = Array.from({ length: 33 }, (_, i) => {
+      const angle = (i / 32) * Math.PI * 2;
+      return side
+        .clone()
+        .multiplyScalar(0.25 * Math.cos(angle))
+        .addScaledVector(vertical, 0.25 * Math.sin(angle));
+    });
+    return { along, center, rim };
+  });
+  return {
+    path,
+    points,
+    strands,
+    gates,
+    primary: index === 0 ? "#ef8dff" : "#ffbd64",
+    secondary: index === 0 ? "#8de8ff" : "#ff8981",
+  };
+});
+type CableGuide = (typeof paths)[number];
+type Signal = NonNullable<ReturnType<typeof penState>>;
 const scratch = new Vector3();
 const near = 0.12;
 const floorPoints = Array.from({ length: 34 }, (_, x) =>
@@ -124,6 +160,7 @@ export class JourneyPainter {
   private pose: ReturnType<typeof cameraPath>;
   private scale: number;
   private projected = new Map<Vector3, Pixel>();
+  private fullScreen: keyof Displays | null = null;
   private backdrop: HTMLCanvasElement[];
   constructor(
     private ctx: CanvasRenderingContext2D,
@@ -274,60 +311,102 @@ export class JourneyPainter {
       a = b;
     }
   }
-  private guides(t: number) {
+  private glow(p: Pixel, r: number, color: string, strength: number) {
+    if (
+      p.z < near ||
+      p.x < -r ||
+      p.x > this.width + r ||
+      p.y < -r ||
+      p.y > this.height + r ||
+      strength <= 0
+    )
+      return;
     const c = this.ctx;
-    for (const [i, guide] of paths.entries()) {
-      const color = i === 0 ? "#e79ae5" : "#f3c17b";
-      this.wire(guide.points, "#251d3a", 0.056, 14);
-      this.wire(guide.points, i === 0 ? "#976aa4" : "#a58785", 0.031, 7);
-      const end = Math.round(
-        smooth(
-          i === 0 ? interval(t, 0.281, 0.435) : interval(t, 0.574, 0.651),
-        ) *
-          (guide.points.length - 1),
+    const g = c.createRadialGradient(p.x, p.y, 0, p.x, p.y, r);
+    g.addColorStop(0, color + "d9");
+    g.addColorStop(0.26, color + "82");
+    g.addColorStop(1, color + "00");
+    c.save();
+    c.globalAlpha = strength;
+    c.fillStyle = g;
+    c.fillRect(p.x - r, p.y - r, 2 * r, 2 * r);
+    c.restore();
+  }
+  private drawSignal(guide: CableGuide, signal: Signal) {
+    const { points, primary, secondary } = guide;
+    const sign = signal.returning ? -1 : 1;
+    const samples = points.length - 1;
+    // A train of three packets follows the same curve as the camera, even on the return trip.
+    for (let i = 0; i < 3; i++) {
+      const along = signal.along - sign * (0.026 + i * 0.087);
+      if (along <= 0 || along >= 1) continue;
+      const tail = clamp(along - sign * (0.053 - i * 0.008));
+      const first = Math.floor(Math.min(tail, along) * samples);
+      const last = Math.ceil(Math.max(tail, along) * samples);
+      const line = points.slice(first, last + 1);
+      const color = i === 1 ? secondary : primary;
+      this.wire(line, color + "48", 0.145, 32);
+      this.wire(line, color, 0.05, 15);
+      this.wire(line, "#fff4fb", 0.014, 4);
+      const p = this.project(guide.path.getPointAt(along));
+      if (p.z < near) continue;
+      const r = clamp((0.105 * this.scale) / p.z, 3, 24);
+      this.glow(p, r * 2.8, color, 0.45);
+      this.ctx.fillStyle = "#fff7fb";
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, r * 0.23, 0, Math.PI * 2);
+      this.ctx.fill();
+    }
+    for (const gate of guide.gates) {
+      const nearness =
+        1 - smooth(interval(Math.abs(signal.along - gate.along), 0.009, 0.15));
+      const ring = gate.rim.map((v) =>
+        gate.center.clone().addScaledVector(v, 0.82 + 0.42 * nearness),
       );
-      if (end > 0) this.wire(guide.points.slice(0, end + 1), color, 0.025, 6);
-      for (const along of [0.17, 0.54, 0.8]) {
-        const mid = guide.path.getPointAt(along),
-          tan = guide.path.getTangentAt(along),
-          p = this.project(mid);
-        if (
-          p.z < 0.35 ||
-          p.x < -40 ||
-          p.x > this.width + 40 ||
-          p.y < -30 ||
-          p.y > this.height + 30
-        )
-          continue;
-        const size = clamp((0.045 * this.scale) / p.z, 2, 13);
-        for (const sign of [-1, 1]) {
-          const h = this.project(mid.clone().addScaledVector(tan, 0.39 * sign));
-          if (h.z < 0.35) continue;
-          this.stroke(p, h, color, 1);
-          c.beginPath();
-          c.arc(h.x, h.y, size * 0.48, 0, Math.PI * 2);
-          c.fillStyle = "#392c4e";
-          c.fill();
-          c.strokeStyle = color;
-          c.lineWidth = 1.2;
-          c.stroke();
-        }
-        c.fillStyle = "#31283f";
-        c.fillRect(
-          p.x - size * 0.68,
-          p.y - size * 0.68,
-          size * 1.36,
-          size * 1.36,
-        );
-        c.lineWidth = 1.3;
-        c.strokeStyle = color;
-        c.strokeRect(
-          p.x - size * 0.68,
-          p.y - size * 0.68,
-          size * 1.36,
-          size * 1.36,
-        );
+      const p = this.project(gate.center);
+      if (p.z < near) continue;
+      this.glow(
+        p,
+        clamp((0.62 * this.scale) / p.z, 13, 115),
+        secondary,
+        0.18 + 0.52 * nearness,
+      );
+      this.wire(ring, "#30243e", 0.044, 11);
+      this.wire(
+        ring,
+        secondary + (nearness > 0.05 ? "d5" : "70"),
+        0.018 + 0.008 * nearness,
+        7,
+      );
+      const sweep = Math.floor(
+        30 * clamp(0.5 + (signal.along - gate.along) * 2.3 * sign),
+      );
+      this.wire(
+        ring.slice(Math.max(0, sweep - 7), Math.min(33, sweep + 2)),
+        primary,
+        0.039,
+        10,
+      );
+    }
+  }
+  private guides(t: number, signal: ReturnType<typeof penState>) {
+    for (const [index, guide] of paths.entries()) {
+      const active = signal?.path === guide.path;
+      const u =
+        index === 0
+          ? cableProgress(t, 0.281, 0.435)
+          : cableProgress(t, 0.574, 0.651);
+      this.wire(guide.points, "#251b37", 0.11, 23);
+      this.wire(guide.points, index === 0 ? "#754e85" : "#916f65", 0.071, 16);
+      if (active) {
+        this.wire(guide.points, guide.primary + "29", 0.155, 32);
+        this.wire(guide.strands[0], guide.primary + "c5", 0.02, 5);
+        this.wire(guide.strands[1], guide.secondary + "c9", 0.018, 4);
       }
+      const end = Math.round(u * (guide.points.length - 1));
+      if (end > 0)
+        this.wire(guide.points.slice(0, end + 1), guide.primary, 0.025, 7);
+      if (active && signal) this.drawSignal(guide, signal);
     }
   }
   private model(model: Model) {
@@ -383,6 +462,25 @@ export class JourneyPainter {
     c.fillRect(p.x - r * 4, p.y - r * 4, r * 8, r * 8);
     c.save();
     c.translate(p.x, p.y);
+    // Two orbiting lights make the travelling tip readable against the illuminated cable.
+    const spin = state.along * Math.PI * 4 * direction;
+    c.strokeStyle = main + "9c";
+    c.lineWidth = 1.6;
+    c.beginPath();
+    c.ellipse(0, 0, r * 1.8, r * 0.76, -0.35, spin, spin + Math.PI * 1.5);
+    c.stroke();
+    for (const phase of [spin, spin + Math.PI]) {
+      c.fillStyle = "#fff5e2";
+      c.beginPath();
+      c.arc(
+        Math.cos(phase) * r * 1.65,
+        Math.sin(phase) * r * 0.78,
+        Math.max(1.5, r * 0.16),
+        0,
+        2 * Math.PI,
+      );
+      c.fill();
+    }
     c.scale(r / 11, r / 11);
     c.beginPath();
     c.moveTo(0, 0);
@@ -543,6 +641,8 @@ export class JourneyPainter {
           : "proof"
         : entry.device;
     const amount = entry?.amount || 0;
+    if (device && amount === 1 && device === this.fullScreen) return;
+    this.fullScreen = amount === 1 ? device : null;
     const { eye, focus } = this.pose(t);
     if (device && amount) {
       const { center, surface } = devices[device];
@@ -565,8 +665,8 @@ export class JourneyPainter {
     if (amount < 1) {
       this.floor(t, galleryPosition(progress));
       for (const model of models) this.shadow(model);
-      this.guides(t);
       const state = penState(t);
+      this.guides(t, state);
       const visible = models.map((model) => ({
         depth: this.project(model.center).z,
         draw: () => this.model(model),

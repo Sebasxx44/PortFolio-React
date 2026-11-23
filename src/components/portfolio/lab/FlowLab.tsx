@@ -1,17 +1,11 @@
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
-import { FiArrowDown, FiCheck } from "react-icons/fi";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { FiArrowUp, FiPlay, FiPause, FiRotateCcw } from "react-icons/fi";
 import type { Locale } from "../types";
 import { FlowMap } from "./FlowMap";
+import { useStudioPlayback } from "./useStudioPlayback";
 import {
   beats,
   captionIndex,
-  clamp,
   sourceCode,
   sites,
   chapterSite,
@@ -33,7 +27,7 @@ export function FlowLab({
 }) {
   const region = useRef<HTMLElement>(null),
     pin = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
+  const { progress, status, controls } = useStudioPlayback(region, pin);
   const [reduced, setReduced] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
@@ -46,97 +40,6 @@ export function FlowLab({
   const entry = immersion(visualTime(progress, reduced));
   const dive = entry?.amount || 0;
   const paper = entry?.device === "menu" ? smooth(interval(dive, 0.7, 1)) : 0;
-  useLayoutEffect(() => {
-    const section = region.current,
-      stage = pin.current;
-    if (!section || !stage) return;
-    // A fragment opened before React mounts may never match the browser's :target selector.
-    const syncFragment = () =>
-      document.documentElement.toggleAttribute(
-        "data-journey-fragment",
-        location.hash === "#laboratorio",
-      );
-    let fragmentFrame = 0;
-    const onFragment = () => {
-      syncFragment();
-      cancelAnimationFrame(fragmentFrame);
-      if (location.hash !== "#laboratorio") return;
-      // The browser may start an anchor scroll with the portfolio masthead's old offset.
-      // Align after the mobile menu closes so the camera occupies the entire viewport.
-      fragmentFrame = requestAnimationFrame(() => {
-        window.scrollTo({
-          top: window.scrollY + section.getBoundingClientRect().top,
-          behavior: "instant",
-        });
-      });
-    };
-    syncFragment();
-    window.addEventListener("hashchange", onFragment);
-    let frame = 0,
-      active = true;
-    const caption = stage.querySelector<HTMLElement>(".journey-caption");
-    const measure = () => {
-      frame = 0;
-      if (caption && stage.clientHeight) {
-        const clearance = stage.clientHeight - caption.offsetTop + 14;
-        stage.style.setProperty(
-          "--caption-clearance",
-          (100 * clearance) / stage.clientHeight + "cqh",
-        );
-      }
-      const rect = section.getBoundingClientRect();
-      section.toggleAttribute(
-        "data-pinned",
-        rect.top <= 1 && rect.bottom >= stage.clientHeight - 1,
-      );
-      setProgress(
-        clamp(-rect.top / Math.max(1, rect.height - stage.clientHeight)),
-      );
-    };
-    const schedule = () => {
-      if (active && !frame) frame = requestAnimationFrame(measure);
-    };
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        active = entry.isIntersecting;
-        measure();
-      },
-      { rootMargin: "100px 0px" },
-    );
-    const resize = new ResizeObserver(schedule);
-    observer.observe(section);
-    resize.observe(section);
-    resize.observe(stage);
-    if (caption) resize.observe(caption);
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-    const align = () => {
-      if (location.hash === "#laboratorio") {
-        const rect = section.getBoundingClientRect();
-        if (rect.top > 1 || rect.bottom < 0)
-          window.scrollTo({
-            top: window.scrollY + rect.top,
-            behavior: "instant",
-          });
-      }
-      schedule();
-    };
-    const initial = requestAnimationFrame(align);
-    window.addEventListener("load", align, { once: true });
-    measure();
-    return () => {
-      cancelAnimationFrame(frame);
-      cancelAnimationFrame(initial);
-      cancelAnimationFrame(fragmentFrame);
-      observer.disconnect();
-      resize.disconnect();
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
-      window.removeEventListener("load", align);
-      window.removeEventListener("hashchange", onFragment);
-      document.documentElement.removeAttribute("data-journey-fragment");
-    };
-  }, []);
   useEffect(() => {
     const pref = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => setReduced(pref.matches);
@@ -152,9 +55,6 @@ export function FlowLab({
         lang={locale}
         aria-labelledby="journey-heading"
       >
-        <a className="journey-skip" href="#laboratorio-salida">
-          {copy.skip}
-        </a>
         <div
           className="journey-pin"
           ref={pin}
@@ -178,18 +78,28 @@ export function FlowLab({
               <i />
               <h2 id="journey-heading">{copy.name}</h2>
             </div>
-            {onLocaleChange && (
-              <select
-                className="journey-locale"
-                aria-label={locale === "en" ? "Language" : "Idioma"}
-                value={locale}
-                onChange={(e) => onLocaleChange(e.target.value as Locale)}
+            <div className="journey-mast-actions">
+              <button
+                type="button"
+                className="journey-skip-control"
+                onClick={() => controls.current?.skip()}
+                aria-label={copy.skip}
               >
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-                <option value="pt">PT</option>
-              </select>
-            )}
+                {copy.skipShort}
+              </button>
+              {onLocaleChange && (
+                <select
+                  className="journey-locale"
+                  aria-label={locale === "en" ? "Language" : "Idioma"}
+                  value={locale}
+                  onChange={(e) => onLocaleChange(e.target.value as Locale)}
+                >
+                  <option value="es">ES</option>
+                  <option value="en">EN</option>
+                  <option value="pt">PT</option>
+                </select>
+              )}
+            </div>
           </header>
           <div className="journey-caption">
             <div className="journey-tech">
@@ -217,13 +127,35 @@ export function FlowLab({
             </nav>
           )}
           <footer className="journey-foot">
-            <div className="journey-cue">
-              {progress < 0.998 ? (
-                <FiArrowDown aria-hidden="true" />
-              ) : (
-                <FiCheck aria-hidden="true" />
-              )}
-              <span>{progress < 0.998 ? copy.scroll : copy.end}</span>
+            <div className="journey-controls">
+              <button
+                type="button"
+                className="journey-control"
+                onClick={() => controls.current?.toggle()}
+              >
+                {status === "playing" ? (
+                  <FiPause />
+                ) : status === "complete" ? (
+                  <FiRotateCcw />
+                ) : (
+                  <FiPlay />
+                )}
+                {status === "playing"
+                  ? copy.pause
+                  : status === "complete"
+                    ? copy.replay
+                    : copy.play}
+              </button>
+              <button
+                type="button"
+                className="journey-control"
+                onClick={() => controls.current?.back()}
+                aria-label={copy.upHint}
+                title={copy.upHint}
+              >
+                <FiArrowUp />
+                {copy.back}
+              </button>
             </div>
             <div
               className="journey-meter"

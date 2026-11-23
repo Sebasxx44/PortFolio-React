@@ -4,7 +4,9 @@ import { describe, expect, it } from "vitest";
 import { CartAssembly, LaptopScreen } from "./StudioScreens";
 import { exteriorTime, immersion, visualTime } from "./flowScenes";
 
-describe("scroll-controlled studio", () => {
+import { duration, sceneAt } from "./studioTimeline";
+
+describe("studio camera", () => {
   it("holds each device open during assembly and releases it between visits", () => {
     for (const [at, device] of [
       [0.18, "laptop"],
@@ -23,6 +25,35 @@ describe("scroll-controlled studio", () => {
       last = time;
     }
     expect(last).toBe(1);
+  });
+
+  it("holds each finished screen and gives both outward cables time to cross", () => {
+    for (const [start, end, device] of [
+      [12.8, 14.9, "laptop"],
+      [35.9, 38.1, "monitor"],
+      [59.1, 61.4, "menu"],
+    ] as const) {
+      const position = sceneAt(start);
+      expect(sceneAt(start + 1)).toBe(position);
+      expect(sceneAt(end)).toBe(position);
+      expect(immersion(position)).toEqual({ device, amount: 1 });
+    }
+    for (const [start, end] of [
+      [16.8, 23.3],
+      [39.9, 46.4],
+    ]) {
+      expect(immersion(sceneAt(start + 1))).toBeNull();
+      expect(immersion(sceneAt(end - 1))).toBeNull();
+      expect(sceneAt(start + 1)).toBeLessThan(sceneAt(end - 1));
+    }
+    let previous = 0;
+    for (let tenth = 0; tenth <= duration * 10; tenth++) {
+      const position = sceneAt(tenth / 10);
+      expect(position).toBeGreaterThanOrEqual(previous);
+      expect(position - previous).toBeLessThan(0.01);
+      previous = position;
+    }
+    expect(previous).toBe(1);
   });
 
   it("reverses the quantity and subtotal together when scrolling back", () => {

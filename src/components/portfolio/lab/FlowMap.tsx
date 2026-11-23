@@ -1,8 +1,12 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { memo, useLayoutEffect, useRef, useState } from "react";
 import type { Locale } from "../types";
 import { JourneyPainter } from "./drawFlow";
-import { visualTime } from "./flowScenes";
+import { clamp, visualTime } from "./flowScenes";
 import { LaptopScreen, CartAssembly, MenuAssembly } from "./StudioScreens";
+
+const Laptop = memo(LaptopScreen);
+const Cart = memo(CartAssembly);
+const Menu = memo(MenuAssembly);
 
 // A separate viewport clip for each nearer device preserves overlaps during the camera move.
 function ScreenLayer({ children }: { children: React.ReactNode }) {
@@ -90,22 +94,22 @@ export function FlowMap({
       <div className="journey-panels">
         <ScreenLayer>
           <div ref={laptop} className="journey-display laptop-display">
-            <LaptopScreen t={t} locale={locale} />
+            <Laptop t={t < 0.84 ? Math.min(0.239, t) : t} locale={locale} />
           </div>
         </ScreenLayer>
         <ScreenLayer>
           <div ref={monitor} className="journey-display monitor-display">
-            <CartAssembly t={t} />
+            <Cart t={clamp(t, 0.385, 0.535)} />
           </div>
         </ScreenLayer>
         <ScreenLayer>
           <div ref={proof} className="journey-display proof-display">
-            <MenuAssembly t={t} />
+            <Menu t={clamp(t, 0.655, 0.816)} />
           </div>
         </ScreenLayer>
         <ScreenLayer>
           <div ref={phone} className="journey-display phone-display">
-            <MenuAssembly t={t} />
+            <Menu t={clamp(t, 0.655, 0.816)} />
           </div>
         </ScreenLayer>
       </div>

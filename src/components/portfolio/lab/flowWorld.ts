@@ -120,6 +120,11 @@ export const layoutPath = new CatmullRomCurve3([
   point(13.36, 0.18, -6.38),
   point(13.4, 0.35, -6.88),
 ]);
+// Keep a steady travelling speed between the short eases at each connector.
+export function cableProgress(t: number, start: number, end: number) {
+  const u = interval(t, start, end);
+  return 0.76 * u + 0.24 * smooth(u);
+}
 export function penState(t: number) {
   if (t < 0.249 || t > 0.814) return null;
   if (t < 0.281)
@@ -131,27 +136,27 @@ export function penState(t: number) {
   if (t < 0.435)
     return {
       path: sketchPath,
-      along: smooth(interval(t, 0.281, 0.435)),
+      along: cableProgress(t, 0.281, 0.435),
       returning: false,
     };
   if (t < 0.574) return null;
   if (t < 0.651)
     return {
       path: layoutPath,
-      along: smooth(interval(t, 0.574, 0.651)),
+      along: cableProgress(t, 0.574, 0.651),
       returning: false,
     };
   if (t < 0.731) return null;
   if (t < 0.765)
     return {
       path: layoutPath,
-      along: 1 - smooth(interval(t, 0.731, 0.765)),
+      along: 1 - cableProgress(t, 0.731, 0.765),
       returning: true,
     };
   if (t < 0.806)
     return {
       path: sketchPath,
-      along: 1 - smooth(interval(t, 0.765, 0.806)),
+      along: 1 - cableProgress(t, 0.765, 0.806),
       returning: true,
     };
   return {
@@ -301,19 +306,33 @@ export function cameraPath(aspect: number) {
   return (t: number) => {
     const eye = track(keys, t, "eye"),
       focus = track(keys, t, "focus");
-    const locked =
-      smooth(interval(t, 0.289, 0.324)) *
-      (1 - smooth(interval(t, 0.416, 0.458)));
-    if (locked > 0) {
-      const along = smooth(interval(t, 0.281, 0.435)),
-        tip = wire(along);
-      eye.lerp(tip.clone().add(flight), locked);
+    const first =
+      smooth(interval(t, 0.283, 0.312)) *
+      (1 - smooth(interval(t, 0.417, 0.453)));
+    const second =
+      smooth(interval(t, 0.571, 0.594)) *
+      (1 - smooth(interval(t, 0.633, 0.661)));
+    if (first > 0 || second > 0) {
+      const path = first > 0 ? sketchPath : layoutPath;
+      const along =
+        first > 0
+          ? cableProgress(t, 0.281, 0.435)
+          : cableProgress(t, 0.574, 0.651);
+      const tip = path.getPointAt(along);
+      const drift = Math.sin(along * Math.PI);
+      const offset = flight
+        .clone()
+        .add(
+          point(drift * (first > 0 ? 0.2 : 0.42), drift * 0.23, drift * 0.13),
+        );
+      const ahead = path.getPointAt(Math.min(1, along + 0.055));
+      eye.lerp(tip.clone().add(offset), first + second);
       focus.lerp(
         tip
           .clone()
-          .lerp(wire(Math.min(1, along + 0.042)), 0.45)
-          .add(point(0, 0.14, 0)),
-        locked,
+          .lerp(ahead, 0.46)
+          .add(point(0, 0.15, 0)),
+        first + second,
       );
     }
     return { eye, focus };

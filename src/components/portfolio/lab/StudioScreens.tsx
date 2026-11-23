@@ -32,11 +32,30 @@ const appear = (t: number, from: number, to: number) =>
   smooth(interval(t, from, to));
 // Each piece moves from an exploded position to its actual slot, in either scroll direction.
 function assemble(k: number, x = 0, y = 20, turn = 0): CSSProperties {
-  const offset = 1 - k;
+  // Pass the destination slightly, then settle into the guide.
+  const offset = (1 - k) * (1 - 1.68 * k);
   return {
-    opacity: k,
-    transform: `perspective(850px) translate(${x * offset}px,${y * offset}px) rotate(${turn * offset}deg) scale(${0.89 + 0.11 * k})`,
+    opacity: 1 - (1 - k) * (1 - k),
+    transform: `perspective(850px) translate(${x * offset}px,${y * offset}px) rotate(${turn * offset}deg) scale(${1 - 0.14 * offset})`,
   };
+}
+function dock(t: number, at: number): CSSProperties {
+  return {
+    "--dock": appear(t, at - 0.004, at) * (1 - appear(t, at, at + 0.012)),
+  } as CSSProperties;
+}
+function frameDetail(
+  t: number,
+  start: number,
+  end: number,
+  x: number,
+  y: number,
+): CSSProperties {
+  const a = appear(t, start, start + 0.017) * (1 - appear(t, end - 0.022, end));
+  return {
+    "--detail-focus": a,
+    transformOrigin: `${x}% ${y}%`,
+  } as CSSProperties;
 }
 type CursorKey = readonly [
   time: number,
@@ -47,7 +66,10 @@ type CursorKey = readonly [
 const headerCursor: CursorKey[] = [
   [0.105, ".brand-slot", 0.1, 0.85],
   [0.139, ".brand-slot", 0.6, 0.85],
-  [0.166, ".links-slot", 0.73, 0.72],
+  [0.149, ".salchi-links span:nth-child(1)", 0.65, 0.88],
+  [0.158, ".salchi-links span:nth-child(2)", 0.65, 0.88],
+  [0.168, ".salchi-links span:nth-child(3)", 0.65, 0.88],
+  [0.179, ".salchi-links span:nth-child(4)", 0.65, 0.88],
   [0.19, ".salchi-city", 0.55, 0.9],
   [0.212, ".salchi-bag", 0.82, 0.75],
   [0.224, ".salchi-bag", 0.82, 0.75],
@@ -70,7 +92,16 @@ const menuCursor: CursorKey[] = [
 ];
 function ComponentPointer({ t, keys }: { t: number; keys: CursorKey[] }) {
   const pointer = useRef<HTMLSpanElement>(null);
+  const positionOnResize = useRef<(() => void) | null>(null);
   useLayoutEffect(() => {
+    const parent = pointer.current?.parentElement;
+    if (!parent) return;
+    const observer = new ResizeObserver(() => positionOnResize.current?.());
+    observer.observe(parent);
+    return () => observer.disconnect();
+  }, []);
+  useLayoutEffect(() => {
+    positionOnResize.current = null;
     const el = pointer.current,
       root = el?.parentElement;
     if (!el || !root) return;
@@ -105,10 +136,8 @@ function ComponentPointer({ t, keys }: { t: number; keys: CursorKey[] }) {
       el.style.left = from[0] + (to[0] - from[0]) * mix + "%";
       el.style.top = from[1] + (to[1] - from[1]) * mix + "%";
     };
+    positionOnResize.current = place;
     place();
-    const observer = new ResizeObserver(place);
-    observer.observe(root);
-    return () => observer.disconnect();
   }, [t, keys]);
   return (
     <span ref={pointer} className="component-pointer">
@@ -120,15 +149,24 @@ const sectionNames = ["Inicio", "La carta", "Domicilios", "Sedes"];
 function HeaderAssembly({ t }: { t: number }) {
   const logoFit = appear(t, 0.096, 0.14),
     navFit = appear(t, 0.138, 0.179);
-  const city = appear(t, 0.17, 0.199),
-    order = appear(t, 0.187, 0.217);
+  const city = appear(t, 0.177, 0.202),
+    order = appear(t, 0.194, 0.224);
   const code = sourceCode.slice(
     0,
     Math.round(sourceCode.length * interval(t, 0.149, 0.23)),
   );
   return (
     <div className="assembly act-header">
-      <div className="assembly-bounds">
+      <div
+        className="assembly-bounds"
+        style={frameDetail(
+          t,
+          0.105,
+          0.236,
+          16 + 68 * appear(t, 0.139, 0.211),
+          22,
+        )}
+      >
         <div
           className="header-work"
           style={{ "--guide-visibility": 1 - 0.93 * order } as CSSProperties}
@@ -138,24 +176,30 @@ function HeaderAssembly({ t }: { t: number }) {
             <i />
           </div>
           <div className="salchi-nav">
-            <div className="nav-slot brand-slot">
+            <div
+              className="nav-slot brand-slot dock-slot"
+              style={dock(t, 0.14)}
+            >
               <div
                 className="salchi-brand"
-                style={assemble(logoFit, -58, 12, -4)}
+                style={assemble(logoFit, -80, 17, -6)}
               >
                 <img src={logo} alt="" />
                 <b>Salchiwarrior</b>
               </div>
             </div>
-            <div className="nav-slot links-slot">
+            <div
+              className="nav-slot links-slot dock-slot"
+              style={dock(t, 0.183)}
+            >
               <div className="salchi-links">
                 {sectionNames.map((item, i) => (
                   <span
                     key={item}
                     style={assemble(
-                      appear(t, 0.128 + i * 0.009, 0.152 + i * 0.009),
-                      0,
-                      -19,
+                      appear(t, 0.13 + i * 0.011, 0.15 + i * 0.011),
+                      -22,
+                      -32,
                     )}
                   >
                     {item}
@@ -164,11 +208,14 @@ function HeaderAssembly({ t }: { t: number }) {
                 ))}
               </div>
             </div>
-            <div className="nav-slot order-slot">
-              <div className="salchi-city" style={assemble(city, 24, -12)}>
+            <div
+              className="nav-slot order-slot dock-slot"
+              style={dock(t, 0.224)}
+            >
+              <div className="salchi-city" style={assemble(city, 48, -20)}>
                 <FiMapPin /> Manizales <FiChevronDown />
               </div>
-              <span className="salchi-bag" style={assemble(order, 45, 8, -4)}>
+              <span className="salchi-bag" style={assemble(order, 67, 18, -6)}>
                 <FiShoppingBag /> Mi pedido <b>0</b>
               </span>
             </div>
@@ -224,7 +271,16 @@ export function CartAssembly({ t }: { t: number }) {
   const plus = 1 - Math.min(1, Math.abs(t - 0.502) / 0.01);
   return (
     <div className="assembly act-cart">
-      <div className="assembly-bounds">
+      <div
+        className="assembly-bounds"
+        style={frameDetail(
+          t,
+          0.397,
+          0.531,
+          74,
+          25 + 48 * appear(t, 0.43, 0.505),
+        )}
+      >
         <div className="cart-composition">
           <div className="everest-art">
             <span>EVEREST COCKTAILS</span>
@@ -250,12 +306,21 @@ export function CartAssembly({ t }: { t: number }) {
                   <FiShoppingBag />
                 </div>
               </div>
-              <div className="cart-product-slot">
-                <div className="cart-line" style={assemble(row, 47, 10, 2)}>
-                  <div className="cart-photo">
+              <div
+                className="cart-product-slot dock-slot"
+                style={dock(t, 0.459)}
+              >
+                <div className="cart-line" style={assemble(row, 62, 16, 2)}>
+                  <div
+                    className="cart-photo"
+                    style={assemble(appear(t, 0.411, 0.439), -42, 16, -8)}
+                  >
                     <img src={glass} alt="" />
                   </div>
-                  <div className="cart-item">
+                  <div
+                    className="cart-item"
+                    style={assemble(appear(t, 0.43, 0.456), 27, 0)}
+                  >
                     <strong>Frutos del Bosque</strong>
                     <span>{money(20000)}</span>
                   </div>
@@ -273,7 +338,10 @@ export function CartAssembly({ t }: { t: number }) {
                   </div>
                 </div>
               </div>
-              <div className="cart-total" style={assemble(totalFit, 0, 16)}>
+              <div
+                className="cart-total dock-slot"
+                style={{ ...assemble(totalFit, 0, 27), ...dock(t, 0.503) }}
+              >
                 <span>Subtotal</span>
                 <strong>{money(double ? 40000 : 20000)}</strong>
               </div>
@@ -307,7 +375,16 @@ export function MenuAssembly({ t }: { t: number }) {
   const title = appear(t, 0.657, 0.695);
   return (
     <div className="assembly act-menu">
-      <div className="assembly-bounds">
+      <div
+        className="assembly-bounds"
+        style={frameDetail(
+          t,
+          0.677,
+          0.812,
+          16 + 65 * appear(t, 0.71, 0.801),
+          52,
+        )}
+      >
         <div className="menu-layout">
           <div
             className="milk-heading"
@@ -333,24 +410,28 @@ export function MenuAssembly({ t }: { t: number }) {
           </div>
           <div className="milk-cards">
             {products.map((p, i) => {
-              const offset = i * 0.011,
-                card = appear(t, 0.702 + offset, 0.731 + offset),
-                photo = appear(t, 0.713 + offset, 0.755 + offset),
-                label = appear(t, 0.749 + offset, 0.775 + offset);
+              const start = 0.701 + i * 0.023,
+                card = appear(t, start, start + 0.018),
+                photo = appear(t, start + 0.005, start + 0.026),
+                label = appear(t, start + 0.018, start + 0.037);
               return (
-                <div key={p.name} className="milk-slot">
+                <div
+                  key={p.name}
+                  className="milk-slot dock-slot"
+                  style={dock(t, start + 0.034)}
+                >
                   <article
                     className="milk-card"
                     style={
                       {
-                        ...assemble(card, (i - 1.5) * 23, 30, i % 2 ? 4 : -4),
+                        ...assemble(card, (i - 1.5) * 32, 49, i % 2 ? 6 : -6),
                         "--flavour": p.color,
                       } as CSSProperties
                     }
                   >
                     <div className="milk-photo">
                       <img
-                        style={assemble(photo, 0, 30, i % 2 ? 9 : -9)}
+                        style={assemble(photo, 0, 54, i % 2 ? 13 : -13)}
                         src={p.photo}
                         alt=""
                         draggable={false}
