@@ -3,6 +3,7 @@ html:has(.journey-lab) {
 }
 html[data-journey-viewport] {
   overflow: hidden;
+  overscroll-behavior-y: none;
   overflow-anchor: none;
   scroll-padding-top: 0;
   scroll-behavior: auto;
@@ -95,11 +96,13 @@ html:has(.journey-standalone) {
 }
 
 .journey-lab[data-playback="playing"] {
+  z-index: 2;
   touch-action: pan-x pinch-zoom;
 }
 .journey-lab[data-playback="playing"] .journey-pin {
   position: fixed;
   inset: 0;
+  height: auto;
 }
 .journey-pin::before {
   content: "";

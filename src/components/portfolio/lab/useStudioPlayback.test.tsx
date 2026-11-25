@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { duration, sceneAt } from "./studioTimeline";
 import { useStudioPlayback } from "./useStudioPlayback";
 
-function studio(hash = "") {
+function studio(hash = "", reducedMotion = false) {
   history.replaceState(null, "", "/" + hash);
   let pageY = 0;
   let id = 0;
@@ -13,6 +13,7 @@ function studio(hash = "") {
     return id;
   });
   vi.stubGlobal("cancelAnimationFrame", (key: number) => frames.delete(key));
+  vi.stubGlobal("matchMedia", () => ({ matches: reducedMotion }));
   vi.stubGlobal("scrollY", 0);
   function scroll(y: number) {
     pageY = y;
@@ -31,7 +32,7 @@ function studio(hash = "") {
     );
     return el;
   }
-  makeSection("work", 300);
+  const work = makeSection("work", 300);
   const section = makeSection("laboratorio", 1200);
   makeSection("about", 1800);
   Object.defineProperty(section, "clientHeight", { value: 600 });
@@ -49,7 +50,17 @@ function studio(hash = "") {
     fireEvent.scroll(window);
   };
   const wheel = (deltaY: number) => fireEvent.wheel(section, { deltaY });
-  return { result, frame, moveTo, wheel, hidden, section, unmount };
+  return {
+    result,
+    frame,
+    moveTo,
+    scroll,
+    wheel,
+    hidden,
+    section,
+    work,
+    unmount,
+  };
 }
 
 afterEach(() => {
@@ -95,8 +106,8 @@ describe("studio playback", () => {
     expect(location.hash).toBe("#work");
   });
 
-  it("ignores background time and releases the viewport when the gallery is ready", () => {
-    const { result, frame, moveTo, wheel, hidden } = studio("#laboratorio");
+  it("ignores background time and slides the last scene into About without further input", () => {
+    const { result, frame, wheel, hidden } = studio("#laboratorio");
     frame(0);
     frame(20);
     frame(1020);
@@ -108,17 +119,93 @@ describe("studio playback", () => {
     fireEvent(document, new Event("visibilitychange"));
     frame(20000);
     expect(result.current.progress).toBe(sceneAt(1));
-    frame(20000 + duration * 1000);
-    expect(result.current.status).toBe("complete");
+    const end = 20000 + duration * 1000;
+    frame(end);
+    expect(result.current.status).toBe("leaving");
     expect(result.current.progress).toBe(1);
+    expect(window.scrollY).toBe(1200);
+    frame(end + 16);
+    frame(end + 466);
+    expect(window.scrollY).toBeCloseTo(1500);
+    expect(result.current.progress).toBe(1);
+    expect(document.documentElement.hasAttribute("data-journey-viewport")).toBe(
+      true,
+    );
+    frame(end + 916);
+    expect(result.current.status).toBe("idle");
+    expect(location.hash).toBe("#about");
+    expect(window.scrollY).toBe(1800);
     expect(document.documentElement.hasAttribute("data-journey-viewport")).toBe(
       false,
     );
     expect(wheel(120)).toBe(true);
     expect(fireEvent.keyDown(document.body, { key: " " })).toBe(true);
-    moveTo(1650);
+  });
+
+  it("cancels a partially completed exit when the visitor goes back to Projects", () => {
+    const { result, frame, wheel } = studio("#laboratorio");
+    frame(0);
+    frame(16);
+    const end = 16 + duration * 1000;
+    frame(end);
+    frame(end + 16);
+    frame(end + 400);
+    expect(window.scrollY).toBeGreaterThan(1200);
+    wheel(-70);
+    frame(end + 1200);
     expect(result.current.status).toBe("idle");
-    expect(window.scrollY).toBe(1650);
+    expect(result.current.progress).toBe(0);
+    expect(location.hash).toBe("#work");
+    expect(window.scrollY).toBe(300);
+  });
+
+  it("lands directly on About when reduced motion is enabled", () => {
+    const { result, frame } = studio("#laboratorio", true);
+    frame(0);
+    frame(16);
+    frame(16 + duration * 1000);
+    expect(result.current.status).toBe("idle");
+    expect(location.hash).toBe("#about");
+    expect(window.scrollY).toBe(1800);
+  });
+
+  it("keeps the gallery and replay available when there is no adjacent About section", () => {
+    const { result, frame } = studio("#laboratorio");
+    document.getElementById("about")?.remove();
+    frame(0);
+    frame(16);
+    frame(16 + duration * 1000);
+    expect(result.current.status).toBe("complete");
+    expect(result.current.progress).toBe(1);
+    act(() => result.current.skip.current?.());
+    expect(result.current.status).toBe("playing");
+    expect(result.current.progress).toBe(0);
+  });
+
+  it("captures a fast mobile crossing when the toolbar resizes before scroll delivery", () => {
+    const { result, moveTo, scroll } = studio();
+    moveTo(900);
+    scroll(1960);
+    fireEvent.resize(window);
+    fireEvent.scroll(window);
+    expect(result.current.status).toBe("playing");
+    expect(window.scrollY).toBe(1200);
+  });
+
+  it("captures a swipe that started over Projects and accepts a reversal without lifting", () => {
+    const { result, moveTo, work } = studio();
+    moveTo(900);
+    fireEvent.touchStart(work, { touches: [{ clientX: 100, clientY: 400 }] });
+    fireEvent.touchMove(work, { touches: [{ clientX: 100, clientY: 350 }] });
+    expect(result.current.status).toBe("idle");
+    expect(
+      fireEvent.touchMove(work, { touches: [{ clientX: 100, clientY: 240 }] }),
+    ).toBe(false);
+    expect(result.current.status).toBe("playing");
+    fireEvent.touchMove(work, { touches: [{ clientX: 100, clientY: 265 }] });
+    expect(result.current.status).toBe("idle");
+    expect(location.hash).toBe("#work");
+    expect(window.scrollY).toBe(300);
   });
 
   it("keeps fragment, touch, keyboard and Skip navigation independent of wheel speed", () => {
