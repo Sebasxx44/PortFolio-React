@@ -86,6 +86,8 @@ export const useSpaceBackdrop = (): SpaceBackdropControls => {
 
     // Painting
     const paint = (): void => {
+      // The studio covers the entire viewport while the camera is moving.
+      if (document.documentElement.hasAttribute("data-journey-viewport")) return;
       const { width, height, compact } = viewport;
       drawingContext.clearRect(0, 0, width, height);
       drawingContext.globalAlpha = 1;

@@ -13,13 +13,6 @@ function studio(hash = "") {
     return id;
   });
   vi.stubGlobal("cancelAnimationFrame", (key: number) => frames.delete(key));
-  vi.stubGlobal(
-    "ResizeObserver",
-    class {
-      observe() {}
-      disconnect() {}
-    },
-  );
   vi.stubGlobal("scrollY", 0);
   function scroll(y: number) {
     pageY = y;
@@ -41,12 +34,9 @@ function studio(hash = "") {
   makeSection("work", 300);
   const section = makeSection("laboratorio", 1200);
   makeSection("about", 1800);
-  const stage = document.createElement("div");
-  Object.defineProperty(stage, "clientHeight", { value: 600 });
-  section.append(stage);
-  const regionRef = { current: section },
-    pinRef = { current: stage };
-  const { result } = renderHook(() => useStudioPlayback(regionRef, pinRef));
+  Object.defineProperty(section, "clientHeight", { value: 600 });
+  const regionRef = { current: section };
+  const { result, unmount } = renderHook(() => useStudioPlayback(regionRef));
   function frame(time: number) {
     act(() => {
       const pending = [...frames.values()];
@@ -59,7 +49,7 @@ function studio(hash = "") {
     fireEvent.scroll(window);
   };
   const wheel = (deltaY: number) => fireEvent.wheel(section, { deltaY });
-  return { result, frame, moveTo, wheel, hidden, section };
+  return { result, frame, moveTo, wheel, hidden, section, unmount };
 }
 
 afterEach(() => {
@@ -70,77 +60,111 @@ afterEach(() => {
 });
 
 describe("studio playback", () => {
-  it("starts on entry, ignores downward inertia, exits upward and starts the next visit at zero", () => {
+  it("captures a fast crossing, tolerates trackpad bounce and restarts on re-entry", () => {
     const { result, frame, moveTo, wheel } = studio();
-    moveTo(950);
+    moveTo(900);
     expect(result.current.status).toBe("idle");
-    moveTo(1040);
-    expect(result.current.status).toBe("playing");
+    moveTo(1960);
     expect(window.scrollY).toBe(1200);
-    // Browsers may center a control before an accessible click or focus change.
-    moveTo(885);
     expect(result.current.status).toBe("playing");
-    expect(window.scrollY).toBe(1200);
-    expect(wheel(60)).toBe(false);
+    const root = document.documentElement;
+    expect(root.hasAttribute("data-journey-viewport")).toBe(true);
     frame(0);
-    frame(7000);
-    expect(result.current.progress).toBe(sceneAt(7));
-    expect(wheel(-70)).toBe(false);
-    expect(result.current.status).toBe("idle");
-    expect(result.current.progress).toBe(0);
+    frame(3000);
+    expect(result.current.progress).toBe(sceneAt(3));
+    for (const delta of [70, 20, -6, 4, -3, -4])
+      expect(wheel(delta)).toBe(false);
+    expect(result.current.status).toBe("playing");
+    wheel(-80);
     expect(location.hash).toBe("#work");
     expect(window.scrollY).toBe(300);
-    wheel(80);
-    moveTo(1100);
+    expect(result.current.progress).toBe(0);
+    expect(root.hasAttribute("data-journey-viewport")).toBe(false);
+    wheel(100);
+    moveTo(1050);
     frame(9000);
     expect(result.current.status).toBe("playing");
     expect(result.current.progress).toBe(0);
   });
 
-  it("excludes paused and background time, then releases downward scrolling at the gallery", () => {
-    const { result, frame, wheel, hidden } = studio("#laboratorio");
+  it("recognizes a gentle sustained upward gesture", () => {
+    const { section, result, frame } = studio("#laboratorio");
     frame(0);
-    frame(16);
-    frame(1016);
-    act(() => result.current.controls.current?.toggle());
-    frame(5000);
-    expect(result.current.status).toBe("paused");
-    expect(result.current.progress).toBe(sceneAt(1));
-    act(() => result.current.controls.current?.toggle());
-    frame(5016);
-    frame(6016);
-    hidden.mockReturnValue(true);
-    fireEvent(document, new Event("visibilitychange"));
-    frame(30000);
-    hidden.mockReturnValue(false);
-    fireEvent(document, new Event("visibilitychange"));
-    frame(31000);
-    expect(result.current.progress).toBe(sceneAt(2));
-    frame(31000 + duration * 1000);
-    expect(result.current.progress).toBe(1);
-    expect(result.current.status).toBe("complete");
-    expect(wheel(120)).toBe(true);
-    expect(fireEvent.keyDown(document.body, { key: " " })).toBe(true);
-    expect(result.current.status).toBe("complete");
+    for (let i = 0; i < 6; i++) fireEvent.wheel(section, { deltaY: -4 });
+    expect(result.current.status).toBe("idle");
+    expect(location.hash).toBe("#work");
   });
 
-  it("resets on a single downward swipe or Page Up and respects Skip", () => {
-    const { result, section, frame } = studio("#laboratorio");
+  it("ignores background time and releases the viewport when the gallery is ready", () => {
+    const { result, frame, moveTo, wheel, hidden } = studio("#laboratorio");
+    frame(0);
+    frame(20);
+    frame(1020);
+    expect(result.current.progress).toBe(sceneAt(1));
+    hidden.mockReturnValue(true);
+    fireEvent(document, new Event("visibilitychange"));
+    frame(15000);
+    hidden.mockReturnValue(false);
+    fireEvent(document, new Event("visibilitychange"));
+    frame(20000);
+    expect(result.current.progress).toBe(sceneAt(1));
+    frame(20000 + duration * 1000);
+    expect(result.current.status).toBe("complete");
+    expect(result.current.progress).toBe(1);
+    expect(document.documentElement.hasAttribute("data-journey-viewport")).toBe(
+      false,
+    );
+    expect(wheel(120)).toBe(true);
+    expect(fireEvent.keyDown(document.body, { key: " " })).toBe(true);
+    moveTo(1650);
+    expect(result.current.status).toBe("idle");
+    expect(window.scrollY).toBe(1650);
+  });
+
+  it("keeps fragment, touch, keyboard and Skip navigation independent of wheel speed", () => {
+    const { result, section, frame, moveTo, wheel } = studio("#about");
+    moveTo(2000);
+    expect(result.current.status).toBe("idle");
+    act(() => {
+      history.pushState(null, "", "#laboratorio");
+      window.dispatchEvent(new Event("hashchange"));
+    });
     frame(0);
     fireEvent.touchStart(section, {
-      touches: [{ clientX: 100, clientY: 200 }],
+      touches: [{ clientX: 100, clientY: 170 }],
     });
-    fireEvent.touchMove(section, { touches: [{ clientX: 103, clientY: 230 }] });
+    fireEvent.touchMove(section, { touches: [{ clientX: 101, clientY: 197 }] });
     expect(location.hash).toBe("#work");
-    expect(result.current.progress).toBe(0);
-    act(() => result.current.controls.current?.toggle());
+    wheel(120);
+    moveTo(1050);
+    expect(result.current.status).toBe("playing");
     fireEvent.keyDown(window, { key: "PageUp" });
     expect(window.scrollY).toBe(300);
+    wheel(60);
+    moveTo(1500);
+    act(() => result.current.skip.current?.());
     expect(result.current.status).toBe("idle");
-    act(() => result.current.controls.current?.toggle());
-    act(() => result.current.controls.current?.skip());
     expect(location.hash).toBe("#about");
     expect(window.scrollY).toBe(1800);
+  });
+
+  it("lets End bypass the stage and clears the page lock on unmount", () => {
+    const { result, frame, moveTo, unmount } = studio();
+    fireEvent.keyDown(window, { key: "End" });
+    moveTo(2400);
     expect(result.current.status).toBe("idle");
+    act(() => {
+      history.pushState(null, "", "#laboratorio");
+      window.dispatchEvent(new Event("hashchange"));
+    });
+    frame(0);
+    expect(result.current.status).toBe("playing");
+    unmount();
+    expect(
+      document.documentElement.style.getPropertyValue("--journey-scrollbar"),
+    ).toBe("");
+    expect(document.documentElement.hasAttribute("data-journey-viewport")).toBe(
+      false,
+    );
   });
 });

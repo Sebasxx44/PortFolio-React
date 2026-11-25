@@ -7,6 +7,8 @@ import { LaptopScreen, CartAssembly, MenuAssembly } from "./StudioScreens";
 const Laptop = memo(LaptopScreen);
 const Cart = memo(CartAssembly);
 const Menu = memo(MenuAssembly);
+// The models share a raster surface. The HTML inside each display stays at native resolution.
+const maxCanvasPixels = 2560 * 1440;
 
 // A separate viewport clip for each nearer device preserves overlaps during the camera move.
 function ScreenLayer({ children }: { children: React.ReactNode }) {
@@ -43,7 +45,11 @@ export function FlowMap({
       const bounds = el.getBoundingClientRect(),
         width = Math.round(bounds.width),
         height = Math.round(bounds.height);
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(
+        window.devicePixelRatio || 1,
+        2,
+        Math.sqrt(maxCanvasPixels / Math.max(1, width * height)),
+      );
       setSize((prev) =>
         prev.width === width && prev.height === height && prev.dpr === dpr
           ? prev

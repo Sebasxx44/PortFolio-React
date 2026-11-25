@@ -27,11 +27,7 @@
 }
 .assembly-bounds {
   position: absolute;
-  inset: calc(4.5cqh + var(--dive, 0) * 7.8cqh) 4.5cqw
-    calc(
-      6cqh + var(--dive, 0) *
-        (max(25cqh, var(--caption-clearance, 25cqh)) - 5cqh)
-    );
+  inset: calc(4.5cqh + var(--dive, 0) * 6.5cqh) 4.5cqw 5.5cqh;
   display: grid;
   align-items: stretch;
   justify-items: stretch;
@@ -655,11 +651,7 @@
 }
 @container (max-aspect-ratio: 1/1) {
   .assembly-bounds {
-    inset: calc(5cqh + var(--dive, 0) * 6.2cqh) 4.4cqw
-      calc(
-        5cqh + var(--dive, 0) *
-          (max(25cqh, var(--caption-clearance, 25cqh)) - 5cqh)
-      );
+    inset: calc(5cqh + var(--dive, 0) * 6.2cqh) 4.4cqw 5cqh;
   }
   .salchi-nav {
     grid-template-columns: 1fr auto;

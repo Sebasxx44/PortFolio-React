@@ -27,24 +27,26 @@ describe("studio camera", () => {
     expect(last).toBe(1);
   });
 
-  it("holds each finished screen and gives both outward cables time to cross", () => {
+  it("keeps each finished composition visible and crosses the network in short beats", () => {
+    expect(duration).toBe(38);
     for (const [start, end, device] of [
-      [12.8, 14.9, "laptop"],
-      [35.9, 38.1, "monitor"],
-      [59.1, 61.4, "menu"],
+      [6.35, 7.25, "laptop"],
+      [17.15, 18.1, "monitor"],
+      [27.95, 29, "menu"],
     ] as const) {
       const position = sceneAt(start);
-      expect(sceneAt(start + 1)).toBe(position);
+      expect(sceneAt((start + end) / 2)).toBe(position);
       expect(sceneAt(end)).toBe(position);
       expect(immersion(position)).toEqual({ device, amount: 1 });
     }
     for (const [start, end] of [
-      [16.8, 23.3],
-      [39.9, 46.4],
+      [8.15, 10.35],
+      [19, 21.2],
     ]) {
-      expect(immersion(sceneAt(start + 1))).toBeNull();
-      expect(immersion(sceneAt(end - 1))).toBeNull();
-      expect(sceneAt(start + 1)).toBeLessThan(sceneAt(end - 1));
+      expect(end - start).toBeCloseTo(2.2);
+      expect(immersion(sceneAt(start + 0.35))).toBeNull();
+      expect(immersion(sceneAt(end - 0.35))).toBeNull();
+      expect(sceneAt(start + 0.35)).toBeLessThan(sceneAt(end - 0.35));
     }
     let previous = 0;
     for (let tenth = 0; tenth <= duration * 10; tenth++) {

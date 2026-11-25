@@ -29,14 +29,14 @@ export const sourceCode = [
   "  <button>Mi pedido</button>",
   "</header>",
 ].join("\n");
-export const beats = [
+const beats = [
   0, 0.098, 0.183, 0.281, 0.399, 0.568, 0.678, 0.85, 0.947,
 ] as const;
 export const chapterSite = [0, 0, 0, 1, 1, 2, 2, -1, -1] as const;
 export const reducedViews = [
   0.023, 0.164, 0.234, 0.366, 0.53, 0.626, 0.804, 0.941, 0.953,
 ] as const;
-export function captionIndex(t: number) {
+export function chapterIndex(t: number) {
   for (let i = beats.length - 1; i > 0; i--) if (t >= beats[i]) return i;
   return 0;
 }
@@ -45,7 +45,7 @@ export function galleryPosition(t: number) {
 }
 export function visualTime(progress: number, reduced: boolean) {
   if (!reduced) return progress;
-  const chapter = captionIndex(progress);
+  const chapter = chapterIndex(progress);
   return chapter === 8
     ? [0.954, 0.978, 1][Math.round(galleryPosition(progress))]
     : reducedViews[chapter];
@@ -106,14 +106,9 @@ export function immersion(t: number) {
 }
 interface Copy {
   name: string;
-  play: string;
-  pause: string;
   replay: string;
-  back: string;
-  upHint: string;
   skipShort: string;
   skip: string;
-  progress: string;
   visit: string;
   open: string;
   delivery: string;
@@ -127,14 +122,9 @@ interface Copy {
 export const words: Record<Locale, Copy> = {
   es: {
     name: "Estudio de diseño web",
-    play: "Reproducir",
-    pause: "Pausar",
     replay: "Repetir",
-    back: "Volver",
-    upHint: "Sube para volver a Proyectos",
     skipShort: "Saltar",
     skip: "Saltar el recorrido",
-    progress: "Progreso del recorrido",
     visit: "Visitar las webs",
     open: "Abrir",
     delivery: "Despliegue",
@@ -181,14 +171,9 @@ export const words: Record<Locale, Copy> = {
   },
   en: {
     name: "Web design studio",
-    play: "Play",
-    pause: "Pause",
     replay: "Replay",
-    back: "Back",
-    upHint: "Scroll up to return to Projects",
     skipShort: "Skip",
     skip: "Skip the journey",
-    progress: "Journey progress",
     visit: "Visit the sites",
     open: "Open",
     delivery: "Deployment",
@@ -235,14 +220,9 @@ export const words: Record<Locale, Copy> = {
   },
   pt: {
     name: "Estúdio de design web",
-    play: "Reproduzir",
-    pause: "Pausar",
     replay: "Repetir",
-    back: "Voltar",
-    upHint: "Role para cima para voltar aos projetos",
     skipShort: "Pular",
     skip: "Pular o percurso",
-    progress: "Progresso do percurso",
     visit: "Visitar os sites",
     open: "Abrir",
     delivery: "Implantação",
